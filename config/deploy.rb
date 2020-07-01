@@ -1,9 +1,16 @@
 # config valid for current version and patch releases of Capistrano
-lock "3.14.1"
+lock '3.14.1'
 
-set :application, "fleamarket_sample_78b"
-set :repo_url, "git@example.com:fujisawa777/fleamarket_sample_78b.git"
+# 自身のアプリ名、リポジトリ名を記述
+set :application, 'fleamarket_sample_78b'
+set :repo_url,  'git@github.com:fujisawa777/fleamarket_sample_78b.git'
 
+set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
+
+set :rbenv_type, :user
+set :rbenv_ruby, '2.5.1'
+
+# chat-spaceで使ったpemを指定
 set :ssh_options, auth_methods: ['publickey'],
                   keys: ['~/.ssh/chat-space.pem']
 
