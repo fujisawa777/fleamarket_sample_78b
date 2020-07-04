@@ -66,9 +66,9 @@
         フリマアプリです
       .content__btn
         %a.appleBtn{:href => "#"}
-          %img{:src => "/assets/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg"}/
+          %img{:src => "/assets/App_Store_Badge.eps"}/
         %a.googleBtn{:href => "#"}
-          %img{:src => "/assets/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg"}/
+          %img{:src => "/assets/google-play-badge-1.svg"}/
     .imagepicture
   %section.topIntro
     %h2.subtitle
@@ -254,15 +254,17 @@
                     %i.fa.fa-star.likeIcon
                     1
                 %p (税込)
-%aside.banner
-  .inner
-    %h2.inner__title だれでもかんたん、人生を変えるフリマアプリ
-    %p.inner__text 今すぐ無料ダウンロード！
-    .inner__icon
-      %a{:href => "#"}
-        %img.linkIcon.appleBtn{:src => "/assets/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg"}/
-      %a{:href => "#"}
-        %img.linkIcon.googleBtn{:src => "/assets/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg"}/
+.banner__index
+  = render partial: 'banner_index'
+-# %aside.banner
+-#   .inner
+-#     %h2.inner__title だれでもかんたん、人生を変えるフリマアプリ
+-#     %p.inner__text 今すぐ無料ダウンロード！
+-#     .inner__icon
+-#       %a{:href => "#"}
+-#         %img.linkIcon.appleBtn{:src => "/assets/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg"}/
+-#       %a{:href => "#"}
+-#         %img.linkIcon.googleBtn{:src => "/assets/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg"}/
 .footer
   %ul.contents
     %li.content
