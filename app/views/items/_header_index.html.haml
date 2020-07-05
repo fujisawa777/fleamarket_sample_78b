@@ -2,17 +2,17 @@
   .headerItems
     .headerItemsHead
       %h1.title
-        %a{:href => "/"}
+        %a{href: "/"}
           .title__link
           = image_tag "/assets/logo.png", size: "140x40", alt: "furimalogo", class: "title__link__image"
       .searcharea
-        %form{"accept-charset" => "UTF-8", :action => "#", :method => "get", :class => "searcharea__form"}
-          %input{:name => "utf8", :type => "hidden", :value => "✔️"}/
-          %input.searcharea--input{:name => "key", :placeholder => "キーワードから探す", :id => "seachInput"}/
-          %button{:type => "submit"}
+        %form{action: "#", method: "get", class:"searcharea__form"}
+          %input{name: "utf8", type: "hidden", value: "✔️"}/
+          %input.searcharea--input{name: "key", placeholder: "キーワードから探す", id: "seachInput"}/
+          %button{type: "submit"}
             .searcharea__icon
-              %img{:src => "/assets/icon-search 1.png", alt: "seachlogo", class: "searcharea__icon__image"}/
-          %input{:name => "authenticity_token", :type => "hidden", :value => "vpxCNHQySYMaC65InJx3FUWcGPNDnBRFV1BuBNARgrEOb21ztlGwmxmkw1DwMFSO9MdKNwkF6Bk+r3Nafi8xhw=="}/
+              %img{src: "/assets/icon-search 1.png", alt: "seachlogo", class: "searcharea__icon__image"}/
+          %input{name: "authenticity_token", type: "hidden", value: "vpxCNHQySYMaC65InJx3FUWcGPNDnBRFV1BuBNARgrEOb21ztlGwmxmkw1DwMFSO9MdKNwkF6Bk+r3Nafi8xhw=="}/
       %ul.resultbox
     .headerItemsFoot
       %ul.boxLeft

@@ -55,206 +55,207 @@
 -#           %a{:href => "#"} ログイン
 -#         %li.boxRight__item.boxRight__item--new
 -#           %a{:href => "#"} 新規会員登録
-.main
-  %section.topView
-    .content
-      %h2.content__subtitle
-        %br/
-        人生を変えるフリマアプリ
-      %p.content__text
-        FURIMAはだれでもかんたんに出品・購入できる
-        %br/
-        フリマアプリです
-      .content__btn
-        %a.appleBtn{:href => "#"}
-          %img{:src => "/assets/app-store-batch-1.svg"}/
-        %a.googleBtn{:href => "#"}
-          %img{:src => "/assets/google-play-badge-1.svg"}/
-    .imagepicture
-  %section.topIntro
-    %h2.subtitle
-      FURIMAが選ばれる3つの理由
-    %ul.lists
-      %li.list
-        .list__pict
-          %span.list__pict__number 1
-          %img{:src => "/assets/pict/reftresize.jpg"}/
-        %h3.list__text
-          %span 3分
-          ですぐに出品
-        %p.list__description
-          スマホで入力するだけで簡単に出品できる！
-      %li.list
-        .list__pict
-          %span.list__pict__number 2
-          %img{:src => "/assets/pict/resize-center.jpg"}/
-        %h3.list__text
-          %span シンプル
-          で使いやすい
-        %p.list__description
-          めんどくさい入力は必要なく、検索も購入もスムーズ！
-      %li.list.list--right
-        .list__pict
-          %span.list__pict__number 3
-          %img{:src => "/assets/pict/resize-right.jpg"}/
-        %h3.list__text
-          手数料
-          %span 業界最安
-        %p.list__description
-          最大3%でお得に出品&amp;購入！
-  %section.topDl
-    .topDlItems
-      %h2.subtitle 会員数日本一位
-      %p.text
-        FURIMAは、フリマアプリで最も人気。
-        %br/
-        出品・購入回数も業界最多です！
-        %br/
-        ほしかったあの商品に出会えるかもしれません。
-      .btn
-        %a{:href => "#"}
-          %img.appleBtn{:src => "/assets/app-store-batch-1.svg"}/
-        %a{:href => "#"}
-          %img.googleBtn{:src => "/assets/google-play-badge-1.svg"}/
-  %section.topFeatures
-    %h2.head FURIMAの特徴
-    .items
-      %section.item
-        %figure.item__img
-          %img{:src => "/assets/icon/icon-01.png"}/
-        %h3.item__subtitle 簡単に売り買いできる
-        %p.item__detail
-          スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
-      %section.item
-        %figure.item__img
-          %img{:src => "/assets/icon/icon-03.png"}/
-        %h3.item__subtitle 売上金は即日振込みに対応
-        %p.item__detail
-          午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
-      %section.item
-        %figure.item__img
-          %img{:src => "/assets/icon/icon-04.png"}/
-        %h3.item__subtitle 様々な支払いに対応
-        %p.item__detail
-          お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
-  %section.pickup
-    %h2.head ピックアップカテゴリー
-    .productBox
-      .productHead
-        %a{:href => "#"}
-          %h3.title 新規投稿商品
-      .productLists
-        .productList
-          %a{:href => "/products/8"}
-            %figure.productList--img
-              //%img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG"}/
-            .productList--body
-              %h3.name ee
-              .details
-                %ul
-                  %li 1000円
-                  %li
-                    %i.fa.fa-star.likeIcon
-                    0
-                %p (税込)
-        .productList
-          %a{:href => "/products/3"}
-            %figure.productList--img
-              %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"}/
-            .productList--body
-              %h3.name product3
-              .details
-                %ul
-                  %li 30000円
-                  %li
-                    %i.fa.fa-star.likeIcon
-                    0
-                %p (税込)
-        .productList
-          %a{:href => "/products/2"}
-            %figure.productList--img
-              %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"}/
-            .productList--body
-              %h3.name product2
-              .details
-                %ul
-                  %li 20000円
-                  %li
-                    %i.fa.fa-star.likeIcon
-                    0
-                %p (税込)
-        .productList
-          %a{:href => "/products/1"}
-            %figure.productList--img
-              %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"}/
-            .productList--body
-              %h3.name product1
-              .details
-                %ul
-                  %li 10000円
-                  %li
-                    %i.fa.fa-star.likeIcon
-                    1
-                %p (税込)
-  %section.pickup
-    %h2.head ピックアップブランド
-    .productBox
-      .productHead
-        %a{:href => "#"}
-          %h3.title アーカイバ
-      .productLists
-        .productList
-          %a{:href => "/products/8"}
-            %figure.productList--img
-              %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG"}/
-            .productList--body
-              %h3.name ee
-              .details
-                %ul
-                  %li 1000円
-                  %li
-                    %i.fa.fa-star.likeIcon
-                    0
-                %p (税込)
-        .productList
-          %a{:href => "/products/3"}
-            %figure.productList--img
-              %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"}/
-            .productList--body
-              %h3.name product3
-              .details
-                %ul
-                  %li 30000円
-                  %li
-                    %i.fa.fa-star.likeIcon
-                    0
-                %p (税込)
-        .productList
-          %a{:href => "/products/2"}
-            %figure.productList--img
-              %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"}/
-            .productList--body
-              %h3.name product2
-              .details
-                %ul
-                  %li 20000円
-                  %li
-                    %i.fa.fa-star.likeIcon
-                    0
-                %p (税込)
-        .productList
-          %a{:href => "/products/1"}
-            %figure.productList--img
-              %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"}/
-            .productList--body
-              %h3.name product1
-              .details
-                %ul
-                  %li 10000円
-                  %li
-                    %i.fa.fa-star.likeIcon
-                    1
-                %p (税込)
+= render partial: 'main_index'
+-# .main
+-#   %section.topView
+-#     .content
+-#       %h2.content__subtitle
+-#         %br/
+-#         人生を変えるフリマアプリ
+-#       %p.content__text
+-#         FURIMAはだれでもかんたんに出品・購入できる
+-#         %br/
+-#         フリマアプリです
+-#       .content__btn
+-#         %a.appleBtn{:href => "#"}
+-#           %img{:src => "/assets/app-store-batch-1.svg"}/
+-#         %a.googleBtn{:href => "#"}
+-#           %img{:src => "/assets/google-play-badge-1.svg"}/
+-#     .imagepicture
+-#   %section.topIntro
+-#     %h2.subtitle
+-#       FURIMAが選ばれる3つの理由
+-#     %ul.lists
+-#       %li.list
+-#         .list__pict
+-#           %span.list__pict__number 1
+-#           %img{:src => "/assets/pict/reftresize.jpg"}/
+-#         %h3.list__text
+-#           %span 3分
+-#           ですぐに出品
+-#         %p.list__description
+-#           スマホで入力するだけで簡単に出品できる！
+-#       %li.list
+-#         .list__pict
+-#           %span.list__pict__number 2
+-#           %img{:src => "/assets/pict/resize-center.jpg"}/
+-#         %h3.list__text
+-#           %span シンプル
+-#           で使いやすい
+-#         %p.list__description
+-#           めんどくさい入力は必要なく、検索も購入もスムーズ！
+-#       %li.list.list--right
+-#         .list__pict
+-#           %span.list__pict__number 3
+-#           %img{:src => "/assets/pict/resize-right.jpg"}/
+-#         %h3.list__text
+-#           手数料
+-#           %span 業界最安
+-#         %p.list__description
+-#           最大3%でお得に出品&amp;購入！
+-#   %section.topDl
+-#     .topDlItems
+-#       %h2.subtitle 会員数日本一位
+-#       %p.text
+-#         FURIMAは、フリマアプリで最も人気。
+-#         %br/
+-#         出品・購入回数も業界最多です！
+-#         %br/
+-#         ほしかったあの商品に出会えるかもしれません。
+-#       .btn
+-#         %a{:href => "#"}
+-#           %img.appleBtn{:src => "/assets/app-store-batch-1.svg"}/
+-#         %a{:href => "#"}
+-#           %img.googleBtn{:src => "/assets/google-play-badge-1.svg"}/
+-#   %section.topFeatures
+-#     %h2.head FURIMAの特徴
+-#     .items
+-#       %section.item
+-#         %figure.item__img
+-#           %img{:src => "/assets/icon/icon-01.png"}/
+-#         %h3.item__subtitle 簡単に売り買いできる
+-#         %p.item__detail
+-#           スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+-#       %section.item
+-#         %figure.item__img
+-#           %img{:src => "/assets/icon/icon-03.png"}/
+-#         %h3.item__subtitle 売上金は即日振込みに対応
+-#         %p.item__detail
+-#           午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
+-#       %section.item
+-#         %figure.item__img
+-#           %img{:src => "/assets/icon/icon-04.png"}/
+-#         %h3.item__subtitle 様々な支払いに対応
+-#         %p.item__detail
+-#           お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+-#   %section.pickup
+-#     %h2.head ピックアップカテゴリー
+-#     .productBox
+-#       .productHead
+-#         %a{:href => "#"}
+-#           %h3.title 新規投稿商品
+-#       .productLists
+-#         .productList
+-#           %a{:href => "/products/8"}
+-#             %figure.productList--img
+-#               //%img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG"}/
+-#             .productList--body
+-#               %h3.name ee
+-#               .details
+-#                 %ul
+-#                   %li 1000円
+-#                   %li
+-#                     %i.fa.fa-star.likeIcon
+-#                     0
+-#                 %p (税込)
+-#         .productList
+-#           %a{:href => "/products/3"}
+-#             %figure.productList--img
+-#               %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"}/
+-#             .productList--body
+-#               %h3.name product3
+-#               .details
+-#                 %ul
+-#                   %li 30000円
+-#                   %li
+-#                     %i.fa.fa-star.likeIcon
+-#                     0
+-#                 %p (税込)
+-#         .productList
+-#           %a{:href => "/products/2"}
+-#             %figure.productList--img
+-#               %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"}/
+-#             .productList--body
+-#               %h3.name product2
+-#               .details
+-#                 %ul
+-#                   %li 20000円
+-#                   %li
+-#                     %i.fa.fa-star.likeIcon
+-#                     0
+-#                 %p (税込)
+-#         .productList
+-#           %a{:href => "/products/1"}
+-#             %figure.productList--img
+-#               %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"}/
+-#             .productList--body
+-#               %h3.name product1
+-#               .details
+-#                 %ul
+-#                   %li 10000円
+-#                   %li
+-#                     %i.fa.fa-star.likeIcon
+-#                     1
+-#                 %p (税込)
+-#   %section.pickup
+-#     %h2.head ピックアップブランド
+-#     .productBox
+-#       .productHead
+-#         %a{:href => "#"}
+-#           %h3.title アーカイバ
+-#       .productLists
+-#         .productList
+-#           %a{:href => "/products/8"}
+-#             %figure.productList--img
+-#               %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG"}/
+-#             .productList--body
+-#               %h3.name ee
+-#               .details
+-#                 %ul
+-#                   %li 1000円
+-#                   %li
+-#                     %i.fa.fa-star.likeIcon
+-#                     0
+-#                 %p (税込)
+-#         .productList
+-#           %a{:href => "/products/3"}
+-#             %figure.productList--img
+-#               %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"}/
+-#             .productList--body
+-#               %h3.name product3
+-#               .details
+-#                 %ul
+-#                   %li 30000円
+-#                   %li
+-#                     %i.fa.fa-star.likeIcon
+-#                     0
+-#                 %p (税込)
+-#         .productList
+-#           %a{:href => "/products/2"}
+-#             %figure.productList--img
+-#               %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"}/
+-#             .productList--body
+-#               %h3.name product2
+-#               .details
+-#                 %ul
+-#                   %li 20000円
+-#                   %li
+-#                     %i.fa.fa-star.likeIcon
+-#                     0
+-#                 %p (税込)
+-#         .productList
+-#           %a{:href => "/products/1"}
+-#             %figure.productList--img
+-#               %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"}/
+-#             .productList--body
+-#               %h3.name product1
+-#               .details
+-#                 %ul
+-#                   %li 10000円
+-#                   %li
+-#                     %i.fa.fa-star.likeIcon
+-#                     1
+-#                 %p (税込)
 = render partial: 'banner_index'
 -# %aside.banner
 -#   .inner
