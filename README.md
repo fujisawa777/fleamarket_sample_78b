@@ -63,7 +63,7 @@
 ## Commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|content|string|null: false|
+|content|text|null: false|
 |user_id|references|null: false,foreign_key: true|
 |products_id|references|null: false,foreign_key: true|
 |created_id|timestamp|null: false|
