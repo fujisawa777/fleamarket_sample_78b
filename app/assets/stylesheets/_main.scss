@@ -234,8 +234,6 @@
       font-weight: bold;
     }
     .productBox {
-      margin: 0;
-      padding: 0;
       .productHead {
         text-align: center;
         a {
@@ -243,6 +241,7 @@
           text-decoration: none;
           color: #3CCACE;
           .title {
+            font-weight: bold;
             font-size: 100%;
           }
         }
@@ -256,24 +255,32 @@
       .productList {
         width: 220px;
         display: inline-block;
-        float: left;
         a {
           background-color: #fff;
           display: inline-block;
+          text-decoration: none;
+          position: relative;
+        }
         &--img {
           width: 220px;
           height: 150px;
-          background-color: red;
           position: relative;
           overflow: hidden;
           margin: 0;
           z-index: auto;
           img {
-            border-style: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
             vertical-align: bottom;
           }
         }
-        }
+      }
         &__body {
           background-color: white;
           color: #333;
@@ -421,5 +428,4 @@
       }
     }
   }
-}
 
