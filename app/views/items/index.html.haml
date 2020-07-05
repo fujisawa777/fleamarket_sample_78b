@@ -3,15 +3,14 @@
     .headerItemsHead
       %h1.title
         %a{:href => "/"}
-          .title__link
-          = image_tag "/assets/logo.png", size: "140x40", alt: "furimalogo", class: "title__link__image"
+          %img{:src => "/assets/logo-d3d78326971d78b06e3d6f0ba666d025a8ad681286b4d9e00e7dbe8673bcfd23.svg"}/
       .searcharea
-        %form{"accept-charset" => "UTF-8", :action => "#", :method => "get", :class => "searcharea__form"}
-          %input{:name => "utf8", :type => "text", :value => ""}/
-          %input.searcharea--input{:name => "key", :placeholder => "キーワードから探す", :id => "seachInput"}/
+        %form{"accept-charset" => "UTF-8", :action => "#", :method => "get"}
+          %input{:name => "utf8", :type => "hidden", :value => "✓"}/
+          %input#searchInput.searcharea--input{:name => "key", :placeholder => "キーワードから探す"}/
           %button{:type => "submit"}
             .searcharea__icon
-              %img{:src => "/assets/icon-search 1.png", alt: "seachlogo", class: "searcharea__icon__image"}/
+              %img{:src => "/assets/icon-search-60a83ada85216fe00789cd16065281694d9a08948275fef83683fadcf131d84d.svg"}/
           %input{:name => "authenticity_token", :type => "hidden", :value => "vpxCNHQySYMaC65InJx3FUWcGPNDnBRFV1BuBNARgrEOb21ztlGwmxmkw1DwMFSO9MdKNwkF6Bk+r3Nafi8xhw=="}/
       %ul.resultbox
     .headerItemsFoot
