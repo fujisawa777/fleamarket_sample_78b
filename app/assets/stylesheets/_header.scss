@@ -33,10 +33,11 @@
           width: 100%;
           display: flex;
           margin-bottom: 5px;
-            form input {
+            .searcharea--input {
               width: calc(100% - 26px);
               height: 36px;
               padding: 0 0 0 5px;
+              border: solid 1px gray;
             }
         }
         form button {
@@ -44,7 +45,7 @@
           border: 0;
           cursor: pointer;
           background-color: #3CCACE;
-          padding: 6px;
+          padding: 8px;
           .searcharea__icon {
             margin: 0;
             padding: 0;
@@ -57,34 +58,68 @@
       }
     }
     .headerItemsFoot {
-      margin: 10px 0 0;
-      height:32px;
-      font-size: 13px;
-      font-weight: 100;
+      font-size: 14px;
+      display: flex;
+      margin-bottom: 10px;
       .boxLeft {
         position: relative;
         display: flex;
         &__item--first {
-          padding: 0;
-        }
-        &__item {
+          display: flex;
 
-        }
+          a {
+            color: #333;
+            line-height: 32px;
+            background-position: center right;
+            background-repeat: no-repeat;
+            background-size: 18px;
+            padding-right: 30px;
+          }
           .catTree {
             display: none;
+            z-index: 2;
+            position: absolute;
+            background-color: #fff;
+            width: 245px;
+            top: 40px;
             .categoryTree {
-              padding-left: 0;
+              background-color: #fff;
+              display: flex;
+              flex-direction: column;
               position: relative;
-              display: inline-block;
-              padding: 0 11px;
-              cursor: pointer;
             }
           }
+        }
+        &__item {
+          display: flex;
+          line-height: 38px;
+          padding: 0 ;
+          a {
+            color: #333;
+            text-decoration: none;
+            line-height: 32px;
+            background-position: center right;
+            background-repeat: no-repeat;
+            background-size: 18px;
+            padding-right: 45px;
+          }
+        }
       }
       .boxRight {
-        float: right;
-        line-height:32px;
+        margin-left: auto;
         display:flex;
+        &__item {
+          color: #333;
+          line-height: 38px;
+          padding: 0 0 0 16px;
+          a {
+            display: flex;
+            align-items: center;
+            color: #333;
+            text-decoration: none;
+            line-height: 32px;
+          }
+        }
       }
     }
   }
