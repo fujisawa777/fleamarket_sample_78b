@@ -44,64 +44,325 @@
     }
   }
   .topIntro {
-    .subtitle h2 {}
+    padding-bottom:60px;
+    padding-left:20px;
+    padding-right:20px;
+    padding-top:60px;
+    .subtitle {
+      text-align: center;
+      font-size: 26px;
+      line-height: 1.4;
+      font-weight: bold;
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      position: relative;
+    }
     .lists {
+      display: flex;
+      text-align: center;
+      max-width: 1020px;
+      width: 100%;
+      margin: 0 auto;
       .list {
-        &__pict {}
-        &__text {}
-        &__description {}
+        width: 30%;
+        display: flex;
+        text-align: left;
+        margin: 16px 5% 0 0;
+        flex-direction: column;
+        align-items: center;
+        &__pict {
+          position: relative;
+          margin-bottom: 20px;
+          //justify-content: space-around;
+          &__number {
+            position: absolute;
+            font-size: 30px;
+            margin: 0 5px 0 0;
+            padding: 10px 20px;
+            background-color: #3CCACE;
+            color: #fff;
+          }
+          &__image {
+            width: 100%;
+            vertical-align: bottom;
+          }
+        }
+        &__text {
+          font-weight: bold;
+          font-size: 24px;
+          line-height: 50px;
+          margin: 0 0 0 2px;
+          &__span {
+            color: #3CCACE;
+          }
+        }
+        &__description {
+          font-size: 18px;
+          line-height: 1.5;
+          margin: 16px 0 0;
+        }
       }
       .list {
         &__pict {}
         &__text {}
-        &__description p {}
+        &__description {
+          font-size: 18px;
+          line-height: 1.5;
+          margin: 16px 0 0;
+        }
       }
       .list--right {
         &__pict {}
-        &__text h3 {}
-        &__description p {}
+        &__text {}
+        &__description {
+          font-size: 18px;
+          line-height: 1.5;
+          margin: 16px 0 0;
+        }
       }
     }
   }
   .topDl {
+    background-image: url(/assets/bg-topMiddleDl-pict.jpg);
+    background-position: bottom right;
+    height: 400px;
+    background-size: cover;
+    display: flex;
+    align-items: center;
     .topDlItems {
-      .subtitle h2 {}
-      .text p {}
-      .btn {}
+      color: #fff;
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      text-align: left;
+      max-width: 1040px;
+      width: 100%;
+      margin: 0 auto;
+      .subtitle {
+        font-size: 27px;
+        font-weight: bold;
+        line-height: 1.4;
+      }
+      .text {
+        font-size: 18px;
+        margin: 20px 0 30px;
+        line-height: 1.5;
+      }
+      .btn {
+        display: flex;
+        a {
+          margin-right: 10px;
+          .appleBtn {}
+          .googleBtn{}
+        }
+      }
     }
   }
   .topFeatures {
-    .head h2 {}
+    padding: 60px 100px;
+    background-color: #fff;
+    .head {
+      font-size: 27px;
+      text-align: center;
+      margin: 0 0 40px;
+      font-weight: bold;
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      position: relative;
+      ::after {
+        content: "";
+        width: 70px;
+        height: 4px;
+        background-color: #3CCACE;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
     .items {
+      max-width: calc(1040px + 20px);
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
       .item {
-        &__img {}
-        &__subtitle h3 {}
-        &__detail p {}
+        display: flex;
+        flex-direction: column;
+        width: calc(1 / 3 * 100%);
+        text-align: center;
+        padding: 0 20px;
+        &__img {
+          width: 70%;
+          margin: 0 auto;
+          line-height: 120px;
+          img {
+            width: 100%;
+            vertical-align: bottom;
+          }
+        }
+        &__subtitle {
+          margin: 38px 0 10px;
+          font-size: 19px;
+          font-weight: bold;
+        }
+        &__detail {
+          margin: 0 0 40px;
+          font-size: 17px;
+          font-weight: 200;
+          text-align: left;
+        }
       }
       .item {
         &__img {}
-        &__subtitle h3 {}
-        &__detail p {}
+        &__subtitle {}
+        &__detail {}
       }
       .item {
         &__img {}
-        &__subtitle h3 {}
-        &__detail p {}
+        &__subtitle {}
+        &__detail {}
       }
     }
   }
   .pickup {
-    .head h2 {}
+    padding: 80px 0 0;
+    background-color: #f8f8f8;
+    height: 100%;
+    .head {
+      text-align: center;
+      font-size: 28px;
+      line-height: 1.4;
+      font-weight: bold;
+    }
+    .productBox {
+      margin: 0;
+      padding: 0;
+      .productHead {
+        text-align: center;
+        a {
+          font-size: 24px;
+          text-decoration: none;
+          color: #3CCACE;
+          .title {
+            font-size: 100%;
+          }
+        }
+      }
+    }
+    .productLists {
+      width: 780px;
+      margin: 26px auto;
+      display: flex;
+      justify-content: space-around;
+      .productList {
+        width: 220px;
+        display: inline-block;
+        float: left;
+        a {
+          background-color: #fff;
+          display: inline-block;
+        &--img {
+          width: 220px;
+          height: 150px;
+          background-color: red;
+          position: relative;
+          overflow: hidden;
+          margin: 0;
+          z-index: auto;
+          img {
+            border-style: none;
+            vertical-align: bottom;
+          }
+        }
+        }
+        &__body {
+          background-color: white;
+          color: #333;
+          padding: 16px;
+          .name {
+            overflow: hidden;
+            line-height: 1.5;
+            font-size: 16px;
+            text-align: left;
+          }
+          .details {
+            font-size: 16px;
+            ul {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              li {
+                margin: 0;
+                padding: 0;
+              }
+              li {
+                margin: 0;
+                padding: 0;
+                i {}
+              }
+            }
+            p {}
+          }
+        }
+      }
+      .productList {
+        &__img {}
+        &__body {
+          .name {}
+          .details {
+            ul {
+              li {}
+              li {
+                i {}
+              }
+            }
+            p {}
+          }
+        }
+      }
+      .productList {
+        &__img {}
+        &__body {
+          .name {}
+          .details {
+            ul {
+              li {}
+              li {
+                i {}
+              }
+            }
+            p {}
+          }
+        }
+      }
+      .productList {
+        &__img {}
+        &__body {
+          .name {}
+          .details {
+            ul {
+              li {}
+              li {
+                i {}
+              }
+            }
+            p {}
+          }
+        }
+      }
+    }
+  }
+  .pickup {
+    .head {}
     .productBox {
       .productHead {
-        .title h3 {}
+        .title {}
       }
     }
     .productLists {
       .productList {
         &__img {}
         &__body {
-          .name h3 {}
+          .name {}
           .details {
             ul {
               li {}
@@ -116,7 +377,7 @@
       .productList {
         &__img {}
         &__body {
-          .name h3 {}
+          .name {}
           .details {
             ul {
               li {}
@@ -131,7 +392,7 @@
       .productList {
         &__img {}
         &__body {
-          .name h3 {}
+          .name {}
           .details {
             ul {
               li {}
@@ -146,77 +407,7 @@
       .productList {
         &__img {}
         &__body {
-          .name h3 {}
-          .details {
-            ul {
-              li {}
-              li {
-                i {}
-              }
-            }
-            p {}
-          }
-        }
-      }
-    }
-  }
-  .pickup {
-    .head h2 {}
-    .productBox {
-      .productHead {
-        .title h3 {}
-      }
-    }
-    .productLists {
-      .productList {
-        &__img {}
-        &__body {
-          .name h3 {}
-          .details {
-            ul {
-              li {}
-              li {
-                i {}
-              }
-            }
-            p {}
-          }
-        }
-      }
-      .productList {
-        &__img {}
-        &__body {
-          .name h3 {}
-          .details {
-            ul {
-              li {}
-              li {
-                i {}
-              }
-            }
-            p {}
-          }
-        }
-      }
-      .productList {
-        &__img {}
-        &__body {
-          .name h3 {}
-          .details {
-            ul {
-              li {}
-              li {
-                i {}
-              }
-            }
-            p {}
-          }
-        }
-      }
-      .productList {
-        &__img {}
-        &__body {
-          .name h3 {}
+          .name {}
           .details {
             ul {
               li {}
