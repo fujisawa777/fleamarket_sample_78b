@@ -17,40 +17,74 @@
     .headerItemsFoot
       %ul.boxLeft
         %li.boxLeft__item.boxLeft__item--first
-          %a#catBtn{:href => "#"} カテゴリー
+          = link_to "#", class: "a", id: "catBtn" do
+            カテゴリー
+          -# %a#catBtn{:href => "#"} カテゴリー
           .catTree.displayNone
             %ul.categoryTree
               %li.categoryTree--item
-                %a#1{:href => "#"} レディース
+                = link_to "#", class: "a", id: "1" do
+                  レディース
+                -# %a#1{:href => "#"} レディース
               %li.categoryTree--item
-                %a#2{:href => "#"} メンズ
+                = link_to "#", class: "a", id: "2" do
+                  メンズ
+                -# %a#2{:href => "#"} メンズ
               %li.categoryTree--item
-                %a#3{:href => "#"} ベビー・キッズ
+                = link_to "#", class: "a", id: "3" do
+                  ベビー・キッズ
+                -# %a#3{:href => "#"} ベビー・キッズ
               %li.categoryTree--item
-                %a#4{:href => "#"} インテリア・住まい・小物
+                = link_to "#", class: "a", id: "4" do
+                  インテリア・住まい・小物
+                -# %a#4{:href => "#"} インテリア・住まい・小物
               %li.categoryTree--item
-                %a#5{:href => "#"} 本・音楽・ゲーム
+                = link_to "#", class: "a", id: "5" do
+                  本・音楽・ゲーム
+                -# %a#5{:href => "#"} 本・音楽・ゲーム
               %li.categoryTree--item
-                %a#6{:href => "#"} おもちゃ・ホビー・グッズ
+                = link_to "#", class: "a", id: "6" do
+                  おもちゃ・ホビー・グッズ
+                -# %a#6{:href => "#"} おもちゃ・ホビー・グッズ
               %li.categoryTree--item
-                %a#7{:href => "#"} コスメ・香水・美容
+                = link_to "#", class: "a", id: "7" do
+                  コスメ・香水・美容
+                -# %a#7{:href => "#"} コスメ・香水・美容
               %li.categoryTree--item
-                %a#8{:href => "#"} 家電・スマホ・カメラ
+                = link_to "#", class: "a", id: "8" do
+                  家電・スマホ・カメラ
+                -# %a#8{:href => "#"} 家電・スマホ・カメラ
               %li.categoryTree--item
-                %a#9{:href => "#"} スポーツ・レジャー
+                = link_to "#", class: "a", id: "9" do
+                  スポーツ・レジャー
+                -# %a#9{:href => "#"} スポーツ・レジャー
               %li.categoryTree--item
-                %a#10{:href => "#"} ハンドメイド
+                = link_to "#", class: "a", id: "10" do
+                  ハンドメイド
+                -# %a#10{:href => "#"} ハンドメイド
               %li.categoryTree--item
-                %a#11{:href => "#"} チケット
+                = link_to "#", class: "a", id: "11" do
+                  チケット
+                -# %a#11{:href => "#"} チケット
               %li.categoryTree--item
-                %a#12{:href => "#"} 自動車・オートバイ
+                = link_to "#", class: "a", id: "12" do
+                  自動車・オートバイ
+                -# %a#12{:href => "#"} 自動車・オートバイ
               %li.categoryTree--item
-                %a#13{:href => "#"} その他
+                = link_to "#", class: "a", id: "13" do
+                  その他
+                -# %a#13{:href => "#"} その他
         %li.boxLeft__item
-          %a#brandBtn{:href => "#"} ブランド
+          = link_to "#", class: "a", id: "brandBtn" do
+            ブランド
+          -# %a#brandBtn{:href => "#"} ブランド
           %ul.brandTree.displayNone
       %ul.boxRight
         %li.boxRight__item.boxRight__item--login
-          %a{:href => "#"} ログイン
+          = link_to "#", class: "a" do
+            ログイン
+          -# %a{:href => "#"} ログイン
         %li.boxRight__item.boxRight__item--new
+          = link_to "#", class: "a" do
+            新規会員登録
           %a{:href => "#"} 新規会員登録
