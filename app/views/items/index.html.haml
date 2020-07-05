@@ -7,7 +7,7 @@
           = image_tag "/assets/logo.png", size: "140x40", alt: "furimalogo", class: "title__link__image"
       .searcharea
         %form{"accept-charset" => "UTF-8", :action => "#", :method => "get", :class => "searcharea__form"}
-          %input{:name => "utf8", :type => "text", :value => ""}/
+          %input{:name => "utf8", :type => "hidden", :value => "✔️"}/
           %input.searcharea--input{:name => "key", :placeholder => "キーワードから探す", :id => "seachInput"}/
           %button{:type => "submit"}
             .searcharea__icon
