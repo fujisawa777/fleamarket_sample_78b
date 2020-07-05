@@ -90,7 +90,7 @@
 |s_lastname|string|null: false|
 |s_h_firstname|string|null: false|
 |s_h_lastname|string|null: false|
-|prefectures|integer|null: false|
+|prefectures(jp_prefectures)|integer|null: false|
 |municipalitities|string|null: false|
 |zipcode|integer(7)|null: false|
 |streetaddress|string|null: false|
@@ -110,12 +110,12 @@
 |price|integer|null: false|
 |discription|text|null: false|
 |category_id|references|null: false,foreign_key: true|
-|brand_id|references|foreign_key: true|
-|size_id|references|foreign_key: true|
-|staus_id|references|null: false,foreign_key: true|
-|shipfee_id|string|null: false,foreign_key: true|
-|shipregion_id|string|null: false,foreign_key: true|
-|estshipdate_id|references|null: false,foreign_key: true|
+|brand_id(acitve_hash)|references|foreign_key: true|
+|size_id(acitve_hash)|references|foreign_key: true|
+|staus_id(acitve_hash)|references|null: false,foreign_key: true|
+|shipfee_id(acitve_hash)|string|null: false,foreign_key: true|
+|shipregion_id(acitve_hash)|string|null: false,foreign_key: true|
+|estshipdate_id(acitve_hash)|references|null: false,foreign_key: true|
 |favorite _id|references|foreign_key: true|
 |comment_id|references|foreign_key: true|
 |buyer_id|references|foreign_key: { to_table: :users }|
@@ -145,7 +145,7 @@
 |------|----|-------|
 |user_id|references|null: false,foreign_key: true|
 |item_id|references|null: false,foreign_key: true|
-|evaluation_id|references|null: false,foreign_key: true|
+|evaluation_id(acitve_hash)|references|null: false,foreign_key: true|
 |review|text||
 |created_id|timestamp|null: false|
 |updated_id|timestamp|null: false|
