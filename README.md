@@ -106,7 +106,6 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|image_id|references|null: false,foreign_key: true|
 |price|integer|null: false|
 |discription|text|null: false|
 |category_id|references|null: false,foreign_key: true|
@@ -166,7 +165,7 @@
 ## Imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image|string|null: false|
+|url|string|null: false|
 |created_id|timestamp|null: false|
 |updated_id|timestamp|null: false|
 |products_id|integer|null: false,foreign_key: true|
