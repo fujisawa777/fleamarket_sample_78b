@@ -47,11 +47,11 @@
           -# %a{:href => "#"} お知らせ
   .footer__logo
     = link_to "/", class: "a" do
-    -# %a{:href => "/"}
       = image_tag "/assets/logo/logo-white.png", class: "#"
       -# %img{:src => "/assets/logo/logo-white.png"}/
   %p © FURIMA
 %a{href: "#"}
+= link_to "#", class: "a" do
   .ExBtn
     %span.ExBtn__text 出品する
     = image_tag "/assets/icon/icon_camera.png", class: "ExBtn__icon"
