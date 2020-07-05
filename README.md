@@ -16,8 +16,8 @@
 - has_one: sendaddress, dependent: :destroy
 - has_one: personal, dependent: :destroy
 - has_one: creditcard, dependent: :destroy
-- has_many: favorites, through: :products, dependent: :destroy
-- has_many: comments, through: :products, dependent: :destroy
+- has_many: products, through: :favorites, dependent: :destroy
+- has_many: products, through: :comments, dependent: :destroy
 - has_many: evaluations, dependent: :destroy
 - has_many: buyer_products, class_name: 'User', foreign_key: 'buyer_id',dependent: :destroy
 - has_many: seller_products, class_name: 'User', foreign_key: 'seller_id',dependent: :destroy
