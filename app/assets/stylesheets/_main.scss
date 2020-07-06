@@ -167,16 +167,16 @@
       margin-bottom: 25px;
       padding-bottom: 15px;
       position: relative;
-      ::after {
-        content: "";
-        width: 70px;
-        height: 4px;
-        background-color: #3CCACE;
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-      }
+    }
+    .head::after {
+      content: "";
+      width: 70px;
+      height: 4px;
+      background-color: #3CCACE;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
     }
     .items {
       max-width: calc(1040px + 20px);
@@ -210,16 +210,6 @@
           font-weight: 200;
           text-align: left;
         }
-      }
-      .item {
-        &__img {}
-        &__subtitle {}
-        &__detail {}
-      }
-      .item {
-        &__img {}
-        &__subtitle {}
-        &__detail {}
       }
     }
   }
