@@ -145,8 +145,24 @@
         display: flex;
         a {
           margin-right: 10px;
-          .appleBtn {}
-          .googleBtn{}
+          .appleBtn {
+            width: 180px;
+            img {
+              width: 100%;
+              &:hover {
+                opacity: 0.5;
+              }
+            }
+          }
+          .googleBtn{
+            width: 180px;
+            img {
+              width: 100%;
+              &:hover {
+                opacity: 0.5;
+              }
+            }
+          }
         }
       }
     }
