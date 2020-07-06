@@ -1,3 +1,7 @@
+*{
+  text-decoration:none;
+}
+
 .header {
   padding: 0 60px;
   .headerItems {
@@ -70,6 +74,9 @@
             background-size: 18px;
             padding-right: 30px;
           }
+          a:hover {
+            color: orange;
+          }
           .catTree {
             display: none;
             z-index: 2;
@@ -97,6 +104,9 @@
             background-repeat: no-repeat;
             background-size: 18px;
             padding-right: 45px;
+          }
+          a:hover {
+            color: orange;
           }
         }
       }

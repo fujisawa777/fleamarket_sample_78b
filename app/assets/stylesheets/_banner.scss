@@ -12,6 +12,7 @@
     font-size: 24px;
     font-weight: bold;
     line-height: 1.4;
+    padding: 0 0 10px 0;
     }
     &__text{
       font-size: 35px;
@@ -20,7 +21,7 @@
     &__icon{
       display: flex;
       justify-content: center;
-      padding: 20px 0;
+      padding: 20px 0 0 0;
       .appleBtn{
         margin-right: 10px;
         width: 180px;
