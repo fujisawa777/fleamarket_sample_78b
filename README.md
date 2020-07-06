@@ -109,8 +109,8 @@
 |price|integer|null: false|
 |discription|text|null: false|
 |category_id|references|null: false,foreign_key: true|
-|brand_id(acitve_hash)|integer|foreign_key: true|
-|size_id(acitve_hash)|integer|foreign_key: true|
+|brand_id(acitve_hash)|integer||
+|size_id(acitve_hash)|integer||
 |staus_id(acitve_hash)|integer|null: false|
 |shipfee_id(acitve_hash)|integer|null: false|
 |shipregion_id(acitve_hash)|integer|null: false|
