@@ -261,7 +261,6 @@
           color: #3CCACE;
           .title {
             font-weight: bold;
-            //font-size: 100%;
           }
         }
       }
@@ -298,6 +297,9 @@
             height: 150px;
             object-fit: cover;
             vertical-align: bottom;
+            &:hover {
+              opacity: 0.5;
+            }
           }
         }
         &--body {
