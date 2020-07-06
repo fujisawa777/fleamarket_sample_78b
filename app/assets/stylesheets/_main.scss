@@ -2,18 +2,17 @@
   .topView {
     width: 100%;
     height: 560px;
-    background-image: url(/assets/mainVisual.jpg);
+    background-image: url(/assets/mainView.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top center;
     padding: 0 60px;
     display: flex;
     align-items: center;
-    //position: relative;
     .content {
       max-width: 1280px;
       width: 100%;
-      //margin: 0 auto;
+      margin: 0 auto;
       padding: 35px 0 0 0;
       &__subtitle {
         text-shadow: 0 0 5px rgba(0,0,0,0.4);
@@ -25,16 +24,30 @@
         text-shadow: 0 0 5px rgba(0,0,0,0.4);
         font-size: 18px;
         color: #fff;
-        line-height: 1.7;
+        line-height: 1.8;
         margin: 16px 0 0 0;
       }
       &__btn {
+        display: flex;
+        margin: 24px 0 0 0;
         .appleBtn {
           margin-right: 10px;
           width: 180px;
+          img {
+            width: 100%;
+            &:hover {
+              opacity: 0.5;
+            }
+          }
         }
         .googleBtn {
           width: 180px;
+          img {
+            width: 100%;
+            &:hover {
+              opacity: 0.5;
+            }
+          }
         }
       }
     }
@@ -44,10 +57,7 @@
     }
   }
   .topIntro {
-    padding-bottom:60px;
-    padding-left:20px;
-    padding-right:20px;
-    padding-top:60px;
+    padding: 60px 20px;
     .subtitle {
       text-align: center;
       font-size: 26px;
@@ -56,6 +66,16 @@
       margin-bottom: 25px;
       padding-bottom: 15px;
       position: relative;
+      &::after{
+        content: "";
+        width: 70px;
+        height: 4px;
+        background-color: #3CCACE;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
     }
     .lists {
       display: flex;
@@ -73,18 +93,21 @@
         &__pict {
           position: relative;
           margin-bottom: 20px;
-          //justify-content: space-around;
           &__number {
             position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 4%;
             font-size: 30px;
+            text-align: center;
             margin: 0 5px 0 0;
             padding: 10px 20px;
             background-color: #3CCACE;
             color: #fff;
           }
-          &__image {
-            width: 100%;
-            vertical-align: bottom;
+          &__img {
+            height: 306px;
+            width: 306px;
           }
         }
         &__text {
@@ -92,7 +115,7 @@
           font-size: 24px;
           line-height: 50px;
           margin: 0 0 0 2px;
-          &__span {
+          span {
             color: #3CCACE;
           }
         }
@@ -101,22 +124,7 @@
           line-height: 1.5;
           margin: 16px 0 0;
         }
-      }
-      .list {
-        &__pict {}
-        &__text {}
-        &__description {
-          font-size: 18px;
-          line-height: 1.5;
-          margin: 16px 0 0;
-        }
-      }
-      .list--right {
-        &__pict {}
-        &__text {}
-        &__description {
-          font-size: 18px;
-          line-height: 1.5;
+        &--right {
           margin: 16px 0 0;
         }
       }
@@ -167,16 +175,16 @@
       margin-bottom: 25px;
       padding-bottom: 15px;
       position: relative;
-      ::after {
-        content: "";
-        width: 70px;
-        height: 4px;
-        background-color: #3CCACE;
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-      }
+    }
+    .head::after {
+      content: "";
+      width: 70px;
+      height: 4px;
+      background-color: #3CCACE;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
     }
     .items {
       max-width: calc(1040px + 20px);
@@ -210,16 +218,6 @@
           font-weight: 200;
           text-align: left;
         }
-      }
-      .item {
-        &__img {}
-        &__subtitle {}
-        &__detail {}
-      }
-      .item {
-        &__img {}
-        &__subtitle {}
-        &__detail {}
       }
     }
   }

@@ -10,14 +10,9 @@
         フリマアプリです
       .content__btn
         = link_to "#", class: "appleBtn" do
-          = image_tag "/assets/logo/app-store-badge.svg"
+          = image_tag "badge/app-store-badge.svg"
         = link_to "#", class: "googleBtn" do
-          = image_tag "/assets/logo/google-play-badge.svg"
-        -# %a.appleBtn{:href => "#"}
-        -#   %img{:src => "/assets/app-store-batch-1.svg"}/
-        -# %a.googleBtn{:href => "#"}
-        -#   %img{:src => "/assets/google-play-badge-1.svg"}/
-    .imagepicture
+          = image_tag "badge/google-play-badge.svg"
   %section.topIntro
     %h2.subtitle
       FURIMAが選ばれる3つの理由
@@ -25,7 +20,7 @@
       %li.list
         .list__pict
           %span.list__pict__number 1
-          %img{:src => "/assets/pict/reftresize.jpg"}/
+          = image_tag 'pict/reftresize.jpg', class: 'list__pict__img', alt: 'reftresize.jpg'
         %h3.list__text
           %span 3分
           ですぐに出品
@@ -34,7 +29,7 @@
       %li.list
         .list__pict
           %span.list__pict__number 2
-          %img{:src => "/assets/pict/resize-center.jpg"}/
+          = image_tag 'pict/resize-center.jpg', class: 'list__pict__img', alt: 'resize-center.jpg'
         %h3.list__text
           %span シンプル
           で使いやすい
@@ -43,7 +38,7 @@
       %li.list.list--right
         .list__pict
           %span.list__pict__number 3
-          %img{:src => "/assets/pict/resize-right.jpg"}/
+          = image_tag 'pict/resize-right.jpg', class: 'list__pict__img', alt: 'resize-right.jpg'
         %h3.list__text
           手数料
           %span 業界最安
