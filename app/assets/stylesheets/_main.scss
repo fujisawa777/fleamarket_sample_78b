@@ -257,7 +257,7 @@
           color: #3CCACE;
           .title {
             font-weight: bold;
-            //font-size: 100%;
+            margin-top: 8px;
           }
         }
       }
@@ -270,6 +270,11 @@
       .productList {
         width: 220px;
         display: inline-block;
+        margin: 0;
+        padding: 0;
+        &:hover {
+          opacity: 0.5;
+        }
         a {
           background-color: #fff;
           display: inline-block;
