@@ -156,24 +156,23 @@
       }
       .btn {
         display: flex;
-        a {
+        margin: 24px 0 0 0;
+        .appleBtn {
           margin-right: 10px;
-          .appleBtn {
-            width: 180px;
-            img {
-              width: 100%;
-              &:hover {
-                opacity: 0.5;
-              }
+          width: 180px;
+          img {
+            width: 100%;
+            &:hover {
+              opacity: 0.5;
             }
           }
-          .googleBtn{
-            width: 180px;
-            img {
-              width: 100%;
-              &:hover {
-                opacity: 0.5;
-              }
+        }
+        .googleBtn {
+          width: 180px;
+          img {
+            width: 100%;
+            &:hover {
+              opacity: 0.5;
             }
           }
         }
