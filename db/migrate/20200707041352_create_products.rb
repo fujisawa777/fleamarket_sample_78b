@@ -7,13 +7,13 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.text :discription, null: false
       t.string :brand
       t.integer :size_id
-      t.integer :staus_id, null: false
+      t.integer :status_id, null: false
       t.integer :shipfee_id, null: false
       t.integer :shipregion_id, null: false
       t.integer :estshipdate_id, null: false
       t.references :buyer
       t.references :seller, null: false
-      t.boolean :draft, null: false,default: 0
+      t.boolean :draft, null: false, default: 0
       t.timestamps
     end
   end
