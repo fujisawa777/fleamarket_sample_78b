@@ -1,0 +1,72 @@
+%header.header
+  .headerItems
+    .headerItemsHead
+      %h1.title
+        = link_to "#" do
+          .title__link
+          = image_tag "/assets/logo.png", size: "140x40", alt: "furimalogo", class: "title__link__image"
+      .searcharea
+        %form{action: "#", method: "get", class:"searcharea__form"}
+          %input{name: "utf8", type: "hidden", value: "✔️"}/
+          %input.searcharea--input{name: "key", placeholder: "キーワードから探す", id: "seachInput"}/
+          %button{type: "submit"}
+            .searcharea__icon
+              = image_tag "/assets/icon-search 1.png", alt: "seachlogo", class: "searcharea__icon__image"
+          %input{name: "authenticity_token", type: "hidden", value: "vpxCNHQySYMaC65InJx3FUWcGPNDnBRFV1BuBNARgrEOb21ztlGwmxmkw1DwMFSO9MdKNwkF6Bk+r3Nafi8xhw=="}/
+      %ul.resultbox
+    .headerItemsFoot
+      %ul.boxLeft
+        %li.boxLeft__item.boxLeft__item--first
+          = link_to "#", class: "a", id: "catBtn" do
+            カテゴリー
+          .catTree.displayNone
+            %ul.categoryTree
+              %li.categoryTree--item
+                = link_to "#", class: "a", id: "1" do
+                  レディース
+              %li.categoryTree--item
+                = link_to "#", class: "a", id: "2" do
+                  メンズ
+              %li.categoryTree--item
+                = link_to "#", class: "a", id: "3" do
+                  ベビー・キッズ
+              %li.categoryTree--item
+                = link_to "#", class: "a", id: "4" do
+                  インテリア・住まい・小物
+              %li.categoryTree--item
+                = link_to "#", class: "a", id: "5" do
+                  本・音楽・ゲーム
+              %li.categoryTree--item
+                = link_to "#", class: "a", id: "6" do
+                  おもちゃ・ホビー・グッズ
+              %li.categoryTree--item
+                = link_to "#", class: "a", id: "7" do
+                  コスメ・香水・美容
+              %li.categoryTree--item
+                = link_to "#", class: "a", id: "8" do
+                  家電・スマホ・カメラ
+              %li.categoryTree--item
+                = link_to "#", class: "a", id: "9" do
+                  スポーツ・レジャー
+              %li.categoryTree--item
+                = link_to "#", class: "a", id: "10" do
+                  ハンドメイド
+                = link_to "#", class: "a", id: "11" do
+                  チケット
+              %li.categoryTree--item
+                = link_to "#", class: "a", id: "12" do
+                  自動車・オートバイ
+              %li.categoryTree--item
+                = link_to "#", class: "a", id: "13" do
+                  その他
+        %li.boxLeft__item
+          = link_to "#", class: "a", id: "brandBtn" do
+            ブランド
+          %ul.brandTree.displayNone
+      %ul.boxRight
+        %li.boxRight__item.boxRight__item--login
+          = link_to "#", class: "a" do
+            ログイン
+        %li.boxRight__item.boxRight__item--new
+          = link_to "#", class: "a" do
+            新規会員登録

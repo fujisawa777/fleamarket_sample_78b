@@ -1,0 +1,127 @@
+.header {
+  padding: 0 60px;
+  .headerItems {
+    max-width: 1040px;
+    width: 100%;
+    min-height: 82px;
+    margin: 0 auto;
+    padding: 15px 0 0;
+    .headerItemsHead {
+      position: relative;
+      display: flex;
+      align-items: center;
+      .title {
+        padding-bottom: 10px;
+        margin-right: 30px;
+        border-radius: 4px;
+        &__link {
+          width: 140px;
+          display: block;
+          &__image {
+            vertical-align: bottom;
+          }
+        }
+      }
+      .searcharea {
+        margin-left: auto;
+        width: 100%;
+        &__form {
+          width: 100%;
+          display: flex;
+          margin-bottom: 5px;
+            .searcharea--input {
+              width: calc(100% - 26px);
+              height: 36px;
+              padding: 0 0 0 5px;
+              border: solid 1px gray;
+            }
+        }
+        form button {
+          width: 36px;
+          border: 0;
+          cursor: pointer;
+          background-color: #3CCACE;
+          padding: 8px;
+          .searcharea__icon {
+            margin: 0;
+            padding: 0;
+            &__image {
+              width: 100%;
+              vertical-align: bottom;
+            }
+          }
+        }
+      }
+    }
+    .headerItemsFoot {
+      font-size: 14px;
+      display: flex;
+      margin-bottom: 10px;
+      .boxLeft {
+        position: relative;
+        display: flex;
+        &__item--first {
+          display: flex;
+          a {
+            color: #333;
+            line-height: 32px;
+            background-position: center right;
+            background-repeat: no-repeat;
+            background-size: 18px;
+            padding-right: 30px;
+          }
+          a:hover {
+            color: orange;
+          }
+          .catTree {
+            display: none;
+            z-index: 2;
+            position: absolute;
+            background-color: #fff;
+            width: 245px;
+            top: 40px;
+            .categoryTree {
+              background-color: #fff;
+              display: flex;
+              flex-direction: column;
+              position: relative;
+            }
+          }
+        }
+        &__item {
+          display: flex;
+          line-height: 38px;
+          padding: 0 ;
+          a {
+            color: #333;
+            text-decoration: none;
+            line-height: 32px;
+            background-position: center right;
+            background-repeat: no-repeat;
+            background-size: 18px;
+            padding-right: 45px;
+          }
+          a:hover {
+            color: orange;
+          }
+        }
+      }
+      .boxRight {
+        margin-left: auto;
+        display:flex;
+        &__item {
+          color: #333;
+          line-height: 38px;
+          padding: 0 0 0 16px;
+          a {
+            display: flex;
+            align-items: center;
+            color: #333;
+            text-decoration: none;
+            line-height: 32px;
+          }
+        }
+      }
+    }
+  }
+}
