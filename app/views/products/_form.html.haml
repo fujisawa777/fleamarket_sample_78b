@@ -32,9 +32,7 @@
     %span.form__field__arbitrary 必須
     .form__field--input.icon-relative
       = f.collection_select :category_id, @parents, :id, :name, prompt: "--" , class: "input", id: "parent-form", name: 'item[category_ids][]'
-      = f.collection_select :size_id, Size.all, :id, :name, prompt: "--", class: 'input'
       = icon('icon', 'facebook-square',class: "form-icon")
-
 
   .form__field
     %span.form__field__lavel ブランド
