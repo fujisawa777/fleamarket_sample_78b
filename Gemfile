@@ -68,3 +68,5 @@ gem "haml-rails", "~> 2.0"
 gem 'font-awesome-sass'
 gem 'active_hash'
 gem 'closure_tree'
+gem 'carrierwave'
+gem 'mini_magick'

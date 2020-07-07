@@ -1,0 +1,5 @@
+.content
+  %p=product.name
+  %p=product.price 円
+  - product.images.each do |image|
+    = image_tag image.url.url
