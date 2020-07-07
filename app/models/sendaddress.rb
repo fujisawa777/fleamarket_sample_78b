@@ -7,3 +7,4 @@ class Sendaddress < ApplicationRecord
             presence: true
 
   validates :zipcode, length: { is: 7 }
+end
