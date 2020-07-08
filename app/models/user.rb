@@ -7,5 +7,6 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates :password, length: { minimum: 7 }
 
+  has_one :personal, dependent: :destroy
   has_one :sendaddress, dependent: :destroy
 end

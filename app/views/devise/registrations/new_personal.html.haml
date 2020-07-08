@@ -1,0 +1,44 @@
+.h2 本人確認情報登録
+
+= form_for @personal do |f|
+  = render "devise/shared/error_messages", resource: @personal
+
+  .field
+    = f.label :bithday
+    %br
+    = f.text_field :bithday
+
+  .field
+    = f.label :firstname
+    %br
+    = f.text_field :firstname
+
+  .field
+    = f.label :lastname
+    %br
+    = f.text_field :lastname
+
+  .field
+    = f.label :h_firstname
+    %br
+    = f.text_field :h_firstname
+
+  .field
+    = f.label :h_lastname
+    %br
+    = f.text_field :h_lastname
+
+  .field
+    = f.label :description
+    %br
+    = f.text_field :description
+
+  .field
+    = f.label :image
+    %br
+    = f.text_field :image
+
+  .actions
+    = f.submit "next"
+
+= render "devise/shared/links"

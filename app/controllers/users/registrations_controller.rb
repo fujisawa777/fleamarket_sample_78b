@@ -22,6 +22,59 @@ class Users::RegistrationsController < Devise::RegistrationsController
     render :new_sendaddress
   end
 
+  # def create_personal
+  #   @user = User.new(session["devise.regist_data"]["user"])
+  #   @personal = Personal.new(personal_params)
+  #   unless @personal.valid?
+  #     flash.now[:alert] = @personal.errors.full_messages
+  #     render :new_personal and return
+  #   end
+  #   session[:birthday] = user_params[:birthday]
+  #   session[:firstname] = user_params[:firstname]
+  #   session[:lastname] = user_params[:lastname]
+  #   session[:h_firstname] = user_params[:h_firstname]
+  #   session[:h_lastname] = user_params[:h_lastname]
+  #   session[:description] = user_params[:discription]
+  #   session[:image] = user_params[:image]
+  #   @user.build_personal(@personal.attributes)
+  #   @sendaddress = @user.build_sendaddress
+  #   render :new_sendaddress
+  # end
+  
+  def create_sendaddress
+    @user = User.new(session["devise.regist_data"]["user"])
+    # @personal = Personal.new(
+    #   session[:birthday] = user_params[:birthday],
+    #   session[:firstname] = user_params[:firstname],
+    #   session[:lastname] = user_params[:lastname],
+    #   session[:h_firstname] = user_params[:h_firstname],
+    #   session[:h_lastname] = user_params[:h_lastname],
+    #   session[:description] = user_params[:discription],
+    #   session[:image] = user_params[:image]
+    # )
+    @sendaddress = Sendaddress.new(sendaddress_params)
+    unless @sendaddress.valid?
+      flash.now[:alert] = @sendaddress.errors.full_messages
+      render :new_sendaddress and return
+    end
+    @user.build_sendaddress(@sendaddress.attributes)
+    @user.save
+    session["devise.regist_data"]["user"].clear
+    sign_in(:user, @user)
+  end
+
+  protected
+
+  # def personal_params
+  #   params.require(:personal).permit(:bithday,:firstname,:lastname,:h_firstname,:h_lastname,:description,:image)
+  # end
+
+  def sendaddress_params
+    params.require(:sendaddress).permit(:s_firstname, :s_lastname, :s_h_firstname, :s_h_lastname, :zipcode, :prefectures, :municipalitities, :streetaddress,:room,:phonenumber)
+  end
+
+end
+
   # GET /resource/edit
   # def edit
   #   super
@@ -67,4 +120,4 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
-end
+
