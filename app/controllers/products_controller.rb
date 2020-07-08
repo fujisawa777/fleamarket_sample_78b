@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, except: [:index, :new, :create]
+  before_action :set_parents, only:[:new, :edit]
 
   def index
     @products = Product.includes(:images).order('created_at DESC')
@@ -11,7 +12,6 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @product.images.new
-    @parents = Category.all.order("id ASC").limit(13)
   end
 
   def create
@@ -46,4 +46,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
 
+  def set_parents
+    @parents = Category.where(parent_id: nil).order(id: :ASC)
+  end
 end
