@@ -7,4 +7,7 @@ class Personal < ApplicationRecord
 
   validates :firstname, :lastname, :h_firstname, :h_lastname,
             format:{ with: /\A[ぁ-んァ-ン一-龥]/ }
+
+# 振り仮名はカタカナだけオッケーにする
 end
+

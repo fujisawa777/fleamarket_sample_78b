@@ -6,8 +6,8 @@ class CreatePersonals < ActiveRecord::Migration[6.0]
       t.string     :lastname,           null: false
       t.string     :h_firstname,        null: false
       t.string     :h_lastname,         null: false
-      t.string     :description        
-      t.string     :image              
+      t.string     :description
+      t.string     :image
       t.references :user,               foreign_key: true
       t.timestamps
     end
