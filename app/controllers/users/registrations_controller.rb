@@ -6,18 +6,23 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   def new
+    # ユーザの箱を用意
     @user = User.new
   end
 
   # POST /resource
   def create
+    # 実際のデータを作る
     @user = User.new(sign_up_params)
+    # 実際のデータをバリデーションでみる
     unless @user.valid?
       flash.now[:alert] = @user.errors.full_messages
       render :new and return
     end
+    # session情報に保存する
     session["devise.regist_data"] = {user: @user.attributes}
     session["devise.regist_data"][:user]["password"] = params[:user][:password]
+    # ユーザに紐づいた個人の箱を作る
     @personal = @user.build_personal
     render :new_personal
   end
@@ -29,34 +34,25 @@ class Users::RegistrationsController < Devise::RegistrationsController
       flash.now[:alert] = @personal.errors.full_messages
       render :new_personal and return
     end
-    session[:birthday, :firstname, :lastname, :h_firstname, :h_lastname, :description, :image] = personal_params[:birthday,:firstname,:lastname,:h_firstname,:h_lastname,:description,:image]
-    # session[:birthday] = personal_params[:birthday]
-    # session[:firstname] = personal_params[:firstname]
-    # session[:lastname] = personal_params[:lastname]
-    # session[:h_firstname] = personal_params[:h_firstname]
-    # session[:h_lastname] = personal_params[:h_lastname]
-    # session[:description] = personal_params[:description]
-    # session[:image] = personal_params[:image]
-    @user.build_personal(@personal.attributes)
+    session["devise.regist_data"][:personal] = @personal.attributes
     @sendaddress = @user.build_sendaddress
     render :new_sendaddress
   end
   
   def create_sendaddress
     @user = User.new(session["devise.regist_data"]["user"])
-    @personal = Personal.new(
-      session[:birthday, :firstname, :lastname, :h_firstname, :h_lastname, :description, :image]
-    )
+    @personal = Personal.new(session["devise.regist_data"]["personal"])
     @sendaddress = Sendaddress.new(sendaddress_params)
     unless @sendaddress.valid?
       flash.now[:alert] = @sendaddress.errors.full_messages
       render :new_sendaddress and return
     end
+    session["devise.regist_data"][:sendaddress] = @sendaddress.attributes
+    @user.build_personal(@personal.attributes)
     @user.build_sendaddress(@sendaddress.attributes)
     @user.save
-    session["devise.regist_data"]["user"].clear
+    session["devise.regist_data"].clear
     sign_in(:user, @user)
-
   end
 
   protected

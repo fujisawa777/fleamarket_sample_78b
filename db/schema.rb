@@ -18,9 +18,8 @@ ActiveRecord::Schema.define(version: 2020_07_07_051951) do
     t.string "lastname", null: false
     t.string "h_firstname", null: false
     t.string "h_lastname", null: false
-    t.string "description", null: false
-    t.string "image", null: false
-    t.string "streetaddress", null: false
+    t.string "description"
+    t.string "image"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -37,7 +36,7 @@ ActiveRecord::Schema.define(version: 2020_07_07_051951) do
     t.string "municipalitities", null: false
     t.string "streetaddress", null: false
     t.string "room"
-    t.string "phonenumber"
+    t.string "phonenumber", null: false
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

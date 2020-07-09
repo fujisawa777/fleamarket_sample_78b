@@ -1,19 +1,10 @@
 class Personal < ApplicationRecord
   belongs_to :user, optional: true
 
-  validates :birthday, :firstname, :lastname, :h_firstname,
-            :h_lastname, :description, :image,
+  validates :birthday, :firstname, :lastname,
+            :h_firstname, :h_lastname,
             presence: true
 
-  # validates :firstname, :lastname, :h_firstname, :h_lastname,
-  #           if: self.zenkaku?(str)
-
-#def self.zenkaku?(str)
-  #return nil if str.nil?
-  #unless str.to_s =~/^[^ -~｡-ﾟ]*$/
-    #return false
-  #end
-  #return true
-#end
-
+  validates :firstname, :lastname, :h_firstname, :h_lastname,
+            format:{ with: /\A[ぁ-んァ-ン一-龥]/ }
 end

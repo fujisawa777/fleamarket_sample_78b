@@ -10,7 +10,7 @@ class CreateSendaddresses < ActiveRecord::Migration[6.0]
       t.string     :municipalitities,   null: false
       t.string     :streetaddress,      null: false
       t.string     :room
-      t.integer    :phonenumber,        null: false
+      t.string     :phonenumber,        null: false
       t.references :user,               foreign_key: true
       t.timestamps
     end
