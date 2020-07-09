@@ -15,7 +15,7 @@ class Product < ApplicationRecord
   validates :category_id, :status_id, :shipfee_id, :shipregion_id, :estshipdate_id,
             presence: { message: "を選択してください"}
 
-  validates :images, presence: { message: "が一枚も投稿されてません。"}
+  validates :images, presence: { message: "がありません。"}
 
 
 

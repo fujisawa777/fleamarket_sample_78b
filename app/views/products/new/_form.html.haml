@@ -50,9 +50,9 @@
         .form__field--input.marginT25
           = f.collection_select :category_id, @parents, :id, :name, {prompt: "選択してください"} , {class: "form__field--inputSelect"}
           = icon("fas", "angle-down",class:"form__field--inputSelectIcon")
-          - if @product.errors.include?(:description)
+          - if @product.errors.include?(:category_id)
             %p.error_message
-              = @product.errors.full_messages_for(:description).first
+              = @product.errors.full_messages_for(:category_id).first
       .form__field.marginT50
         %span.form__field__label ブランド
         %span.form__field__arbitrary 任意
