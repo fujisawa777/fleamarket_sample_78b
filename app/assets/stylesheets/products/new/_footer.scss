@@ -1,0 +1,37 @@
+.newfooter {
+  margin-top: auto;
+  text-align: center;
+  background-color: gainsboro;
+  ul {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  li {
+    font-size: 12px;
+    margin: 16px  40px 16px;
+
+    }
+  }
+}
+
+.newfooter__bottomLogo {
+  display:  flex;
+  justify-content: center;
+  background-color: gainsboro;
+  &Hoge{
+      &Icon{
+      height: 65px;
+      margin-bottom: 8px;
+      width: 80px;
+      background-color: gainsboro;
+      background-size: cover 65px 80px;
+      vertical-align: middle;
+    }
+  }
+}
+.newfooter__bottomPoricy{
+  background-color: gainsboro;
+  display:  flex;
+  justify-content: center;
+}
+

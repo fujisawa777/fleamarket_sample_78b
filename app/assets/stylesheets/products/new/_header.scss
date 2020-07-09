@@ -1,0 +1,10 @@
+.sellHeader {
+  height: 128px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &__icon{
+    height: 49px;
+    width: 185px;
+  }
+}
