@@ -24,15 +24,17 @@
         color: white;
         background-color:#3CCACE;
         font-weight: bold;
-        font-size: 12px;
-        margin-left: 5px;
+        font-size: 14px;
+        margin-left: 2px;
+        padding: 0 5px;
       }
       &__arbitrary {
         color: white;
         background-color:gray;
         font-weight: bold;
-        font-size: 12px;
+        font-size: 14px;
         margin-left: 5px;
+        padding: 0 2px;
       }
       &__image{
         height: 200px;
