@@ -1,5 +1,5 @@
 .sellMain{
-  .form{
+  .form {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -36,6 +36,7 @@
       }
       &--input{
         width: 100%;
+        position: relative;
         &Field {
           padding: 5px 10px;
           border: 1px solid #bbb;
@@ -48,6 +49,24 @@
             outline: 1px blue solid;
             }
         }
+        &Select {
+          padding: 5px 10px;
+          border: 1px solid #bbb;
+          border-radius: 5px;
+          height: 50px;
+          width: 100%;
+          line-height: 100%;
+          align-items: center;
+          position: relative;
+          &Icon{
+            position: absolute;
+            right:  20px;
+            top: 18px;
+          }
+          &:focus {
+            outline: 1px blue solid;
+          }
+        }
         &Area {
           padding: 5px 10px;
           border: 1px solid #bbb;
@@ -57,6 +76,29 @@
           resize:vertical;
           &:focus {
             outline: 1px blue solid;
+          }
+        }
+        &Price{
+          width: 50%;
+          display: flex;
+          &Label {
+            line-height: 50px;
+            text-align: center;
+            font-weight: bold;
+            margin-right: 5px;
+          }
+          &Field{
+          padding: 5px 10px;
+          border: 1px solid #bbb;
+          border-radius: 5px;
+          height: 50px;
+          width: 100%;
+          line-height: 100%;
+          align-items: center;
+          text-align: right;
+            &::placeholder {
+              text-align: right;
+            }
           }
         }
       }
@@ -103,5 +145,10 @@
   }
   .last__content{
     padding: 40px 40px 20px 40px;
+  }
+  .flexbox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 }
