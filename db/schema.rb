@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2020_07_07_051951) do
 
   create_table "personals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.date "bithday", null: false
+    t.date "birthday", null: false
     t.string "firstname", null: false
     t.string "lastname", null: false
     t.string "h_firstname", null: false

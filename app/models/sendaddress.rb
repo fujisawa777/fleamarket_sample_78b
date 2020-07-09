@@ -3,7 +3,7 @@ class Sendaddress < ApplicationRecord
 
   validates :s_firstname, :s_lastname, :s_h_firstname,
             :s_h_lastname, :zipcode, :prefectures,
-            :municipalitities, :streetaddress,
+            :municipalitities, :streetaddress,:phonenumber,
             presence: true
 
   validates :zipcode, length: { is: 7 }

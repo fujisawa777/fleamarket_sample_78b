@@ -1,8 +1,8 @@
 class Personal < ApplicationRecord
   belongs_to :user, optional: true
 
-  validates :bithday, :firstname, :lastname, :h_firstname,
-            :h_lastname, :description, :image, :streetaddress,
+  validates :birthday, :firstname, :lastname, :h_firstname,
+            :h_lastname, :description, :image,
             presence: true
 
   # validates :firstname, :lastname, :h_firstname, :h_lastname,

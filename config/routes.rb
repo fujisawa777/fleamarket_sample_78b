@@ -3,8 +3,8 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   devise_scope :user do
-    get 'personal', to: 'users/registrations#new_personal'
-    post 'personal', to: 'users/registrations#create_personal'
+    get 'personals', to: 'users/registrations#new_personal'
+    post 'personals', to: 'users/registrations#create_personal'
     get 'sendaddresses', to: 'users/registrations#new_sendaddress'
     post 'sendaddresses', to: 'users/registrations#create_sendaddress'
   end
