@@ -9,8 +9,14 @@ class Product < ApplicationRecord
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
 
-  validates :name, :price, :category_id, :description,
-            :status_id, :shipfee_id, :shipregion_id, :estshipdate_id,
-            :images, presence: true
+  validates :name, :price, :description,
+            presence: { message: "を入力してください"}
+
+  validates :category_id, :status_id, :shipfee_id, :shipregion_id, :estshipdate_id,
+            presence: { message: "を選択してください"}
+
+  validates :images, presence: { message: "が一枚も投稿されてません。"}
+
+
 
 end

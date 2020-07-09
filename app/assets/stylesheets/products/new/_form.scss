@@ -146,7 +146,14 @@
       font-size: 18px;
     }
   }
-
+  .field_with_errors {
+    border: 1px solid red;
+    border-radius: 5px;
+  }
+  .error_message {
+    margin-top: 10px;
+    color: red;
+  }
   .marginT25 {
     margin-top: 25px;
   }

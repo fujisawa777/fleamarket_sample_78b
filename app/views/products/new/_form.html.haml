@@ -4,7 +4,6 @@
       .form__field
         %span.form__field__label イメージ
         %span.form__field__essential 必須
-
         .form__field__image.icon-relative.marginT25
           #image-box
             #previews
@@ -22,6 +21,9 @@
               .js-file_group{"data-index" => "#{@product.images.count}"}
                 = file_field_tag :src, name: "product[images_attributes][#{@product.images.count}][src]", class: 'js-file'
                 .js-remove 削除
+        - if @product.errors.include?(:image)
+          %p.error_message
+            = @product.errors.full_messages_for(:image).first
     %hr
     .form__content
       .form__field
@@ -29,11 +31,17 @@
         %span.form__field__essential 必須
         .form__field--input.marginT25
           = f.text_field :name, class: "form__field--inputField" , placeholder: "40文字まで"
+          - if @product.errors.include?(:name)
+            %p.error_message
+              = @product.errors.full_messages_for(:name).first
       .form__field.marginT50
         %span.form__field__label 商品の説明
         %span.form__field__essential 必須
         .form__field--input.marginT25
           = f.text_area :description,class: "form__field--inputArea" , placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）\n例）199X年頃に1万円で購入したアウターです。パンチな衣装で穴だらけです。あわせやすいのでおすすめです。"
+          - if @product.errors.include?(:description)
+            %p.error_message
+              = @product.errors.full_messages_for(:description).first
     %hr
     .form__content
       .form__field
@@ -42,6 +50,9 @@
         .form__field--input.marginT25
           = f.collection_select :category_id, @parents, :id, :name, {prompt: "選択してください"} , {class: "form__field--inputSelect"}
           = icon("fas", "angle-down",class:"form__field--inputSelectIcon")
+          - if @product.errors.include?(:description)
+            %p.error_message
+              = @product.errors.full_messages_for(:description).first
       .form__field.marginT50
         %span.form__field__label ブランド
         %span.form__field__arbitrary 任意
@@ -59,6 +70,9 @@
         .form__field--input.marginT25
           = f.collection_select :status_id, Status.all, :id, :name, {prompt: "選択してください"} , {class: "form__field--inputSelect"}
           = icon("fas", "angle-down",class:"form__field--inputSelectIcon")
+          - if @product.errors.include?(:status_id)
+            %p.error_message
+              = @product.errors.full_messages_for(:status_id).first
     %hr
     .form__content
       .form__field
@@ -67,19 +81,27 @@
         .form__field--input.marginT25
           = f.collection_select :shipfee_id, Shipfee.all, :id, :name, {prompt: "選択してください"} , {class: "form__field--inputSelect"}
           = icon("fas", "angle-down",class:"form__field--inputSelectIcon")
+          - if @product.errors.include?(:shipfee_id)
+            %p.error_message
+              = @product.errors.full_messages_for(:shipfee_id).first
       .form__field.marginT50
         %span.form__field__label 発送元の地域
         %span.form__field__essential 必須
         .form__field--input.marginT25
           = f.collection_select :shipregion_id, Shipregion.all, :id, :name, {prompt: "選択してください"} , {class: "form__field--inputSelect"}
           = icon("fas", "angle-down",class:"form__field--inputSelectIcon")
+          - if @product.errors.include?(:shipregion_id)
+            %p.error_message
+              = @product.errors.full_messages_for(:shipregion_id).first
       .form__field.marginT50
         %span.form__field__label 発送日までの目安
         %span.form__field__essential 必須
         .form__field--input.marginT25
           = f.collection_select :estshipdate_id, Estshipdate.all, :id, :name, {prompt: "選択してください"} , {class: "form__field--inputSelect"}
           = icon("fas", "angle-down",class:"form__field--inputSelectIcon")
-
+          - if @product.errors.include?(:estshipdate_id)
+            %p.error_message
+              = @product.errors.full_messages_for(:estshipdate_id).first
     %hr
     .form__content
       .form__field.flexbox
@@ -89,6 +111,9 @@
         .form__field--inputPrice
           %span.form__field--inputPriceLabel ¥
           = f.number_field :price,  class: "form__field--inputPriceField",placeholder: "0"
+      - if @product.errors.include?(:price)
+        %p.error_message
+          = @product.errors.full_messages_for(:price).first
     %hr
     .form__content.last__content
       .form__field
