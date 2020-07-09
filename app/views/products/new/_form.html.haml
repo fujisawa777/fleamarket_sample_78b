@@ -1,0 +1,96 @@
+.sellMain
+  = form_with model: @product, class: "form" ,local: true do |f|
+    .form__content
+      .form__field
+        %span.form__field__label イメージ
+        %span.form__field__essential 必須
+        .form__field--input.icon-relative.marginT25
+          #image-box
+            #previews
+              - if @product.persisted?
+                - @product.images.each_with_index do |image, i|
+                  = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
+            = f.fields_for :images do |image|
+              .js-file_group{"data-index" => "#{image.index}"}
+                = image.file_field :src, class: 'js-file'
+                %br/
+                %span.js-remove 削除
+              - if @product.persisted?
+                = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+            - if @product.persisted?
+              .js-file_group{"data-index" => "#{@product.images.count}"}
+                = file_field_tag :src, name: "product[images_attributes][#{@product.images.count}][src]", class: 'js-file'
+                .js-remove 削除
+    %hr
+    .form__content
+      .form__field
+        %span.form__field__label 商品名
+        %span.form__field__essential 必須
+        .form__field--input.marginT25
+          = f.text_field :name, class: "form__field--inputField"
+      .form__field.marginT50
+        %span.form__field__label 商品の説明
+        %span.form__field__essential 必須
+        .form__field--input.marginT25
+          = f.text_area :description,class: "form__field--inputArea"
+    %hr
+    .form__content
+      .form__field
+        %span.form__field__label カテゴリ
+        %span.form__field__essential 必須
+        .form__field--input.marginT25
+          = f.collection_select :category_id, @parents, :id, :name, {prompt: "選択してください"} , {class: "form__field--inputField"}
+          = icon('icon', 'facebook-square',class: "form-icon")
+      .form__field.marginT50
+        %span.form__field__label ブランド
+        %span.form__field__arbitrary 任意
+        .form__field--input.marginT25
+          = f.text_field :brand, class: "form__field--inputField"
+      .form__field.marginT50
+        %span.form__field__label サイズ
+        %span.form__field__arbitrary 任意
+        .form__field--input.marginT25
+          = f.collection_select :size_id, Size.all, :id, :name, {prompt: "選択してください"} , {class: "form__field--inputField"}
+          = icon('icon', 'facebook-square',class: "form-icon")
+      .form__field.marginT50
+        %span.form__field__label 商品の状態
+        %span.form__field__essential 必須
+        .form__field--input.marginT25
+          = f.collection_select :status_id, Status.all, :id, :name, {prompt: "選択してください"} , {class: "form__field--inputField"}
+          = icon('icon', 'facebook-square',class: "form-icon")
+    %hr
+    .form__content
+      .form__field
+        %span.form__field__label 配送料
+        %span.form__field__essential 必須
+        .form__field--input.marginT25
+          = f.collection_select :shipfee_id, Shipfee.all, :id, :name, {prompt: "選択してください"} , {class: "form__field--inputField"}
+          = icon('icon', 'facebook-square',class: "form-icon")
+      .form__field.marginT50
+        %span.form__field__label 発送元の地域
+        %span.form__field__essential 必須
+        .form__field--input.marginT25
+          = f.collection_select :shipregion_id, Shipregion.all, :id, :name, {prompt: "選択してください"} , {class: "form__field--inputField"}
+          = icon('icon', 'facebook-square',class: "form-icon")
+      .form__field.marginT50
+        %span.form__field__label 発送日までの目安
+        %span.form__field__essential 必須
+        .form__field--input.marginT25
+          = f.collection_select :estshipdate_id, Estshipdate.all, :id, :name, {prompt: "選択してください"} , {class: "form__field--inputField"}
+          = icon('icon', 'facebook-square',class: "form-icon")
+    %hr
+    .form__content
+      .form__field
+        %span.form__field__label 料金
+        %span.form__field__essential 必須
+        .form__field--input.marginT25
+          = f.number_field :price,  class: "form__field--inputField"
+    %hr
+    .form__content.last__content
+      .form__field
+        = f.submit '出品する', class: "form__field--btn"
+      .form__field.marginT25
+        = link_to "もどる", "/", class: "form__field--link"
+    .form__content
+      .form__content__caution
+        禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。また、出品をもちまして加盟店規約に同意したことになります。

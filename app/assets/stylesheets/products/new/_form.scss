@@ -1,0 +1,107 @@
+.sellMain{
+  .form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    max-width: 700px;
+    margin: 0 auto;
+    &__content {
+      padding: 40px;
+      width: 100%;
+      &__caution{
+        font-size: 14px;
+        color: #BBB;
+      }
+    }
+    &__field {
+      &__label {
+        font-size: 14px;
+        font-weight: bold;
+      }
+      &__essential {
+        color: white;
+        background-color:#3CCACE;
+        font-weight: bold;
+        font-size: 12px;
+        margin-left: 5px;
+      }
+      &__arbitrary {
+        color: white;
+        background-color:gray;
+        font-weight: bold;
+        font-size: 12px;
+        margin-left: 5px;
+      }
+      &--input{
+        width: 100%;
+        &Field {
+          padding: 5px 10px;
+          border: 1px solid #bbb;
+          border-radius: 5px;
+          height: 50px;
+          width: 100%;
+          line-height: 100%;
+          align-items: center;
+          &:focus {
+            outline: 1px blue solid;
+            }
+        }
+        &Area {
+          padding: 5px 10px;
+          border: 1px solid #bbb;
+          border-radius: 5px;
+          height: 200px;
+          width: 100%;
+          resize:vertical;
+          &:focus {
+            outline: 1px blue solid;
+          }
+        }
+      }
+      &--btn {
+        display: block;
+        background-color: #3CCACE;
+        color: white;
+        width: 300px;
+        -items: center;
+        text-align: center;
+        border-radius: 5px;
+        height: 50px;
+        margin: 0 auto;
+      }
+      &--link {
+        font-size: 14px;
+        display: block;
+        width: 100px;
+        color: blue;
+        margin: 0 auto;
+        text-align: center;
+      }
+    }
+  }
+  hr {
+    border-top: 1px dotted #bbb;
+    width: 100%;
+    &:after {
+      content: '\002702';
+      position: relative;
+      top: -10px;
+      left: 40px;
+      padding: 0 3px;
+      color: #bbb;
+      font-size: 18px;
+    }
+  }
+
+  .marginT25 {
+    margin-top: 25px;
+  }
+  .marginT50 {
+    margin-top: 50px;
+  }
+  .last__content{
+    padding: 40px 40px 20px 40px;
+  }
+}

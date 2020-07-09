@@ -1,19 +1,17 @@
-.newfooter
-  %ul.newfooter.bottom
-    %li.newfooterbottom__note
-      = link_to "app/products/new", class: "newfooter__bottom__note__ex" do
+.sellfooter
+  %ul.sellfooter__bottom
+    %li.sellfooter__bottom__note
+      = link_to "app/products/new", class: "sellfooter__bottom__note__ex" do
         プライバシーポリシー
-      -# %a.fottre__bottom__note__ex{:href => "/jp/privacy/"} プライバシーポリシー
-    %li.newfooter__bottom__note
-      = link_to "app/products/new", class: "newfooter__bottom__note__ex" do
+    %li.sellfooter__bottom__note
+      = link_to "app/products/new", class: "sellfooter__bottom__note__ex" do
         FURIMA利用規約
-      -# %a.fottrer__bottom__note__ex{:href => "/jp/tos/"} メルカリ利用規約
-    %li.newfooter__bottom__note
-      = link_to "app/products/new", class: "newfooter__bottom__note__ex" do
+    %li.sellfooter__bottom__note
+      = link_to "app/products/new", class: "sellfooter__bottom__note__ex" do
         特定商取引に関する表記
-.newfooter__bottomLogo
-  = link_to root_path , class: "newfooter__bottomLogoHoge" do
-    = image_tag "/assets/logo/logo-white.png", class: "newfooter__bottomLogoHogeIcon"
-.newfooter__bottomPoricy
-  %p.newfooter__bottomPoricyLogo
-    © FURIMA
+  .sellfooter__bottomLogo
+    = link_to root_path , class: "sellfooter__bottomLogo__Link" do
+      = image_tag "/assets/logo/logo-white.png", class: "sellfooter__bottomLogo__LinkIcon"
+  .sellfooter__bottomPoricy
+    %p.sellfooter__bottomPoricyLogo
+      © FURIMA
