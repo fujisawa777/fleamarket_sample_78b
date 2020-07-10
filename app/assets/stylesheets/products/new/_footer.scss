@@ -5,22 +5,20 @@
     display: flex;
     justify-content: center;
     align-content: center;
-  li {
-    font-size: 12px;
-    margin: 16px  40px 16px;
-
+    li {
+      font-size: 12px;
+      margin: 16px 40px 16px;
     }
   }
 }
 
 .sellfooter__bottomLogo {
-  display:  flex;
+  display: flex;
   justify-content: center;
-  &__Link{
-      &Icon{
+  &__Link {
+      &Icon {
       margin-bottom: 8px;
       width: 200px;
-      // background-color: gainsboro;
       background-size: cover 65px 80px;
       vertical-align: middle;
     }
@@ -28,7 +26,6 @@
 }
 
 .sellfooter__bottomPoricy{
-  display:  flex;
+  display: flex;
   justify-content: center;
 }
-

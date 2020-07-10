@@ -136,6 +136,15 @@
         width: 100%;
         border: 1px solid #bbb;
         border-radius: 5px;
+        .js-file{ 
+          &_group {
+            display: flex;
+          }
+        }
+        .js-remove {
+          line-height: 24px;
+          align-items: center;
+        }
       }
       &--input{
         width: 100%;
