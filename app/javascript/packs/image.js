@@ -18,20 +18,12 @@ $(document).on('turbolinks:load', () => {
     return html;
   }
 
-  const input = ` <input class="postContainer__hiddenField" type="file" name="product[images_attributes][0][src]" id="product_images_attributes_0_src">
-                  <input class="postContainer__hiddenField" id="product_images_attributes_1_src" name="product[images_attributes][1][src]" type="file">
-                  <input class="postContainer__hiddenField" id="product_images_attributes_2_src" name="product[images_attributes][2][src]" type="file">
-                  <input class="postContainer__hiddenField" id="product_images_attributes_3_src" name="product[images_attributes][3][src]" type="file">
-                  <input class="postContainer__hiddenField" id="product_images_attributes_4_src" name="product[images_attributes][4][src]" type="file">`
-
   // ラベルのwidth操作
   function setLabel() {
     let prevContent = $('.postContainer__label').prev().css('width').replace(/[^0-9]/g, '');
     let labelWidth = (620 - parseInt(prevContent) - 5);
     $('.postContainer__label').css('width', labelWidth);
   }
-
-  if ($('.postContainer__hiddenField').length == 0) $('.postContainer__hidden').append(input);
 
 
   // プレビューの追加
