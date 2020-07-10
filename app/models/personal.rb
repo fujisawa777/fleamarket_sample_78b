@@ -10,4 +10,3 @@ class Personal < ApplicationRecord
 
 # 振り仮名はカタカナだけオッケーにする
 end
-
