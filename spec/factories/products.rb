@@ -11,6 +11,8 @@ FactoryBot.define do
     shipfee_id            {2}
     shipregion_id         {1}
     estshipdate_id        {1}
+    after(:build) do |product|
+      product.images << build(:image, src: "1" , product: product)
+    end
   end
-
 end

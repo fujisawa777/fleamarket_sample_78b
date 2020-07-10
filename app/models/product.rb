@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :category
+  belongs_to :category, optional: true
   belongs_to_active_hash :size
   belongs_to_active_hash :status
   belongs_to_active_hash :shipfee
@@ -16,7 +16,4 @@ class Product < ApplicationRecord
             presence: { message: "を選択してください"}
 
   validates :images, presence: { message: "がありません。"}
-
-
-
 end
