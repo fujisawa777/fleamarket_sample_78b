@@ -17,8 +17,10 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
+      flash[:notice] = '商品が出品されました'
       redirect_to root_path
     else
+      flash.now[:alert]  = 'エラーがあります'
       render :new
     end
   end
@@ -28,17 +30,21 @@ class ProductsController < ApplicationController
 
   def update
     if @product.update(product_params)
+      flash[:notice] = '商品が更新されました'
       redirect_to root_path
     else
+      flash.now[:alert]  = '商品の更新に失敗しました'
       render :edit
     end
   end
 
   def destroy
     if @product.seller_id == current_user.id && @product.destroy
+        flash[:notice] = '商品が削除されました'
         redirect_to root_path
       else
         @product = Product.includes(:images).order('created_at DESC')
+        flash.now[:alert]  = '商品が削除されませんでした'
         render :index
       end
   end
