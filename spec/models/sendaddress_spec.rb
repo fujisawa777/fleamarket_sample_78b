@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe Sendaddress, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}" 
-end
+# RSpec.describe Sendaddress, type: :model do
+#   pending "add some examples to (or delete) #{__FILE__}" 
+# end
 
 describe Sendaddress do
   describe '#create_sendaddress' do
@@ -61,10 +61,15 @@ describe Sendaddress do
       expect(sendaddress.errors[:zipcode]).to include("を入力してください")
     end
 
-    it "zipcodeが7文字かどうか" do
-      sendaddress = build(:sendaddress, zipcode: "12345")
+    it "zipcodeが7文字じゃなかった場合" do
+      sendaddress = build(:sendaddress, zipcode: "123456")
       sendaddress.valid?
       expect(sendaddress.errors[:zipcode]).to include("は7文字で入力してください")
+    end
+
+    it "zipcodeが7文字だった場合" do
+      sendaddress = build(:sendaddress, zipcode: "1234567")
+      expect(sendaddress).to be_valid
     end
 
   end

@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
-end
+# RSpec.describe User, type: :model do
+#   pending "add some examples to (or delete) #{__FILE__}"
+# end
 
 describe User do
 
@@ -27,9 +27,10 @@ describe User do
     end
 
     it "Eメールは重複して登録されていないかどうか" do
-      user = build(:user, email: "sample@sample.com" "sample@sample.com")
-      user.valid?
-      expect(user.errors[:email]).to include("は不正な値です")
+      user = create(:user, email: "sample@sample.com")
+      another_user = build(:user, email: "sample@sample.com")
+      another_user.valid?
+      expect(another_user.errors[:email]).to include("はすでに存在します")
     end
 
     it "パスワードは７文字以上かどうか" do
