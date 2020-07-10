@@ -4,9 +4,9 @@ RSpec.describe User, type: :model do
   pending "add some examples to (or delete) #{__FILE__}"
 end
 
-describe Personal do
+describe User do
 
-  describe '#create_personal' do
+  describe '#create' do
 
     it "ネームの入力が空かどうか" do
       user = build(:user, name: "")
@@ -27,15 +27,15 @@ describe Personal do
     end
 
     it "Eメールは重複して登録されていないかどうか" do
-      user = build(:user, email: "")
+      user = build(:user, email: "sample@sample.com" "sample@sample.com")
       user.valid?
-      expect(user.errors[:email]).to include("sample@sample.com")
+      expect(user.errors[:email]).to include("は不正な値です")
     end
 
     it "パスワードは７文字以上かどうか" do
       user = build(:user, password: "123456")
       user.valid?
-      expect(user.errors[:password]).to include("")
+      expect(user.errors[:password]).to include("は7文字以上で入力してください")
     end
 
   end
