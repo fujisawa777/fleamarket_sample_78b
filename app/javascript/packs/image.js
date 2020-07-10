@@ -90,10 +90,9 @@ $(document).on('turbolinks:load', () => {
     setLabel();
     //postContainer__hiddenFieldのidの数値のみ取得
     let id = $(this).attr('id').replace(/[^0-9]/g, '');
-    //アペンドした数字か、もしくは刺激した数字をみて考える必要がある。
 
     //labelボックスのidとforを更新
-    $('.postContainer__labelBox').attr({id: `label-box--${id}`,for: `product_images_attributes_${id}_image`});
+    $('.postContainer__labelBox').attr({id: `label-box--${id}`,for: `product_images_attributes_${id}_src`});
     //現在のフィールドからfileのオブジェクトを取得
     let file = this.files[0];
     // 途中で使うファイルリーダー
@@ -132,7 +131,7 @@ $(document).on('turbolinks:load', () => {
       //ラベルのidとforの値を変更
       if(count < 5){
         //プレビューの数でラベルのオプションを更新する(バグあり)
-        $('.postContainer__labelBox').attr({id: `label-box--${count}`,for: `product_images_attributes_${count}_image`});
+        $('.postContainer__labelBox').attr({id: `label-box--${count}`,for: `product_images_attributes_${count}_src`});
       }
     }
   });
@@ -146,7 +145,7 @@ $(document).on('turbolinks:load', () => {
     //サイズの再計算
     setLabel();
     //フォームの中身を削除
-    $(`#product_images_attributes_${id}_image`).val("");
+    $(`#product_images_attributes_${id}_src`).val("");
     // コンテンツの数を計算する
     let count = $('.preview-box').length;
 
@@ -158,7 +157,7 @@ $(document).on('turbolinks:load', () => {
 
     if(id < 5){
       //削除された際に、空っぽになったfile_fieldをもう一度入力可能にする
-      $('.postContainer__labelBox').attr({id: `label-box--${id}`,for: `product_images_attributes_${id}_image`});
+      $('.postContainer__labelBox').attr({id: `label-box--${id}`,for: `product_images_attributes_${id}_src`});
     }
   });
 });

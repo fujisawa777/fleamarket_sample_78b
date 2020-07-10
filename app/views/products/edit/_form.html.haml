@@ -14,10 +14,10 @@
             .postContainer__hidden
               = f.fields_for :images do |i|
                 = i.file_field :src, class: "postContainer__hiddenField"
-                %input{class:"postContainer__hiddenField", type: "file", name: "product[images_attributes][1][src]", id: "product_images_attributes_1_src" }
-                %input{class:"postContainer__hiddenField", type: "file", name: "product[images_attributes][2][src]", id: "product_images_attributes_2_src" }
-                %input{class:"postContainer__hiddenField", type: "file", name: "product[images_attributes][3][src]", id: "product_images_attributes_3_src" }
-                %input{class:"postContainer__hiddenField", type: "file", name: "product[images_attributes][4][src]", id: "product_images_attributes_4_src" }
+                %input{class:"postContainer__hiddenField", type: "file", name: "product[images_attributes][1][image]", id: "product_images_attributes_1_image" }
+                %input{class:"postContainer__hiddenField", type: "file", name: "product[images_attributes][2][image]", id: "product_images_attributes_2_image" }
+                %input{class:"postContainer__hiddenField", type: "file", name: "product[images_attributes][3][image]", id: "product_images_attributes_3_image" }
+                %input{class:"postContainer__hiddenField", type: "file", name: "product[images_attributes][4][image]", id: "product_images_attributes_4_image" }
         - if @product.errors.include?(:images)
           %p.error_message
             = @product.errors.full_messages_for(:images).first
