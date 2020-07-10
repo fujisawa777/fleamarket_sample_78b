@@ -9,3 +9,5 @@ FactoryBot.define do
     image               {"あああ"}
   end
 end
+
+# フェイカーを使う
