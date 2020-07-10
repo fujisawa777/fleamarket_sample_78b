@@ -4,9 +4,9 @@ RSpec.describe User, type: :model do
   pending "add some examples to (or delete) #{__FILE__}"
 end
 
-describe Personal do
+describe User do
 
-  describe '#create_personal' do
+  describe '#create' do
 
     it "ネームの入力が空かどうか" do
       user = build(:user, name: "")
