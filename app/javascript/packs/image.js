@@ -61,8 +61,8 @@
 $(document).on('turbolinks:load', () => {
 
   //プレビューのhtmlを定義
-  function buildHTML(count) {
-    var html = `<div class="preview-box" id="preview-box__${count}">
+  function buildHTML(id) {
+    var html = `<div class="preview-box" id="preview-box__${id}">
                   <div class="upper-box">
                     <img src="" alt="preview">
                   </div>
@@ -70,7 +70,7 @@ $(document).on('turbolinks:load', () => {
                     <div class="update-box">
                       <label class="edit_btn">編集</label>
                     </div>
-                    <div class="delete-box" id="delete_btn_${count}">
+                    <div class="delete-box" id="delete_btn_${id}">
                       <span>削除</span>
                     </div>
                   </div>
@@ -80,77 +80,85 @@ $(document).on('turbolinks:load', () => {
 
   // ラベルのwidth操作
   function setLabel() {
-    //プレビューボックスのwidthを取得し、maxから引くことでラベルのwidthを決定
-    //prevは直前の要素までを取得する。
-    let prevContent = $('.postContainer__label').prev();
-    let labelWidth = (620 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
-    $('.postContainer__hiddenField').css('width', labelWidth);
+    let prevContent = $('.postContainer__label').prev().css('width').replace(/[^0-9]/g, '');
+    let labelWidth = (620 - parseInt(prevContent) - 5);
+    $('.postContainer__label').css('width', labelWidth);
   }
 
   // プレビューの追加
   $(document).on('change', '.postContainer__hiddenField', function() {
     setLabel();
-    //hidden-fieldのidの数値のみ取得
+    //postContainer__hiddenFieldのidの数値のみ取得
     let id = $(this).attr('id').replace(/[^0-9]/g, '');
+    //アペンドした数字か、もしくは刺激した数字をみて考える必要がある。
+
     //labelボックスのidとforを更新
-    $('.postContainer__labelBox').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_image`});
-    //選択したfileのオブジェクトを取得
+    $('.postContainer__labelBox').attr({id: `label-box--${id}`,for: `product_images_attributes_${id}_image`});
+    //現在のフィールドからfileのオブジェクトを取得
     let file = this.files[0];
+    // 途中で使うファイルリーダー
+    // FileReader クラスを使用すると、Blob や File オブジェクトが保有するバッファの中身に、読み取りアクセスを行う事ができます。
     let reader = new FileReader();
     //readAsDataURLで指定したFileオブジェクトを読み込む
     reader.readAsDataURL(file);
     //読み込み時に発火するイベント
     reader.onload = function() {
+      //読み込んだイメージを格納
       let image = this.result;
       //プレビューが元々なかった場合はhtmlを追加
       if ($(`#preview-box__${id}`).length == 0) {
         let count = $('.preview-box').length;
+        // htmlを定義する
         let html = buildHTML(id);
         //ラベルの直前のプレビュー群にプレビューを追加
-        let prevContent = $('.label-content').prev();
+        let prevContent = $('.postContainer__label').prev();
         $(prevContent).append(html);
       }
       //イメージを追加
-      $(`#preview-box__${id} img`).attr('src', `${image}`);
+      $(`#preview-box__${id} img`).attr({
+                                          src: `${image}`,
+                                          class: "upper-box__image"
+                                          });
       let count = $('.preview-box').length;
+
       //プレビューが5個あったらラベルを隠す
       if (count == 5) {
-        $('.label-content').hide();
+        $('.postContainer__label').hide();
       }
 
       //ラベルのwidth操作
       setLabel();
+
       //ラベルのidとforの値を変更
       if(count < 5){
-        //プレビューの数でラベルのオプションを更新する
-        $('.label-box').attr({id: `label-box--${count}`,for: `item_images_attributes_${count}_image`});
+        //プレビューの数でラベルのオプションを更新する(バグあり)
+        $('.postContainer__labelBox').attr({id: `label-box--${count}`,for: `product_images_attributes_${count}_image`});
       }
     }
   });
 
   // 画像の削除
   $(document).on('click', '.delete-box', function() {
-    let count = $('.preview-box').length;
-    setLabel(count);
-    //item_images_attributes_${id}_image から${id}に入った数字のみを抽出
-    let id = $(this).attr('id').replace(/[^0-9]/g, '');
+    //product_images_attributes_${id}_image から${id}に入った数字のみを抽出
+    let id = parseInt($(this).attr('id').replace(/[^0-9]/g, ''));
     //取得したidに該当するプレビューを削除
     $(`#preview-box__${id}`).remove();
-    console.log("new")
+    //サイズの再計算
+    setLabel();
     //フォームの中身を削除
-    $(`#item_images_attributes_${id}_image`).val("");
-
-    //削除時のラベル操作
+    $(`#product_images_attributes_${id}_image`).val("");
+    // コンテンツの数を計算する
     let count = $('.preview-box').length;
+
     //5個めが消されたらラベルを表示
     if (count == 4) {
-      $('.label-content').show();
+      $('.postContainer__label').show();
+      setLabel();
     }
-    setLabel(count);
 
     if(id < 5){
       //削除された際に、空っぽになったfile_fieldをもう一度入力可能にする
-      $('.label-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_image`});
+      $('.postContainer__labelBox').attr({id: `label-box--${id}`,for: `product_images_attributes_${id}_image`});
     }
   });
 });
