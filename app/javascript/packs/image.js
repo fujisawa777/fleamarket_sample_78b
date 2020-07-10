@@ -1,13 +1,6 @@
 // $(document).on('turbolinks:load', ()=> {
-//  // 画像用のinputを生成する関数
-//   const buildFileField = (input)=> {
-//   const html = `<div data-index="${input}" class="js-file_group">
-//                   <input class="js-file" type="file"
-//                   name="product[images_attributes][${input}][src]"
-//                   id="product_images_attributes_${input}_src"><br>
-//                   <div class="js-remove">削除</div>
-//                 </div>`;
-//   return html;
+ // 画像用のinputを生成する関数
+
 // }
 // // プレビュー用のimgタグを生成する関数
 // const buildImg = (index, url)=> {
@@ -62,13 +55,13 @@ $(document).on('turbolinks:load', () => {
 
   //プレビューのhtmlを定義
   function buildHTML(id) {
-    var html = `<div class="preview-box" id="preview-box__${id}">
+    let html = `<div class="preview-box" id="preview-box__${id}">
                   <div class="upper-box">
                     <img src="" alt="preview">
                   </div>
                   <div class="lower-box">
                     <div class="update-box">
-                      <label class="edit_btn">編集</label>
+                      <label for="product_images_attributes_${id}_src",class="edit_btn">編集</label>
                     </div>
                     <div class="delete-box" id="delete_btn_${id}">
                       <span>削除</span>
@@ -78,12 +71,21 @@ $(document).on('turbolinks:load', () => {
     return html;
   }
 
+  const input = ` <input class="postContainer__hiddenField" type="file" name="product[images_attributes][0][src]" id="product_images_attributes_0_src">
+                  <input class="postContainer__hiddenField" id="product_images_attributes_1_src" name="product[images_attributes][1][src]" type="file">
+                  <input class="postContainer__hiddenField" id="product_images_attributes_2_src" name="product[images_attributes][2][src]" type="file">
+                  <input class="postContainer__hiddenField" id="product_images_attributes_3_src" name="product[images_attributes][3][src]" type="file">
+                  <input class="postContainer__hiddenField" id="product_images_attributes_4_src" name="product[images_attributes][4][src]" type="file">`
+
   // ラベルのwidth操作
   function setLabel() {
     let prevContent = $('.postContainer__label').prev().css('width').replace(/[^0-9]/g, '');
     let labelWidth = (620 - parseInt(prevContent) - 5);
     $('.postContainer__label').css('width', labelWidth);
   }
+
+  if ($('.postContainer__hiddenField').length == 0) $('.postContainer__hidden').append(input);
+
 
   // プレビューの追加
   $(document).on('change', '.postContainer__hiddenField', function() {
