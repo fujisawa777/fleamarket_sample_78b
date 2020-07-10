@@ -33,10 +33,15 @@ describe User do
       expect(another_user.errors[:email]).to include("はすでに存在します")
     end
 
-    it "パスワードは７文字以上かどうか" do
+    it "パスワードが７文字以下の場合登録できないこと" do
       user = build(:user, password: "123456")
       user.valid?
       expect(user.errors[:password]).to include("は7文字以上で入力してください")
+    end
+    
+    it "パスワードが７文字以上の場合登録できること" do
+      user = build(:user, password: "1234567")
+      expect(user).to be_valid
     end
 
   end
