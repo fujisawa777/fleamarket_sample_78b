@@ -16,4 +16,9 @@ class Product < ApplicationRecord
             presence: { message: "を選択してください"}
 
   validates :images, presence: { message: "がありません。"}
+
+  validates :name,    length: { maximum: 40 } 
+
+  validates :description,    length: { maximum: 1000 } 
+
 end
