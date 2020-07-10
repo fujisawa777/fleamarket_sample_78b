@@ -8,36 +8,32 @@
         .form__field__image.marginT25
           .postContainer
             .postContainer__prev
+              - @product.images.each do |image|
+                .preview-box
+                  .upper-box
+                    = image_tag image.image.url, alt: "preview"
+                  .lower-box
+                    .update-box
+                      %label.edit-btn 編集
+                    .delete-box
+                      .delete-btn
+                        %span 削除
+
             .postContainer__label
-              %label{for: "product_images_attributes_0_src", class: "postContainer__labelBox", id: "label-box--0"}
-                %pre.postContainer__labelText クリックしてファイルをアップロード
+              = f.label :"product_images_attributes_#{@product.images.length}_src", class: "postContainer__labelBox", id: "label-box--#{@product.images.length}" do
+                %pre.label-box__text-visible クリックしてファイルをアップロード
+
             .postContainer__hidden
               = f.fields_for :images do |i|
-                = i.file_field :src, class: "postContainer__hiddenField"
-                %input{class:"postContainer__hiddenField", type: "file", name: "product[images_attributes][1][image]", id: "product_images_attributes_1_image" }
-                %input{class:"postContainer__hiddenField", type: "file", name: "product[images_attributes][2][image]", id: "product_images_attributes_2_image" }
-                %input{class:"postContainer__hiddenField", type: "file", name: "product[images_attributes][3][image]", id: "product_images_attributes_3_image" }
-                %input{class:"postContainer__hiddenField", type: "file", name: "product[images_attributes][4][image]", id: "product_images_attributes_4_image" }
+                = i.file_field :image, class: "postContainer__hiddenField"
+                = i.check_box:_destroy, class: "postContainer__hiddenCheckbox"
+
+              - @product.images.length.upto(4) do |i|
+                %input{name: "product[images_attributes][#{i}][src]", id: "product_images_attributes_#{i}_src", class:"postContainer__hiddenField", type:"file"}
+
         - if @product.errors.include?(:images)
           %p.error_message
             = @product.errors.full_messages_for(:images).first
-
-          -# #image-box
-          -#   #previews
-          -#     - if @product.persisted?
-          -#       - @product.images.each_with_index do |image, i|
-          -#         = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
-          -#   = f.fields_for :images do |image|
-          -#     .js-file_group{"data-index" => "#{image.index}"}
-          -#       = image.file_field :src, class: 'js-file'
-          -#       %br/
-          -#       %span.js-remove 削除
-          -#     - if @product.persisted?
-          -#       = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
-          -#   - if @product.persisted?
-          -#     .js-file_group{"data-index" => "#{@product.images.count}"}
-          -#       = file_field_tag :src, name: "product[images_attributes][#{@product.images.count}][src]", class: 'js-file'
-          -#       .js-remove 削除
     %hr
     .form__content
       .form__field
