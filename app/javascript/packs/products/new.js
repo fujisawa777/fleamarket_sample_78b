@@ -1,5 +1,5 @@
-$(document).on('turbolinks:load', () => {
-
+// $(document).on('turbolinks:load', () => {
+$(function() {
   //プレビューのhtmlを定義
   function buildHTML(id) {
     let html = `<div class="preview-box" id="preview-box__${id}">

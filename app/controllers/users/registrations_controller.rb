@@ -6,7 +6,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   def new
-    # ユーザの箱を用意
+    # ユーザインスタンスを生成
     @user = User.new
   end
 
@@ -28,11 +28,25 @@ class Users::RegistrationsController < Devise::RegistrationsController
     render :new_personal
   end
 
+  # GET /personal
   def new_personal
-    @user = User.new(session["devise.regist_data"]["user"])
-    @personal = @user.build_personal
+    # sessonデータがなかった場合
+    if session["devise.regist_data"].nil?
+      redirect_to root_path
+
+    # sessionデータがuserとpersonalがあった場合
+    elsif !session["devise.regist_data"]["personal"].nil?
+      redirect_to sendaddresses_path
+
+    # sessionデータがuserだけあった場合
+    elsif !session["devise.regist_data"]["user"].nil?
+      @user = User.new(session["devise.regist_data"]["user"])
+      @personal = @user.build_personal
+      flash.now[:alert] = "戻るボタンを押さないでください"
+    end
   end
 
+  # POST /personal
   def create_personal
     @user = User.new(session["devise.regist_data"]["user"])
     @personal = Personal.new(personal_params)
@@ -45,6 +59,27 @@ class Users::RegistrationsController < Devise::RegistrationsController
     render :new_sendaddress
   end
 
+  # GET /sendaddress
+  def new_sendaddress
+    # sessonデータがなかった場合
+    if session["devise.regist_data"].nil?
+      redirect_to root_path
+
+    # sessionデータがuserとpersonalがあった場合
+    elsif !session["devise.regist_data"]["personal"].nil?
+      @user = User.new(session["devise.regist_data"]["user"])
+      @personal = Personal.new(session["devise.regist_data"]["personal"])
+      @sendaddress = @user.build_sendaddress
+      flash.now[:alert] = "戻るボタンを押さないでください"
+
+    # sessionデータがuserだけあった場合
+    elsif !session["devise.regist_data"]["user"].nil?
+      redirect_to personals_path
+
+    end
+  end
+
+  # POST /sendaddress
   def create_sendaddress
     @user = User.new(session["devise.regist_data"]["user"])
     @personal = Personal.new(session["devise.regist_data"]["personal"])
@@ -60,6 +95,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       session["devise.regist_data"].clear
       flash[:notice] = '内容が保存されました'
       sign_in(:user, @user)
+      redirect_to root_path
     else
       flash.now[:alert]  = 'エラーがあります'
       render :new
