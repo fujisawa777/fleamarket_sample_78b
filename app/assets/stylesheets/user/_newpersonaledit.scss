@@ -1,0 +1,157 @@
+.formMain {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  width: 700px;
+  margin: 0 auto;
+  &__title {
+    font-size: 22px;
+    padding: 32px;
+    font-weight: bold;
+  }
+  .form {
+    width: 100%;
+    padding: 40px 40px 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &__content {
+      width: 350px;
+    }
+    &__field {
+      width: 100%;
+      position: relative;
+      &--input {
+        width: 100%;
+        .year {
+          height: 50px;
+          width: 80px;
+          border: 1px solid #eee;
+          border-radius: 5px;
+          padding: 5px 10px;
+          text-align: center;
+        }
+        .month{
+          height: 50px;
+          width: 80px;
+          border: 1px solid #eee;
+          border-radius: 5px;
+          padding: 5px 10px;
+          margin-left: 5px;
+        }
+        .day{
+          height: 50px;
+          width: 80px;
+          border: 1px solid #eee;
+          border-radius: 5px;
+          padding: 5px 10px;
+          margin-left: 5px;
+        }
+        .dayTitle {
+          position: absolute;
+          right: 40px;
+          top: 18px;
+        }
+        &SelectYear{
+          position: absolute;
+          left: 60px;
+          top: 18px;
+        }
+        &SelectManth{
+          position: absolute;
+          left: 165px;
+          top: 18px;
+        }
+        &SelectDay{
+          position: absolute;
+          right: 70px;
+          top: 18px;
+        }
+      }
+      &Half {
+        &--input {
+          &Field {
+            display: block;
+            height: 50px;
+            width: 100%;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            padding: 5px 5px;
+          }
+        }
+      }
+      &__label {
+        font-size: 14px;
+        font-weight: bold;
+      }
+      &__essential {
+        color: white;
+        background-color:#3CCACE;
+        font-weight: bold;
+        font-size: 14px;
+        margin-left: 2px;
+        padding: 0 5px;
+      }
+      &__arbitrary {
+        color: white;
+        background-color:gray;
+        font-weight: bold;
+        font-size: 14px;
+        margin-left: 5px;
+        padding: 0 2px;
+      }
+      &--btn {
+        display: block;
+        background-color: #3CCACE;
+        color: white;
+        width: 300px;
+        text-align: center;
+        border-radius: 5px;
+        height: 50px;
+        margin: 0 auto;
+      }
+    }
+  }
+  .field_with_errors {
+    border: 1px solid red;
+    border-radius: 5px;
+  }
+  .error_message {
+    margin-top: 10px;
+    color: red;
+  }
+
+  .last__content{
+    padding: 40px 0px;
+  }
+  .marginR5{
+    margin-right: 5px;
+  }
+  .flexbox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .formCutter {
+    border-top: 1px dotted #bbb;
+    width: 100%;
+    &:after {
+      content: '\002702';
+      position: relative;
+      top: -10px;
+      left: 40px;
+      padding: 0 3px;
+      color: #bbb;
+      font-size: 18px;
+    }
+  }
+  .marginT25 {
+    margin-top: 25px;
+  }
+  .marginT50 {
+    margin-top: 50px;
+  }
+}

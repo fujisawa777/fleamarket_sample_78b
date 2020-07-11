@@ -1,4 +1,3 @@
-// $(document).on('turbolinks:load', () => {
 $(function() {
   //プレビューのhtmlを定義
   function buildHTML(id) {
