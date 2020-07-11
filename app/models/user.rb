@@ -9,4 +9,5 @@ class User < ApplicationRecord
 
   has_one :personal, dependent: :destroy
   has_one :sendaddress, dependent: :destroy
+
 end

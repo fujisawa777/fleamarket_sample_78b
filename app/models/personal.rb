@@ -11,4 +11,15 @@ class Personal < ApplicationRecord
   validates :h_firstname, :h_lastname,
             format:{ with: /\A([ァ-ン]|ー)+\z/ }
 
+  include JpPrefecture
+  jp_prefecture :prefectures
+
+  def prefecture_name
+    JpPrefecture::Prefecture.find(code: prefectures).try(:name)
+  end
+
+  def prefecture_name=(prefecture_name)
+    self.prefectures = JpPrefecture::Prefecture.find(name: prefecture_name).code
+  end
+
 end

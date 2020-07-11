@@ -31,7 +31,10 @@
   .field
     = f.label :prefectures
     %br
-    = f.text_field :prefectures
+    -# = f.text_field :prefectures
+    -# = f.input :prefecture_code, collection: JpPrefecture::Prefecture.all, :value_method => :name, include_blank: '都道府県'
+    = f.collection_select :prefectures, JpPrefecture::Prefecture.all, :code, :name, {prompt: "都道府県"} , {class: "form__field--inputSelect"}
+
 
   .field
     = f.label :municipalitities
