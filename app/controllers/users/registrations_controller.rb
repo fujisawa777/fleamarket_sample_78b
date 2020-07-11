@@ -30,7 +30,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create_personal
     @user = User.new(session["devise.regist_data"]["user"])
     @personal = Personal.new(personal_params)
-    binding.pry
     unless @personal.valid?
       flash.now[:alert] = @personal.errors.full_messages
       render :new_personal and return
