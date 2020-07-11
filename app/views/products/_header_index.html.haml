@@ -65,12 +65,13 @@
           %ul.brandTree.displayNone
       %ul.boxRight
         - if current_user.nil?
-          .boxRight__item.boxRight__item--login
-          = link_to new_user_session_path, class: "a" do
-            ログイン
-          .boxRight__item.boxRight__item--new
-          = link_to new_user_registration_path, class: "a" do
-            新規会員登録
+          %li.boxRight__item.boxRight__item--login
+            = link_to new_user_session_path, class: "a" do
+              ログイン
+          %li.boxRight__item.boxRight__item--new
+            = link_to new_user_registration_path, class: "a" do
+              新規会員登録
         - else
-          = link_to destroy_user_session_path, method: :delete, class:"boxRight__item.boxRight__item--logout" do
-            ログアウト
+          %li.boxRight__item.boxRight__item--logout
+            = link_to destroy_user_session_path, method: :delete, class:"boxRight__item.boxRight__item--logout" do
+              ログアウト
