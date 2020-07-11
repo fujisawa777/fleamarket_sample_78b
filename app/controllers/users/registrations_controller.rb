@@ -50,9 +50,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
     session["devise.regist_data"][:sendaddress] = @sendaddress.attributes
     @user.build_personal(@personal.attributes)
     @user.build_sendaddress(@sendaddress.attributes)
-    @user.save
-    session["devise.regist_data"].clear
-    sign_in(:user, @user)
+    if @user.save
+      session["devise.regist_data"].clear
+      flash[:notice] = '内容が保存されました'
+      sign_in(:user, @user)
+    else
+      flash.now[:alert]  = 'エラーがあります'
+      render :new
+    end
   end
 
   protected
