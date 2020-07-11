@@ -26,25 +26,22 @@
   .field
     = f.label :zipcode
     %br
-    = f.text_field :zipcode
+    = f.text_field :zipcode, autocomplete: 'zipcode', class: 'form-control'
 
   .field
     = f.label :prefectures
     %br
-    -# = f.text_field :prefectures
-    -# = f.input :prefecture_code, collection: JpPrefecture::Prefecture.all, :value_method => :name, include_blank: '都道府県'
-    = f.collection_select :prefectures, JpPrefecture::Prefecture.all, :code, :name, {prompt: "都道府県"} , {class: "form__field--inputSelect"}
-
+    = f.collection_select :prefectures, JpPrefecture::Prefecture.all, :code, :name, {prompt: "---"} , {class: "form-control"}
 
   .field
     = f.label :municipalitities
     %br
-    = f.text_field :municipalitities
+    = f.text_field :municipalitities, autocomplete: 'municipalitities', class: 'form-control'
 
   .field
     = f.label :streetaddress
     %br
-    = f.text_field :streetaddress
+    = f.text_field :streetaddress, autocomplete: 'streetaddress', class: 'form-control'
 
   .field
     = f.label :room
@@ -60,3 +57,4 @@
     = f.submit "Sign up"
 
 = render "devise/shared/links"
+= javascript_include_tag 'application'
