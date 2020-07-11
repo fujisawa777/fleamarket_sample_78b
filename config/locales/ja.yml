@@ -1,6 +1,19 @@
 ---
 ja:
   activerecord:
+    models:
+      product: 商品
+    attributes:
+      product:
+        name: 商品名
+        price: 値段
+        description: 商品の説明
+        category_id: カテゴリ
+        status_id: 商品の状態
+        shipfee_id: 配送料
+        shipregion_id: 発送元の地域
+        estshipdate_id: 発送日までの目安
+        images: 画像
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
@@ -17,7 +30,7 @@ ja:
     - 金
     - 土
     abbr_month_names:
-    - 
+    -
     - 1月
     - 2月
     - 3月
@@ -43,7 +56,7 @@ ja:
       long: "%Y年%m月%d日(%a)"
       short: "%m/%d"
     month_names:
-    - 
+    -
     - 1月
     - 2月
     - 3月

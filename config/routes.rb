@@ -8,6 +8,6 @@ Rails.application.routes.draw do
     get 'sendaddresses', to: 'users/registrations#new_sendaddress'
     post 'sendaddresses', to: 'users/registrations#create_sendaddress'
   end
-  root 'items#index'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root 'products#index'
+  resources :products
 end

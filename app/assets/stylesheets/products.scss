@@ -1,0 +1,11 @@
+@import "products/new/header";
+@import "products/new/form";
+@import "products/new/footer";
+
+.sellWrapper{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  color: black;
+  background-color: #F5F5F5;
+}

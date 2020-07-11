@@ -1,0 +1,15 @@
+.root {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  .file {
+    margin: 0 -8px 32px -8px;
+    .image {
+      .preview {
+        .data {}
+      }
+      .policy {}
+      .btn {}
+    }
+  }
+}
