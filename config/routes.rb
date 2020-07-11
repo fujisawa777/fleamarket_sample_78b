@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     get 'sendaddresses', to: 'users/registrations#new_sendaddress'
     post 'sendaddresses', to: 'users/registrations#create_sendaddress'
   end
+
   root 'products#index'
   resources :products
+  resources :users,only: :index
 end
