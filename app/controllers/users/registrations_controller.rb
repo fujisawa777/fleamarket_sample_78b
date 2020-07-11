@@ -22,9 +22,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
     # session情報に保存する
     session["devise.regist_data"] = {user: @user.attributes}
     session["devise.regist_data"][:user]["password"] = params[:user][:password]
+
     # ユーザに紐づいた個人の箱を作る
     @personal = @user.build_personal
     render :new_personal
+  end
+
+  def new_personal
+    @user = User.new(session["devise.regist_data"]["user"])
+    @personal = @user.build_personal
   end
 
   def create_personal
