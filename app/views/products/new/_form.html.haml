@@ -1,0 +1,122 @@
+.sellMain
+  = form_with model: @product, class: "form" ,local: true do |f|
+    .form__content
+      .form__field__upload
+        %span.form__field__label イメージ
+        %span.form__field__essential 必須
+        %p.form__field__text 最大5枚までアップロードできます
+        .form__field__image.marginT25
+          .postContainer
+            .postContainer__prev
+            .postContainer__label
+              %label{for: "product_images_attributes_0_src", class: "postContainer__labelBox", id: "label-box--0"}
+                %pre.postContainer__labelText クリックしてファイルをアップロード
+            .postContainer__hidden
+              = f.fields_for :images do |i|
+                = i.file_field :src, class: "postContainer__hiddenField"
+                %input{class:"postContainer__hiddenField", type: "file", name: "product[images_attributes][1][src]", id: "product_images_attributes_1_src" }
+                %input{class:"postContainer__hiddenField", type: "file", name: "product[images_attributes][2][src]", id: "product_images_attributes_2_src" }
+                %input{class:"postContainer__hiddenField", type: "file", name: "product[images_attributes][3][src]", id: "product_images_attributes_3_src" }
+                %input{class:"postContainer__hiddenField", type: "file", name: "product[images_attributes][4][src]", id: "product_images_attributes_4_src" }
+        - if @product.errors.include?(:images)
+          %p.error_message
+            = @product.errors.full_messages_for(:images).first
+    %hr
+    .form__content
+      .form__field
+        %span.form__field__label 商品名
+        %span.form__field__essential 必須
+        .form__field--input.marginT25
+          = f.text_field :name, class: "form__field--inputField" , placeholder: "40文字まで"
+          - if @product.errors.include?(:name)
+            %p.error_message
+              = @product.errors.full_messages_for(:name).first
+      .form__field.marginT50
+        %span.form__field__label 商品の説明
+        %span.form__field__essential 必須
+        .form__field--input.marginT25
+          = f.text_area :description,class: "form__field--inputArea" , placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）\n\n例）199X年頃に1万円で購入したアウターです。パンチな衣装で穴だらけです。あわせやすいのでおすすめです。"
+          - if @product.errors.include?(:description)
+            %p.error_message
+              = @product.errors.full_messages_for(:description).first
+    %hr
+    .form__content
+      .form__field
+        %span.form__field__label カテゴリ
+        %span.form__field__essential 必須
+        .form__field--input.marginT25
+          = f.collection_select :category_id, @parents, :id, :name, {prompt: "選択してください"} , {class: "form__field--inputSelect"}
+          = icon("fas", "angle-down",class:"form__field--inputSelectIcon")
+          - if @product.errors.include?(:category_id)
+            %p.error_message
+              = @product.errors.full_messages_for(:category_id).first
+      .form__field.marginT50
+        %span.form__field__label サイズ
+        %span.form__field__arbitrary 任意
+        .form__field--input.marginT25
+          = f.collection_select :size_id, Size.all, :id, :name, {prompt: "選択してください"} , {class: "form__field--inputSelect"}
+          = icon("fas", "angle-down",class:"form__field--inputSelectIcon")
+      .form__field.marginT50
+        %span.form__field__label ブランド
+        %span.form__field__arbitrary 任意
+        .form__field--input.marginT25
+          = f.text_field :brand, class: "form__field--inputField",placeholder: "例)バーバリー "
+      .form__field.marginT50
+        %span.form__field__label 商品の状態
+        %span.form__field__essential 必須
+        .form__field--input.marginT25
+          = f.collection_select :status_id, Status.all, :id, :name, {prompt: "選択してください"} , {class: "form__field--inputSelect"}
+          = icon("fas", "angle-down",class:"form__field--inputSelectIcon")
+          - if @product.errors.include?(:status_id)
+            %p.error_message
+              = @product.errors.full_messages_for(:status_id).first
+    %hr
+    .form__content
+      .form__field
+        %span.form__field__label 配送料
+        %span.form__field__essential 必須
+        .form__field--input.marginT25
+          = f.collection_select :shipfee_id, Shipfee.all, :id, :name, {prompt: "選択してください"} , {class: "form__field--inputSelect"}
+          = icon("fas", "angle-down",class:"form__field--inputSelectIcon")
+          - if @product.errors.include?(:shipfee_id)
+            %p.error_message
+              = @product.errors.full_messages_for(:shipfee_id).first
+      .form__field.marginT50
+        %span.form__field__label 発送元の地域
+        %span.form__field__essential 必須
+        .form__field--input.marginT25
+          = f.collection_select :shipregion_id, Shipregion.all, :id, :name, {prompt: "選択してください"} , {class: "form__field--inputSelect"}
+          = icon("fas", "angle-down",class:"form__field--inputSelectIcon")
+          - if @product.errors.include?(:shipregion_id)
+            %p.error_message
+              = @product.errors.full_messages_for(:shipregion_id).first
+      .form__field.marginT50
+        %span.form__field__label 発送日までの目安
+        %span.form__field__essential 必須
+        .form__field--input.marginT25
+          = f.collection_select :estshipdate_id, Estshipdate.all, :id, :name, {prompt: "選択してください"} , {class: "form__field--inputSelect"}
+          = icon("fas", "angle-down",class:"form__field--inputSelectIcon")
+          - if @product.errors.include?(:estshipdate_id)
+            %p.error_message
+              = @product.errors.full_messages_for(:estshipdate_id).first
+    %hr
+    .form__content
+      .form__field.flexbox
+        .form__fieldPrice
+          %span.form__field__label 料金
+          %span.form__field__essential 必須
+        .form__field--inputPrice
+          %span.form__field--inputPriceLabel ¥
+          = f.number_field :price,  class: "form__field--inputPriceField",placeholder: "0"
+      - if @product.errors.include?(:price)
+        %p.error_message
+          = @product.errors.full_messages_for(:price).first
+    %hr
+    .form__content.last__content
+      .form__field
+        = f.submit '出品する', class: "form__field--btn"
+      .form__field.marginT25
+        = link_to "もどる", "/", class: "form__field--link"
+    .form__content
+      .form__content__caution
+        禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。また、出品をもちまして加盟店規約に同意したことになります。

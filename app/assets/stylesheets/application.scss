@@ -5,6 +5,7 @@
 @import "main";
 @import "banner";
 @import "footer";
+@import "products";
 
 *{
   text-decoration:none;
@@ -12,4 +13,18 @@
 
 body{
   font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+}
+
+.notifications {
+  color: black;
+  text-align: center;
+  font-weight: bold;
+
+  .notice {
+    background-color: #3CCACE;
+  }
+
+  .alert {
+    background-color: red;
+  }
 }
