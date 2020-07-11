@@ -1,0 +1,81 @@
+body {
+  background-color: #f5f5f5;
+}
+
+.sellHeader {
+  height: 128px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  a {
+    cursor: pointer;
+    &__icon{
+      height: 45px;
+      width: 185px;
+    }
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  max-width: 700px;
+  margin: 0 auto;
+  .field_box {
+    padding: 24px 8px;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.5;
+    max-width: 343px;
+    &__boxColumn {
+      padding: 40px;
+      width: 100%;
+      &__essential {
+        color: white;
+        background-color: #3CCACE;
+        font-weight: bold;
+        font-size: 14px;
+        margin-left: 2px;
+        padding: 0 5px;
+      }
+    }
+  }
+  .new_user {
+    padding: 24px 16px 40px;
+  }
+}
+
+.sellfooter {
+  margin-top: auto;
+  text-align: center;
+  ul {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    li {
+      font-size: 12px;
+      margin: 16px 40px 16px;
+    }
+  }
+}
+
+.sellfooter__bottomLogo {
+  display: flex;
+  justify-content: center;
+  &__Link {
+      &Icon {
+      margin-bottom: 8px;
+      width: 200px;
+      background-size: cover 65px 80px;
+      vertical-align: middle;
+    }
+  }
+}
+
+.sellfooter__bottomPoricy{
+  display: flex;
+  justify-content: center;
+}
