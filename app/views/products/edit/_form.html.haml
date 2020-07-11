@@ -8,28 +8,27 @@
         .form__field__image.marginT25
           .postContainer
             .postContainer__prev
-              - @product.images.each do |image|
+              - @product.images.each_with_index do |image, i|
                 .preview-box
                   .upper-box
-                    = image_tag image.image.url, alt: "preview"
+                    = image_tag image.src.url, alt: "preview",class:"upper-box__image"
                   .lower-box
                     .update-box
-                      %label.edit-btn 編集
+                      %label.edit-btn{for: "product_images_attributes_#{i}_src"} 編集
                     .delete-box
-                      .delete-btn
+                      .delete-btn{id: "delete_btn_#{i}"}
                         %span 削除
-
             .postContainer__label
-              = f.label :"product_images_attributes_#{@product.images.length}_src", class: "postContainer__labelBox", id: "label-box--#{@product.images.length}" do
-                %pre.label-box__text-visible クリックしてファイルをアップロード
-
+              = f.label :"images_attributes_#{@product.images.length}_src", class: "postContainer__labelBox", id: "label-box--#{@product.images.length}" do
+                %pre.postContainer__labelText クリックしてファイルをアップロード
             .postContainer__hidden
-              = f.fields_for :images do |i|
-                = i.file_field :image, class: "postContainer__hiddenField"
-                = i.check_box:_destroy, class: "postContainer__hiddenCheckbox"
+              = f.fields_for :images do |image|
+                = image.file_field :src, class: "postContainer__hiddenField"
+                = image.check_box:_destroy, class: "postContainer__hiddenCheckbox"
 
               - @product.images.length.upto(4) do |i|
-                %input{name: "product[images_attributes][#{i}][src]", id: "product_images_attributes_#{i}_src", class:"postContainer__hiddenField", type:"file"}
+                %input{class:"postContainer__hiddenField", type: "file", name: "product[images_attributes][#{i}][src]", id: "product_images_attributes_#{i}_src"}
+
 
         - if @product.errors.include?(:images)
           %p.error_message
@@ -64,16 +63,16 @@
             %p.error_message
               = @product.errors.full_messages_for(:category_id).first
       .form__field.marginT50
-        %span.form__field__label ブランド
-        %span.form__field__arbitrary 任意
-        .form__field--input.marginT25
-          = f.text_field :brand, class: "form__field--inputField",placeholder: "例)バーバリー "
-      .form__field.marginT50
         %span.form__field__label サイズ
         %span.form__field__arbitrary 任意
         .form__field--input.marginT25
           = f.collection_select :size_id, Size.all, :id, :name, {prompt: "選択してください"} , {class: "form__field--inputSelect"}
           = icon("fas", "angle-down",class:"form__field--inputSelectIcon")
+      .form__field.marginT50
+        %span.form__field__label ブランド
+        %span.form__field__arbitrary 任意
+        .form__field--input.marginT25
+          = f.text_field :brand, class: "form__field--inputField",placeholder: "例)バーバリー "
       .form__field.marginT50
         %span.form__field__label 商品の状態
         %span.form__field__essential 必須

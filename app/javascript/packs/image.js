@@ -24,7 +24,7 @@ $(document).on('turbolinks:load', () => {
     let labelWidth = (620 - parseInt(prevContent) - 5);
     $('.postContainer__label').css('width', labelWidth);
   }
-
+  setLabel();
 
   // プレビューの追加
   $(document).on('change', '.postContainer__hiddenField', function() {

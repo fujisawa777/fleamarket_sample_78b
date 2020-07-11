@@ -35,7 +35,7 @@
         %span.form__field__label 商品の説明
         %span.form__field__essential 必須
         .form__field--input.marginT25
-          = f.text_area :description,class: "form__field--inputArea" , placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）\n例）199X年頃に1万円で購入したアウターです。パンチな衣装で穴だらけです。あわせやすいのでおすすめです。"
+          = f.text_area :description,class: "form__field--inputArea" , placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）\n\n例）199X年頃に1万円で購入したアウターです。パンチな衣装で穴だらけです。あわせやすいのでおすすめです。"
           - if @product.errors.include?(:description)
             %p.error_message
               = @product.errors.full_messages_for(:description).first
@@ -51,16 +51,16 @@
             %p.error_message
               = @product.errors.full_messages_for(:category_id).first
       .form__field.marginT50
-        %span.form__field__label ブランド
-        %span.form__field__arbitrary 任意
-        .form__field--input.marginT25
-          = f.text_field :brand, class: "form__field--inputField",placeholder: "例)バーバリー "
-      .form__field.marginT50
         %span.form__field__label サイズ
         %span.form__field__arbitrary 任意
         .form__field--input.marginT25
           = f.collection_select :size_id, Size.all, :id, :name, {prompt: "選択してください"} , {class: "form__field--inputSelect"}
           = icon("fas", "angle-down",class:"form__field--inputSelectIcon")
+      .form__field.marginT50
+        %span.form__field__label ブランド
+        %span.form__field__arbitrary 任意
+        .form__field--input.marginT25
+          = f.text_field :brand, class: "form__field--inputField",placeholder: "例)バーバリー "
       .form__field.marginT50
         %span.form__field__label 商品の状態
         %span.form__field__essential 必須
