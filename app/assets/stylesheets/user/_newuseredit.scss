@@ -1,0 +1,125 @@
+body {
+  background-color: #f5f5f5;
+}
+
+.sellHeader {
+  height: 128px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  a {
+    cursor: pointer;
+    &__icon{
+      height: 45px;
+      width: 185px;
+    }
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  max-width: 700px;
+  margin: 0 auto;
+  &_box {
+    &__text {
+      font-size: 22px;
+      padding: 32px;
+      font-weight: bold;
+    }
+  }
+  .new_user{
+    .field__boxColumn {
+      padding: 30px;
+      width: 100%;
+      &__essential {
+        color: white;
+        background-color: #3CCACE;
+        font-weight: bold;
+        font-size: 14px;
+        margin-left: 2px;
+        padding: 0 5px;
+      }
+      &__input__marginT25 {
+        margin-top: 25px;
+        .field__boxColumn__text {
+          padding: 5px 10px;
+          border: 1px solid #bbb;
+          border-radius: 5px;
+          height: 50px;
+          width: 100%;
+          line-height: 100%;
+          align-items: center;
+        }
+      }
+      .field__boxColumnNext {
+        &__btn {
+          display: block;
+          background-color: #3CCACE;
+          color: white;
+          width: 300px;
+          text-align: center;
+          border-radius: 5px;
+          height: 50px;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+  .formCutter {
+    border-top: 1px dotted #bbb;
+    width: 100%;
+    &:after {
+      content: '\002702';
+      position: relative;
+      top: -10px;
+      left: 40px;
+      padding: 0 3px;
+      color: #bbb;
+      font-size: 18px;
+    }
+  }
+  .field_with_errors {
+    border: 1px solid red;
+    border-radius: 5px;
+  }
+  .error_message {
+    margin-top: 10px;
+    color: red;
+  }
+}
+
+.sellfooter {
+  margin-top: auto;
+  text-align: center;
+  ul {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    li {
+      font-size: 12px;
+      margin: 16px 40px 16px;
+    }
+  }
+}
+
+.sellfooter__bottomLogo {
+  display: flex;
+  justify-content: center;
+  &__Link {
+      &Icon {
+      margin-bottom: 8px;
+      width: 200px;
+      background-size: cover 65px 80px;
+      vertical-align: middle;
+    }
+  }
+}
+
+.sellfooter__bottomPoricy{
+  display: flex;
+  justify-content: center;
+}

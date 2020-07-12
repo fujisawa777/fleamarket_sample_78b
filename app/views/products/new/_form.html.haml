@@ -21,7 +21,7 @@
         - if @product.errors.include?(:images)
           %p.error_message
             = @product.errors.full_messages_for(:images).first
-    %hr
+    %hr.formCutter
     .form__content
       .form__field
         %span.form__field__label 商品名
@@ -39,7 +39,7 @@
           - if @product.errors.include?(:description)
             %p.error_message
               = @product.errors.full_messages_for(:description).first
-    %hr
+    %hr.formCutter
     .form__content
       .form__field
         %span.form__field__label カテゴリ
@@ -70,7 +70,7 @@
           - if @product.errors.include?(:status_id)
             %p.error_message
               = @product.errors.full_messages_for(:status_id).first
-    %hr
+    %hr.formCutter
     .form__content
       .form__field
         %span.form__field__label 配送料
@@ -99,7 +99,7 @@
           - if @product.errors.include?(:estshipdate_id)
             %p.error_message
               = @product.errors.full_messages_for(:estshipdate_id).first
-    %hr
+    %hr.formCutter
     .form__content
       .form__field.flexbox
         .form__fieldPrice
@@ -111,7 +111,7 @@
       - if @product.errors.include?(:price)
         %p.error_message
           = @product.errors.full_messages_for(:price).first
-    %hr
+    %hr.formCutter
     .form__content.last__content
       .form__field
         = f.submit '出品する', class: "form__field--btn"

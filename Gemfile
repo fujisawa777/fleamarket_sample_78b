@@ -39,9 +39,9 @@ group :development, :test do
   gem 'capistrano3-unicorn'
   gem 'capistrano-rails-console'
   gem 'rspec-rails', '~> 4.0.0'
-  gem 'factory_bot_rails'
   gem 'rails-controller-testing'
-  gem 'faker', "~> 2.8"
+  gem 'factory_bot_rails'
+  gem 'faker'
 end
 
 group :development do
@@ -69,11 +69,12 @@ group :production do
   gem 'unicorn'
 end
 gem "haml-rails", "~> 2.0"
-
+gem 'devise'
 gem 'font-awesome-sass'
 gem 'active_hash'
 gem 'closure_tree'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'rails-i18n'
+gem 'jp_prefecture'
 gem 'fog-aws'

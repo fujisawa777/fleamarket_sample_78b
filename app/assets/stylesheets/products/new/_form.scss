@@ -136,7 +136,7 @@
         width: 100%;
         border: 1px solid #bbb;
         border-radius: 5px;
-        .js-file{ 
+        .js-file{
           &_group {
             display: flex;
           }
@@ -237,7 +237,7 @@
       }
     }
   }
-  hr {
+  .formCutter {
     border-top: 1px dotted #bbb;
     width: 100%;
     &:after {
