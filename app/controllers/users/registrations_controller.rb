@@ -9,7 +9,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
     # ユーザインスタンスを生成
     @user = User.new
     # ここでsessionの初期化
-    session["devise.regist_data"].clear
+    if !session["devise.regist_data"].nil?
+        session["devise.regist_data"].clear
+    end
   end
 
   # POST /resource
