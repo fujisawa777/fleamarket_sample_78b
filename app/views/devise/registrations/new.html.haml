@@ -2,51 +2,59 @@
   = link_to "/", class: "sellHeader__link" do
     = image_tag '/assets/logo.png' ,alt: "FURIMA" , class: "sellHeader__icon"
 
-
 .field
   .field_box
     %h2.field_box__text
       ユーザー情報登録
+  %hr.formCutter
   = form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user',local: true do |f|
-    = render "devise/shared/error_messages", resource: resource
+
     .field__boxColumn
-      = f.label :name
+      %span ニックネーム
       %span.field__boxColumn__essential
         必須
-      %br/
+      %br
       .field__boxColumn__input__marginT25
         = f.text_field :name, autofocus: true, autocomplete: "name" , placeholder: "ニックネームを入力してください", class: "field__boxColumn__text"
+      - if @user.errors.include?(:name)
+        %p.error_message
+          ニックネームを入力してください
 
     .field__boxColumn
-      = f.label :email
+      %span メールアドレス
       %span.field__boxColumn__essential
         必須
-      %br/
+      %br
       .field__boxColumn__input__marginT25
         = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "アドレスを入力してください", class: "field__boxColumn__text"
+      - if @user.errors.include?(:email)
+        %p.error_message
+          メールアドレスを入力してください
 
     .field__boxColumn
-      = f.label :password
-      - if @minimum_password_length
-        %em
-          (7文字以上)
+      %span パスワード
       %span.field__boxColumn__essential
         必須
-      %br/
       .field__boxColumn__input__marginT25
         = f.password_field :password, autocomplete: "new-password", placeholder: "7文字以上で入力してください", class: "field__boxColumn__text"
+      - if @user.errors.include?(:password)
+        %p.error_message
+          メールアドレスを入力してください
 
     .field__boxColumn
-      = f.label :password_confirmation
+      %span パスワード（確認用）
       %span.field__boxColumn__essential
         必須
-      %br/
+      %br
       .field__boxColumn__input__marginT25
         = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "確認用パスワードを入力してください", class: "field__boxColumn__text"
+      - if @user.errors.include?(:password_confirmation)
+        %p.error_message
+          = @user.errors.full_messages_for(:password_confirmation).first
 
     .field__boxColumn
       .field__boxColumnNext
-        = f.submit value:"次へ進む", class: "field__boxColumnNext__btn" 
+        = f.submit value:"次へ進む", class: "field__boxColumnNext__btn"
 
 .sellfooter
   %ul.sellfooter__bottom

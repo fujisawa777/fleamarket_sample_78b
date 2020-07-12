@@ -6,13 +6,12 @@
   background-color: white;
   max-width: 700px;
   margin: 0 auto;
-  .field_box {
-    text-align: center;
-    font-size: 18px;
-    font-weight: bold;
-    padding: 24px 8px;
-    line-height: 1.5;
-    max-width: 343px;
+  &_box {
+    &__text {
+      font-size: 22px;
+      padding: 32px;
+      font-weight: bold;
+    }
   }
   .formzone {
     .field__boxColumn {
