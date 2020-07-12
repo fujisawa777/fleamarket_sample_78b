@@ -117,14 +117,14 @@ GEM
     diff-lcs (1.4.4)
     erubi (1.9.0)
     erubis (2.7.0)
+    excon (0.75.0)
+      i18n (>= 1.6, < 2)
     factory_bot (6.1.0)
       activesupport (>= 5.0.0)
     factory_bot_rails (6.1.0)
       factory_bot (~> 6.1.0)
       railties (>= 5.0.0)
     faker (2.13.0)
-    excon (0.75.0)
-      i18n (>= 1.6, < 2)
     ffi (1.13.1)
     fog-aws (3.6.6)
       fog-core (~> 2.1)
@@ -365,7 +365,7 @@ DEPENDENCIES
   closure_tree
   devise
   factory_bot_rails
-  faker (~> 2.8)
+  faker
   fog-aws
   font-awesome-sass
   haml-rails (~> 2.0)

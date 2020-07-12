@@ -1,6 +1,4 @@
-.sellHeader
-  = link_to "/", class: "sellHeader__link" do
-    = image_tag '/assets/logo.png' ,alt: "FURIMA" , class: "sellHeader__icon"
+= render 'form/header'
 
 .field
   .field_box
@@ -56,20 +54,4 @@
       .field__boxColumnNext
         = f.submit value:"次へ進む", class: "field__boxColumnNext__btn"
 
-.sellfooter
-  %ul.sellfooter__bottom
-    %li.sellfooter__bottom__note
-      = link_to "app/products/new", class: "sellfooter__bottom__note__ex" do
-        プライバシーポリシー
-    %li.sellfooter__bottom__note
-      = link_to "app/products/new", class: "sellfooter__bottom__note__ex" do
-        FURIMA利用規約
-    %li.sellfooter__bottom__note
-      = link_to "app/products/new", class: "sellfooter__bottom__note__ex" do
-        特定商取引に関する表記
-  .sellfooter__bottomLogo
-    = link_to root_path , class: "sellfooter__bottomLogo__Link" do
-      = image_tag "/assets/logo/logo-gray.png", class: "sellfooter__bottomLogo__LinkIcon"
-  .sellfooter__bottomPoricy
-    %p.sellfooter__bottomPoricyLogo
-      © FURIMA
+= render 'form/footer'

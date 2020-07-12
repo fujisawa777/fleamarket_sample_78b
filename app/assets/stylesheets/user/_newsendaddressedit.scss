@@ -25,19 +25,19 @@
         margin-left: 2px;
         padding: 0 5px;
       }
+      &__text {
+        padding: 5px 10px;
+        border: 1px solid #bbb;
+        border-radius: 5px;
+        height: 50px;
+        width: 100%;
+        line-height: 100%;
+        align-items: center;
+      }
       &__input__marginT25 {
         margin-top: 25px;
-        .field__boxColumn__text {
-          padding: 5px 10px;
-          border: 1px solid #bbb;
-          border-radius: 5px;
-          height: 50px;
-          width: 100%;
-          line-height: 100%;
-          align-items: center;
-        }
       }
-      .field__boxColumnNext {
+      &Next {
         &__btn {
           display: block;
           background-color: #3CCACE;
@@ -54,7 +54,7 @@
   .arbitrarily_field {
     padding: 30px;
     width: 100%;
-    .arbitrarily_field__boxColumn__essential {
+    &__boxColumn__essential {
       color: white;
       background-color: gray;
       font-weight: bold;
@@ -62,25 +62,20 @@
       margin-left: 2px;
       padding: 0 5px;
     }
-    .arbitrarily_field__boxColumn__input__marginT25 {
+    &__boxColumn__input__marginT25 {
       margin-top: 25px;
-      .arbitrarily_field__boxColumn__text {
-        padding: 5px 10px;
-        border: 1px solid #bbb;
-        border-radius: 5px;
-        height: 50px;
-        width: 100%;
-        line-height: 100%;
-        align-items: center;
-      }
     }
-  }
-  .arbitrarily_field {
-    padding: 30px;
-    width: 100%;
-    .arbitrarily_field__boxColumnNext {
-
-      .arbitrarily_field__boxColumnNext__btn {
+    &__boxColumn__text {
+      padding: 5px 10px;
+      border: 1px solid #bbb;
+      border-radius: 5px;
+      height: 50px;
+      width: 100%;
+      line-height: 100%;
+      align-items: center;
+    }
+    &__boxColumnNext {
+      &__btn {
         display: block;
         background-color: #3CCACE;
         color: white;
