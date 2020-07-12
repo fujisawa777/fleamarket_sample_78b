@@ -1,12 +1,12 @@
 .header {
   padding: 0 60px;
-  .headerItems {
+  &Items {
     max-width: 1040px;
     width: 100%;
     min-height: 82px;
     margin: 0 auto;
     padding: 15px 0 0;
-    .headerItemsHead {
+    &Head {
       position: relative;
       display: flex;
       align-items: center;
@@ -29,12 +29,12 @@
           width: 100%;
           display: flex;
           margin-bottom: 5px;
-            .searcharea--input {
-              width: calc(100% - 26px);
-              height: 36px;
-              padding: 0 0 0 5px;
-              border: solid 1px gray;
-            }
+        }
+        &--input {
+          width: calc(100% - 26px);
+          height: 36px;
+          padding: 0 0 0 5px;
+          border: solid 1px gray;
         }
         form button {
           width: 36px;
@@ -42,13 +42,13 @@
           cursor: pointer;
           background-color: #3CCACE;
           padding: 8px;
-          .searcharea__icon {
-            margin: 0;
-            padding: 0;
-            &__image {
-              width: 100%;
-              vertical-align: bottom;
-            }
+        }
+        &__icon {
+          margin: 0;
+          padding: 0;
+          &__image {
+            width: 100%;
+            vertical-align: bottom;
           }
         }
       }
@@ -69,9 +69,9 @@
             background-repeat: no-repeat;
             background-size: 18px;
             padding-right: 30px;
-          }
-          a:hover {
-            color: orange;
+            &:hover {
+              color: orange;
+            }
           }
           .catTree {
             display: none;
@@ -100,9 +100,9 @@
             background-repeat: no-repeat;
             background-size: 18px;
             padding-right: 45px;
-          }
-          a:hover {
-            color: orange;
+            &:hover {
+              color: orange;
+            }
           }
         }
       }
@@ -119,9 +119,9 @@
             color: #333;
             text-decoration: none;
             line-height: 32px;
-          }
-          a:hover {
-            color: mediumaquamarine;
+            &:hover {
+              color: mediumaquamarine;
+            }
           }
         }
       }
