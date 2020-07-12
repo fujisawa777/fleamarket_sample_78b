@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, except: [:index, :new, :create]
   before_action :set_parents, only:[:new, :edit,:create , :update]
+  before_action :authenticate_user!
 
   def index
     @products = Product.includes(:images).order('created_at DESC')
@@ -10,6 +11,7 @@ class ProductsController < ApplicationController
   end
 
   def new
+    if
     @product = Product.new
     @product.images.new
   end
