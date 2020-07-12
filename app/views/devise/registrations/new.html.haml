@@ -37,7 +37,7 @@
         = f.password_field :password, autocomplete: "new-password", placeholder: "7文字以上で入力してください", class: "field__boxColumn__text"
       - if @user.errors.include?(:password)
         %p.error_message
-          メールアドレスを入力してください
+          パスワードを入力してください
 
     .field__boxColumn
       %span パスワード（確認用）
