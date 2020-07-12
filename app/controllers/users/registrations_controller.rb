@@ -8,17 +8,21 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def new
     # ユーザインスタンスを生成
     @user = User.new
+    # ここでsessionの初期化
+    session["devise.regist_data"].clear
   end
 
   # POST /resource
   def create
     # 実際のデータを作る
     @user = User.new(sign_up_params)
+
     # 実際のデータをバリデーションでみる
     unless @user.valid?
       flash.now[:alert] = @user.errors.full_messages
       render :new and return
     end
+
     # session情報に保存する
     session["devise.regist_data"] = {user: @user.attributes}
     session["devise.regist_data"][:user]["password"] = params[:user][:password]
@@ -75,7 +79,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     # sessionデータがuserだけあった場合
     elsif !session["devise.regist_data"]["user"].nil?
       redirect_to personals_path
-
     end
   end
 

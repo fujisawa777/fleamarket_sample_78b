@@ -11,6 +11,7 @@ class UsersController < ApplicationController
 
     # sessonデータがなかった場合(通常のuser処理)
     if session["devise.regist_data"].nil?
+      #userindexアクション
       @users = User.all
 
     # sessionデータがuserとpersonalがあった場合
