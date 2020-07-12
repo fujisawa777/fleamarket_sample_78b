@@ -4,7 +4,7 @@
 
 .field
   .field_box
-    %h2.field_box__text 
+    %h2.field_box__text
       住所情報登録
   .formzone
     = form_for @sendaddress  do |f|
@@ -48,7 +48,7 @@
           必須
         %br
         .field__boxColumn__input__marginT25
-          = f.text_field :zipcode, autocomplete: 'zipcode', class: 'field__boxColumn__text', autofocus: true, autocomplete: "zipcode" , placeholder: "郵便番号を入力してください"
+          = f.text_field :zipcode, autocomplete: 'zipcode', class: 'field__boxColumn__text', autofocus: true, autocomplete: "zipcode" , placeholder: "郵便番号を入力してください", pattern: '\d{7}' ,maxlength: "7"
 
       .field__boxColumn
         = f.label :prefectures
@@ -92,7 +92,7 @@
 
       .field__boxColumn
         .field__boxColumnNext
-        = f.submit value:"Sign up", class: "field__boxColumnNext__btn" 
+        = f.submit value:"Sign up", class: "field__boxColumnNext__btn"
 
 = javascript_include_tag 'application'
 
