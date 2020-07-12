@@ -29,7 +29,7 @@
       = f.label :password
       - if @minimum_password_length
         %em
-          (#{@minimum_password_length} characters minimum)
+          (7文字以上)
       %span.field__boxColumn__essential
         必須
       %br/
@@ -46,7 +46,7 @@
 
     .field__boxColumn
       .field__boxColumnNext
-        = f.submit value:"NEXT", class: "field__boxColumnNext__btn" 
+        = f.submit value:"次へ進む", class: "field__boxColumnNext__btn" 
 
 .sellfooter
   %ul.sellfooter__bottom

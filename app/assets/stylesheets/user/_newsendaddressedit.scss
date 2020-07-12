@@ -52,4 +52,45 @@
       }
     }
   }
+  .arbitrarily_field {
+    padding: 30px;
+    width: 100%;
+    .arbitrarily_field__boxColumn__essential {
+      color: white;
+      background-color: gray;
+      font-weight: bold;
+      font-size: 14px;
+      margin-left: 2px;
+      padding: 0 5px;
+    }
+    .arbitrarily_field__boxColumn__input__marginT25 {
+      margin-top: 25px;
+      .arbitrarily_field__boxColumn__text {
+        padding: 5px 10px;
+        border: 1px solid #bbb;
+        border-radius: 5px;
+        height: 50px;
+        width: 100%;
+        line-height: 100%;
+        align-items: center;
+      }
+    }
+  }
+  .arbitrarily_field {
+    padding: 30px;
+    width: 100%;
+    .arbitrarily_field__boxColumnNext {
+
+      .arbitrarily_field__boxColumnNext__btn {
+        display: block;
+        background-color: #3CCACE;
+        color: white;
+        width: 300px;
+        text-align: center;
+        border-radius: 5px;
+        height: 50px;
+        margin: 0 auto;
+      }
+    }
+  }
 }
