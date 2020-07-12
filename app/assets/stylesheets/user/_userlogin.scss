@@ -19,16 +19,16 @@
       text-align: center;
       width: 100%;
       padding-top: 10px;
-      .field__remember__btn {
+      &__btn {
         padding: 10px;
       }
     }
     .field__boxColumn {
       padding: 30px;
       width: 100%;
-      .field__boxColumn__input__marginT25 {
+      &__input__marginT25 {
         margin-top: 10px;
-        .field__boxColumn__text {
+        &__text {
           padding: 5px 10px;
           border: 1px solid #bbb;
           border-radius: 5px;
