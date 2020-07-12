@@ -4,12 +4,11 @@
 
 .field
   .field_box
-    %h2.field_box__text 
+    %h2.field_box__text
       送付先住所情報登録
+  %hr.formCutter
   .formzone
     = form_for @sendaddress  do |f|
-      = render "devise/shared/error_messages", resource: resource
-
       .field__boxColumn
         %span お名前(漢字)
         %span.field__boxColumn__essential
@@ -17,9 +16,12 @@
         %br
         .field__boxColumn__input__marginT25
           = f.text_field :s_firstname, autofocus: true, autocomplete: "s_firstname" , placeholder: "例) 山田", class: "field__boxColumn__text"
-
-        .field__boxColumn__input__marginT25
+          %br
+          %br
           = f.text_field :s_lastname, autofocus: true, autocomplete: "s_lastname" , placeholder: "例) 花子", class: "field__boxColumn__text"
+        - if @sendaddress.errors.include?(:s_firstname) || @sendaddress.errors.include?(:s_lastname)
+          %p.error_message
+            お名前（漢字）を入力してください
 
       .field__boxColumn
         %span お名前(カタカナ)
@@ -28,9 +30,12 @@
         %br
         .field__boxColumn__input__marginT25
           = f.text_field :s_h_firstname, autofocus: true, autocomplete: "s_h_firstname" , placeholder: "例) ヤマダ", class: "field__boxColumn__text"
-
-        .field__boxColumn__input__marginT25
+          %br
+          %br
           = f.text_field :s_h_lastname, autofocus: true, autocomplete: "s_lastname" , placeholder: "例) ハナコ", class: "field__boxColumn__text"
+        - if @sendaddress.errors.include?(:s_h_firstname) || @sendaddress.errors.include?(:s_h_lastname)
+          %p.error_message
+            お名前(カナ)を入力してください
 
       .field__boxColumn
         %span 郵便番号(数字7桁で入力)
@@ -39,6 +44,9 @@
         %br
         .field__boxColumn__input__marginT25
           = f.text_field :zipcode, autocomplete: 'zipcode', class: 'field__boxColumn__text', autofocus: true, autocomplete: "zipcode" , placeholder: "例) 1234567", maxlength: "7", pattern:'\d{7}'
+        - if @sendaddress.errors.include?(:zipcode)
+          %p.error_message
+            郵便番号を入力してください
 
       .field__boxColumn
         %span 都道府県
@@ -47,6 +55,9 @@
         %br
         .field__boxColumn__input__marginT25
           = f.collection_select :prefectures, JpPrefecture::Prefecture.all, :code, :name, {prompt: "---"} , {class: "field__boxColumn__text"}
+        - if @sendaddress.errors.include?(:prefectures)
+          %p.error_message
+            都道府県を入力してください
 
       .field__boxColumn
         %span 市区町村
@@ -55,6 +66,9 @@
         %br
         .field__boxColumn__input__marginT25
           = f.text_field :municipalitities, autocomplete: 'municipalitities', class: "field__boxColumn__text", placeholder: "例) 千代田区"
+        - if @sendaddress.errors.include?(:municipalitities)
+          %p.error_message
+            市区町村を入力してください
 
       .field__boxColumn
         %span 番地
@@ -63,6 +77,9 @@
         %br
         .field__boxColumn__input__marginT25
           = f.text_field :streetaddress, autocomplete: 'streetaddress', class: "field__boxColumn__text", placeholder: "例) 丸の内３丁目３−番1号"
+        - if @sendaddress.errors.include?(:streetaddress)
+          %p.error_message
+            番地を入力してください
 
       .arbitrarily_field
         %span 部屋番号
@@ -72,7 +89,6 @@
         .arbitrarily_field__boxColumn__input__marginT25
           = f.text_field :room, autocomplete: "room" , placeholder: "例) 新東京ビル 4F", class: "arbitrarily_field__boxColumn__text"
 
-      /.field__boxColumn
       .arbitrarily_field
         %span 電話番号
         %span.arbitrarily_field__boxColumn__essential
@@ -81,13 +97,9 @@
         .arbitrarily_field__boxColumn__input__marginT25
           = f.text_field :phonenumber, autofocus: true, autocomplete: "phonenumber" , placeholder: "例) 050-3187-3522", class: "arbitrarily_field__boxColumn__text", pattern:'\d{2,4}-\d{3,4}-\d{3,4}'
 
-      /.field__boxColumn
       .arbitrarily_field
         .arbitrarily_field__boxColumnNext
-          = f.submit value:"登録する", class: "arbitrarily_field__boxColumnNext__btn" 
-
-= javascript_include_tag 'application'
-
+          = f.submit value:"登録する", class: "arbitrarily_field__boxColumnNext__btn"
 
 .sellfooter
   %ul.sellfooter__bottom
@@ -106,3 +118,4 @@
   .sellfooter__bottomPoricy
     %p.sellfooter__bottomPoricyLogo
       © FURIMA
+= javascript_include_tag 'application'

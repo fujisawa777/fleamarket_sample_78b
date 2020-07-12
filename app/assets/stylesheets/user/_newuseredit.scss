@@ -24,13 +24,12 @@ body {
   background-color: white;
   max-width: 700px;
   margin: 0 auto;
-  .field_box {
-    text-align: center;
-    font-size: 18px;
-    font-weight: bold;
-    padding: 24px 8px;
-    line-height: 1.5;
-    max-width: 343px;
+  &_box {
+    &__text {
+      font-size: 22px;
+      padding: 32px;
+      font-weight: bold;
+    }
   }
   .new_user{
     .field__boxColumn {
@@ -69,6 +68,27 @@ body {
         }
       }
     }
+  }
+  .formCutter {
+    border-top: 1px dotted #bbb;
+    width: 100%;
+    &:after {
+      content: '\002702';
+      position: relative;
+      top: -10px;
+      left: 40px;
+      padding: 0 3px;
+      color: #bbb;
+      font-size: 18px;
+    }
+  }
+  .field_with_errors {
+    border: 1px solid red;
+    border-radius: 5px;
+  }
+  .error_message {
+    margin-top: 10px;
+    color: red;
   }
 }
 

@@ -98,7 +98,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user.build_sendaddress(@sendaddress.attributes)
     if @user.save
       session["devise.regist_data"].clear
-      flash[:notice] = '内容が保存されました'
+      flash[:notice] = 'ユーザ登録が完了しました'
       sign_in(:user, @user)
       redirect_to root_path
     else
