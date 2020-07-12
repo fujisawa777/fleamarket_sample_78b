@@ -1,0 +1,108 @@
+.main
+  .ShowMain
+    .ShowAll
+    .ShowFlame
+      .ShowFlame__Top
+        .ShowBox
+          %h2.ShowBox__name ee
+          .ShowBox__body
+            %ul
+              %li
+                %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG"}/
+                %ul
+                  %li
+                    %img{:height => "75", :src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG", :width => "75"}/
+                  %li
+                    %img{:height => "75", :src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/17/IMG_9069.JPG", :width => "75"}/
+          .ShowBox__price
+            %span
+              ¥1000
+            .ShowBox__price-data
+              %span
+                (税込)
+              %span
+                送料込み
+          .ShowBox__name eee
+          .ShowTable
+            %table
+              %tbody
+                %tr
+                  %th 出品者
+                  %td ss
+                %tr
+                  %th カテゴリー
+                  %td
+                    %a{:href => "#"} ベビー・キッズ
+                    %br/
+                    %a{:href => "#"} ベビー服(男の子用)  ~95cm
+                    %br/
+                    %a{:href => "#"} アウター
+                %tr
+                  %th ブランド
+                  %td
+                %tr
+                  %th 商品のサイズ
+                  %td
+                %tr
+                  %th 商品の状態
+                  %td 新品/未使用
+                %tr
+                  %th 配送料の負担
+                  %td 送料込み（出品者負担）
+                %tr
+                  %th 発送元の地域
+                  %td
+                    %a{:href => "#"} 北海道
+                %tr
+                  %th 発送日の目安
+                  %td 1-2日で発送
+          .CheckArea
+            %ul
+              %li#likeBtn.CheckBtn.likeBtn
+                %i.fa.fa-star
+                お気に入り 0
+            %ul.Check
+              %li.CheckBtn
+                %a{:href => "#"}
+                  %i.fa.fa-flag
+                  不適切な商品の通報
+        .commentArea
+          %ul.commentBox
+          %form#new_comment{"accept-charset" => "UTF-8", :action => "#", :method => "post"}
+            %input{:name => "utf8", :type => "hidden", :value => "✓"}/
+            %input{:name => "authenticity_token", :type => "hidden", :value => "jzpK84Ky4F7zbYNU9aBydpcUbRF1wpPOyVTc54rvqD5JwYV18qH72g3FCMmp7jrUwqXWUiRLCtkRCpUeru4nOw=="}/
+            %textarea#comment_middle{:name => "comment[body]", :required => "required"}
+            %p.atention
+              相手のことを考え丁寧なコメントを心がけましょう。
+              %br/
+              不快な言葉遣いなどは利用制限や退会処分となることがあります。
+            %br/
+            %button.commentBtn{:name => "button", :type => "submit"}
+              %i.fa.fa-comment
+              コメントする
+      %ul.links
+        %li
+          %a{:href => "#"}
+            %i.fa.fa-angle-leftarea
+            %span
+            前の商品
+        %li
+          %a{:href => "#"}
+            %span 後ろの商品
+            %i.fa.fa-angle-rightarea
+      .Moreproduct
+        %a{:href => "#"} ベビー・キッズをもっと見る
+        .MoreproductLists
+          .MoreproductList
+            %a{:href => "/products/3"}
+              %figure.MoreproductList--img
+                %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"}/
+              .MoreproductList--body
+                %h3.name product3
+                .details
+                  %ul
+                    %li 30000円
+                    %li
+                      %i.fa.fa-star.likeIcon
+                      0
+                  %p (税込)
