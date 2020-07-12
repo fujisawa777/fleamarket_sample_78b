@@ -6,15 +6,23 @@
   background-color: white;
   max-width: 700px;
   margin: 0 auto;
-  .field_box {
-    text-align: center;
-    font-size: 18px;
-    font-weight: bold;
-    padding: 24px 8px;
-    line-height: 1.5;
-    max-width: 343px;
+  &_box {
+    &__text {
+      font-size: 22px;
+      padding: 32px;
+      font-weight: bold;
+    }
   }
-  .loginform{
+  .loginform {
+    .field__remember {
+      height: 50px;
+      text-align: center;
+      width: 100%;
+      padding-top: 10px;
+      .field__remember__btn {
+        padding: 10px;
+      }
+    }
     .field__boxColumn {
       padding: 30px;
       width: 100%;
@@ -43,13 +51,12 @@
         }
       }
     }
-    .field__remember {
-      display: flex;
-      padding: 15px;
-      padding-top: 10px;
-      .field__remember__btn {
-        padding: 10px;
-      }
+  }
+  &__footer {
+    padding: 0 30px 30px 30px;
+    &__text {
+      font-size: 8px;
+      color: blue;
     }
   }
 }
