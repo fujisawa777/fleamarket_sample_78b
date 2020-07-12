@@ -18,7 +18,7 @@
 
         - if @personal.errors.include?(:birthday)
           %p.error_message
-            = @personal.errors.full_messages_for(:birthday).first
+            生年月日を入力してください
 
       .form__content.marginT50
         %span.form__field__label お名前（全角）
@@ -30,12 +30,9 @@
           .form__fieldHalf
             .form__fieldHalf--input
               = f.text_field :lastname, class: "form__fieldHalf--inputField" , placeholder: "例)なり"
-        - if @personal.errors.include?(:firstname)
+        - if @personal.errors.include?(:firstname) || @personal.errors.include?(:lastname)
           %p.error_message
-            = @personal.errors.full_messages_for(:firstname).first
-        - if @personal.errors.include?(:lastname)
-          %p.error_message
-            = @personal.errors.full_messages_for(:lastname).first
+            お名前（全角）を入力してください
 
       .form__content.marginT50
         %span.form__field__label お名前（カナ）
@@ -47,12 +44,9 @@
           .form__fieldHalf
             .form__fieldHalf--input
               = f.text_field :h_lastname, class: "form__fieldHalf--inputField" , placeholder: "例)ナリ"
-        - if @personal.errors.include?(:h_firstname)
+        - if @personal.errors.include?(:h_firstname) || @personal.errors.include?(:h_lastname)
           %p.error_message
-            = @personal.errors.full_messages_for(:h_firstname).first
-        - if @personal.errors.include?(:h_lastname)
-          %p.error_message
-            = @personal.errors.full_messages_for(:h_lastname).first
+            お名前（カナ）を入力してください
 
       .form__content.last__content
         .form__field
