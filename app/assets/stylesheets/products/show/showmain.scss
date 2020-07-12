@@ -2,6 +2,7 @@
   background-color: #f8f8f8;
   .ShowMain {
     padding: 40px;
+    text-align: left;
     margin: 0 auto;
     .ShowAll{
       margin: 0;
@@ -16,7 +17,7 @@
         .ShowBox {
           background-color: #fff;
           padding: 24px 40px 40px;
-          &__name {
+          &__nameEe {
             text-align: center;
             font-weight: bold;
             font-size: 24px;
@@ -82,28 +83,44 @@
             line-height: 1.5;
             font-size: 18px;
             margin-bottom: 30px;
+            text-align: left;
+            font-weight: bold;
           }
           .ShowTable {
             margin-bottom: 20px;
+            margin: 0;
+            padding: 0;
             table {
               width: 100%;
               height: 375px;
               border-collapse: collapse;
               border: 1px solid #f8f8f8;
+              border-spacing: 0;
               tbody {
-                tr {
+                display: table-row-group;
+                vertical-align: middle;
+                border-color: inherit;
+                  tr {
+                  display: table-row;
+                  justify-content: center;
+                  vertical-align: inherit;
+                  border-color: inherit;
                   th {
                     width: 20%;
                     background-color: #eee;
                     font-weight: 400;
                     padding: 8px;
+                    text-align: center;
                     border: 1px solid #dedede;
                     font-size: 14px;
-                    text-align: center;
                   }
                   td {
                     vertical-align: top;
                     padding: 0;
+                    width: 61%;
+                    padding: 15px 15px;
+                    border: 1px solid #dedede;
+                    font-size: 14px
                   }
                 }
               }
