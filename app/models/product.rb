@@ -23,4 +23,5 @@ class Product < ApplicationRecord
   validates :name,    length: { maximum: 40 }
 
   validates :description,    length: { maximum: 1000 }
+
 end

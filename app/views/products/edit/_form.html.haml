@@ -24,11 +24,11 @@
             .postContainer__hidden
               = f.fields_for :images do |image|
 
-                = image.file_field :src, class: "postContainer__hiddenField"
+                = image.file_field :src, class: "postContainer__hiddenField",accept: "image/png,image/jpeg"
                 = image.check_box :_destroy, class: "postContainer__hiddenCheckbox"
 
               - @product.images.length.upto(4) do |i|
-                %input{class:"postContainer__hiddenField", type: "file", name: "product[images_attributes][#{i}][src]", id: "product_images_attributes_#{i}_src"}
+                %input{class:"postContainer__hiddenField", type: "file", name: "product[images_attributes][#{i}][src]", id: "product_images_attributes_#{i}_src",accept: "image/png,image/jpeg"}
 
         - if @product.errors.include?(:images)
           %p.error_message

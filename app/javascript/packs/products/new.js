@@ -56,8 +56,25 @@ $(function() {
     return result[0]
   }
 
+  // ページ読み込み時に実行したい処理
   // ラベルのイニシャライズ
-  setLabel();
+    setLabel();
+
+  // チェックボックスの初期化
+  if (!$(`#product_images_attributes_0__destroy`).length == 0) {
+      for (let i = 0; i < 5; i++) {
+        let num = String(i);
+        $(`#product_images_attributes_${num}__destroy`).prop('checked',false);
+        }
+      }
+
+  // 余分なinput要素の削除
+  if ($(".postContainer__hiddenField").length > 5){
+    let yobun = $(".postContainer__hiddenField").length - 5
+
+    for (let i = 0 ; i < yobun ; i++) {
+      $(".postContainer__hiddenField").last().remove()
+  }};
 
   // プレビューの追加
   $(document).on('change', '.postContainer__hiddenField', function() {
@@ -145,47 +162,23 @@ $(function() {
         //labelボックスのidとforを更新
         $('.postContainer__labelBox').attr({id: `label-box--${id}`,for: `product_images_attributes_${id}_src`});
       } else {
+        //投稿編集時
+        $(`#product_images_attributes_${num}__destroy`).prop('checked',true);
+          let count = $('.preview-box').length;
 
-        // if ($(`#product_images_attributes_${num}__destroy`).length == 1){
-        //   $(`#product_images_attributes_${num}__destroy`).prop('checked',false);
+        //5個めが消されたらラベルを表示
+          if (count == 4) {
+            $('.postContainer__label').show();
+          }
 
-        //   let count = $('.preview-box').length;
+        //ラベルのwidth操作
+        setLabel();
 
-        //   //5個めが消されたらラベルを表示
-        //   if (count == 4) {
-        //     $('.postContainer__label').show();
-        //   }
+        // 投稿されてないフォームの最初のidを取得
+        let id = diffPrev()
 
-        //   //ラベルのwidth操作
-        //   setLabel();
-
-        //   // 投稿されてないフォームの最初のidを取得
-        //   let id = diffPrev()
-
-        //   //labelボックスのidとforを更新
-        //   $('.postContainer__labelBox').attr({id: `label-box--${id}`,for: `product_images_attributes_${id}_src`});
-
-        // } else {
-
-
-          //投稿編集時
-          $(`#product_images_attributes_${num}__destroy`).prop('checked',true);
-            let count = $('.preview-box').length;
-
-          //5個めが消されたらラベルを表示
-            if (count == 4) {
-              $('.postContainer__label').show();
-            }
-
-          //ラベルのwidth操作
-          setLabel();
-
-          // 投稿されてないフォームの最初のidを取得
-          let id = diffPrev()
-
-          //labelボックスのidとforを更新
-          $('.postContainer__labelBox').attr({id: `label-box--${id}`,for: `product_images_attributes_${id}_src`});
-
+        //labelボックスのidとforを更新
+        $('.postContainer__labelBox').attr({id: `label-box--${id}`,for: `product_images_attributes_${id}_src`});
         }
       })
   });
