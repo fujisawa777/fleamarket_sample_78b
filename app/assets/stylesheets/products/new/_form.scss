@@ -80,13 +80,27 @@
           height: 200px;
           cursor: pointer;
         }
-        &Text{
+        &Icon {
+          position: absolute;
+          top: 35%;
+          left: 16px;
+          right: 16px;
+          text-align: center;
+          line-height: 1.5;
+          font-weight: bold;
+          -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+          pointer-events: none;
+          white-space: pre-wrap;
+          word-wrap: break-word;
+        }
+        &Text {
           position: absolute;
           top: 50%;
           left: 16px;
           right: 16px;
           text-align: center;
-          font-size: 14px;
+          font-size: 10px;
           line-height: 1.5;
           font-weight: bold;
           -webkit-transform: translate(0, -50%);

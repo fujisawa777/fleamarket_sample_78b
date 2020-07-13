@@ -86,7 +86,7 @@ $(function() {
   $('.postContainer__label').on('dragleave', function (event) {
     event.stopPropagation();
     event.preventDefault();
-    $('.postContainer__label').css('border', '1px dashed #aaa');  // 枠を点線に戻す
+    $('.postContainer__label').css('border', '1px dashed #ccc');  // 枠を点線に戻す
   });
 
   // drop_area以外でファイルがドロップされた場合、ファイルが開いてしまうのを防ぐ
@@ -118,13 +118,13 @@ $(function() {
     let input = $(".postContainer__labelBox").attr("for")
 
     let dt = e.dataTransfer
-
     $("#" + input)[0].files = dt.files;
 
     // 画像が複数選択されていた場合
     if ($("#" + input)[0].files.length > 1) {
       alert('アップロードできる画像は1つだけです');
       $("#" + input).val("");
+      $('.postContainer__label').css('border', '1px dashed #ccc');
       return;
     }
 
@@ -134,7 +134,7 @@ $(function() {
     if (! file.type.match(imageType)) {
       alert('画像を選択してください');
       $("#" + input).val("");
-      $('#drop_area').css('border', '1px dashed #aaa');
+      $('#drop_area').css('border', '1px dashed #ccc');
       return;
     }
 
@@ -184,7 +184,7 @@ $(function() {
       $('.postContainer__labelBox').attr({id: `label-box--${id}`,for: `product_images_attributes_${id}_src`});
       }
       //線を戻す
-      $('.postContainer__label').css('border', '1px dashed #aaa');
+      $('.postContainer__label').css('border', '1px dashed #ccc');
   })
 
 
