@@ -76,6 +76,121 @@ $(function() {
       $(".postContainer__hiddenField").last().remove()
   }};
 
+  // ドラッグしている要素がドロップ領域に入ったとき・領域にある間
+  $('.postContainer__label').on('dragenter dragover', function (event) {
+    event.stopPropagation();
+    event.preventDefault();
+    $('.postContainer__label').css('border', '1px solid #333');  // 枠を実線にする
+  });
+  // ドラッグしている要素がドロップ領域から外れたとき
+  $('.postContainer__label').on('dragleave', function (event) {
+    event.stopPropagation();
+    event.preventDefault();
+    $('.postContainer__label').css('border', '1px dashed #aaa');  // 枠を点線に戻す
+  });
+
+  // drop_area以外でファイルがドロップされた場合、ファイルが開いてしまうのを防ぐ
+  $(document).on('dragenter', function (event) {
+    event.stopPropagation();
+    event.preventDefault();
+  });
+  $(document).on('dragover', function (event) {
+    event.stopPropagation();
+    event.preventDefault();
+  });
+  $(document).on('drop', function (event) {
+    event.stopPropagation();
+    event.preventDefault();
+  });
+
+
+
+  // ドラッグしている要素がドロップされたとき
+  $('#drop_area').on('drop', function (event) {
+    event.preventDefault();
+
+    let e = event
+
+    if( event.originalEvent ){
+      e = event.originalEvent;
+    }
+
+    let input = $(".postContainer__labelBox").attr("for")
+
+    let dt = e.dataTransfer
+
+    $("#" + input)[0].files = dt.files;
+
+    // 画像が複数選択されていた場合
+    if ($("#" + input)[0].files.length > 1) {
+      alert('アップロードできる画像は1つだけです');
+      $("#" + input).val("");
+      return;
+    }
+
+    let file = $("#" + input)[0].files[0];
+    let imageType = 'image.*';
+    // ファイルが画像が確認する
+    if (! file.type.match(imageType)) {
+      alert('画像を選択してください');
+      $("#" + input).val("");
+      $('#drop_area').css('border', '1px dashed #aaa');
+      return;
+    }
+
+    //postContainer__hiddenFieldのidの数値のみ取得
+    let num = $("#" + input).attr('id').replace(/[^0-9]/g, '');
+
+    // 途中で使うファイルリーダー
+    // FileReader クラスを使用すると、Blob や File オブジェクトが保有するバッファの中身に、読み取りアクセスを行う事ができます。
+    let reader = new FileReader();
+
+    // 編集用の分岐。チェックがついてたらチェックを消す
+    if($(`#product_images_attributes_${num}__destroy`).prop("checked")){
+      $(`#product_images_attributes_${num}__destroy`).prop('checked',false)
+    }
+
+    //readAsDataURLで指定したFileオブジェクトを読み込む
+    reader.readAsDataURL(file);
+
+    //読み込み時に発火するイベント
+    reader.onload = function() {
+      //読み込んだイメージを格納
+      let image = reader.result;
+
+      //プレビューが元々なかった場合はhtmlを追加
+      if ($(`#preview-box__${num}`).length == 0) {
+        // htmlを定義する
+        let html = buildHTML(num);
+
+        //ラベルの直前のプレビュー群にプレビューを追加
+        let prevContent = $('.postContainer__label').prev();
+        $(prevContent).append(html);
+      }
+
+      //イメージを追加
+      $(`#preview-box__${num} img`).attr({
+                                          src: `${image}`,
+                                          class: "upper-box__image"
+                                          });
+
+      //ラベルのwidth操作
+      setLabel();
+
+      // 投稿されてないフォームの最初のidを取得
+      let id = diffPrev()
+
+      //labelボックスのidとforを更新
+      $('.postContainer__labelBox').attr({id: `label-box--${id}`,for: `product_images_attributes_${id}_src`});
+      }
+      //線を戻す
+      $('.postContainer__label').css('border', '1px dashed #aaa');
+  })
+
+
+
+
+
   // プレビューの追加
   $(document).on('change', '.postContainer__hiddenField', function() {
     //現在のフィールドからfileのオブジェクトを取得
@@ -83,6 +198,7 @@ $(function() {
 
     //postContainer__hiddenFieldのidの数値のみ取得
     let num = $(this).attr('id').replace(/[^0-9]/g, '');
+
     // 途中で使うファイルリーダー
     // FileReader クラスを使用すると、Blob や File オブジェクトが保有するバッファの中身に、読み取りアクセスを行う事ができます。
     let reader = new FileReader();
@@ -134,8 +250,10 @@ $(function() {
 
     //product_images_attributes_${id}_image から${id}に入った数字のみを抽出
     let num = parseInt($(this).attr('id').replace(/[^0-9]/g, ''));
+
     //取得したidに該当するプレビューを削除
     $(`#preview-box__${num}`).remove();
+
     //サイズの再計算
     setLabel();
 

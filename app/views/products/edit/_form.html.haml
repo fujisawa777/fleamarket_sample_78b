@@ -20,6 +20,7 @@
 
             .postContainer__label
               = f.label :"images_attributes_#{@product.images.length}_src", class: "postContainer__labelBox", id: "label-box--#{@product.images.length}" do
+                #drop_area
                 %pre.postContainer__labelText クリックしてファイルをアップロード
             .postContainer__hidden
               = f.fields_for :images do |image|
