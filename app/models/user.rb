@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_one :personal, dependent: :destroy
   has_one :sendaddress, dependent: :destroy
 
-  has_many :buyer_products, class_name: 'User', foreign_key: 'buyer_id'
-  has_many :seller_products, class_name: 'User', foreign_key: 'seller_id'
+  has_many :buyer_products, class_name: 'Product', foreign_key: 'buyer_id'
+  has_many :seller_products, class_name: 'Product', foreign_key: 'seller_id'
 
 end

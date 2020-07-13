@@ -1,5 +1,5 @@
 class Personal < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, optional: true
 
   validates :birthday, :firstname, :lastname,
             :h_firstname, :h_lastname,

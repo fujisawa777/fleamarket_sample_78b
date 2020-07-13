@@ -9,15 +9,14 @@
           .postContainer
             .postContainer__prev
               - @product.images.each_with_index do |image, i|
-                .preview-box
+                .preview-box{id: "preview-box__#{i}"}
                   .upper-box
                     = image_tag image.src.url, alt: "preview",class:"upper-box__image"
                   .lower-box
                     .update-box
                       %label.edit-btn{for: "product_images_attributes_#{i}_src"} 編集
-                    .delete-box
-                      .delete-btn{id: "delete_btn_#{i}"}
-                        %span 削除
+                    .delete-box{id: "delete_btn_#{i}"}
+                      %span 削除
 
             .postContainer__label
               = f.label :"images_attributes_#{@product.images.length}_src", class: "postContainer__labelBox", id: "label-box--#{@product.images.length}" do
