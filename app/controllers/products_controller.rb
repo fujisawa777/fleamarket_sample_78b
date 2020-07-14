@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
-  before_action :set_product, except: [:index, :new, :create]
-  before_action :set_parents, only:[:new, :edit,:create , :update]
+  before_action :set_product, only: [:show, :edit, :update, :destory]
+  before_action :set_parents, only: [:new, :edit, :create , :update]
 
   def index
     @products = Product.includes(:images).order('created_at DESC')
@@ -12,6 +12,19 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @product.images.new
+  end
+
+  # 以下全て、formatはjsonのみ
+  # 親カテゴリーが選択された後に動くアクション
+  def get_category_children
+    #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
+    @category_children = Category.find(params[:parent_id]).children
+  end
+
+  # 子カテゴリーが選択された後に動くアクション
+  def get_category_grandchildren
+    #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
+      @category_grandchildren = Category.find(params[:child_id]).grandchildren
   end
 
   def create
