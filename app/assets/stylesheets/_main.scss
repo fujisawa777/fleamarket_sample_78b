@@ -266,11 +266,10 @@
       }
     }
     .productLists {
-      width: 780px;
-      margin: 26px auto;
+      width: 100%;
+      padding: 0 80px;
       display: flex;
-      justify-content: space-around;
-
+      flex-wrap: wrap;
       .productList {
         width: 220px;
         display: inline-block;
