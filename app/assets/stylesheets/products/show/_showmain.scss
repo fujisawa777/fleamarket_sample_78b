@@ -1,7 +1,6 @@
 @import "products/show/links";
 @import "products/show/moreProducts";
 
-
 .main {
   background-color: #f8f8f8;
   .showMain {
@@ -21,69 +20,60 @@
           }
           &__body {
             margin: 16px 0 0;
-            ul {
-              display: flex;
-              position: relative;
-              margin-top: 10px;
-              li {
-                display: flex;
-                flex-direction: column;
-                width: 560px;
-                align-items: center;
-                margin: 0 auto;
-                .image {
-                  object-fit: cover;
-                  height: 346px;
-                }
-                ul {
-                  display: flex;
-                  justify-content: space-around;
-                  margin-top: 10px;
-                  li {
-                    width: 25%;
-                    margin: 0 10px 0 0;
-                    .image {
-                      object-fit: cover;
-                      height: 87px;
-                    }
-                  }
-                  li {
-                    width: 25%;
-                    margin: 0 10px 0 0;
-                    .image {
-                      object-fit: cover;
-                      height: 87px;
-                    }
-                  }
-                }
+          }
+          &__images{
+            display: flex;
+            position: relative;
+            margin-top: 10px;
+          }
+          &__top{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 auto;
+            width: 560px;
+            &Image {
+              object-fit: cover;
+              height: 346px;
+              width: 100%;
+            }
+          }
+          &__bottom {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            &Items {
+              width: 25%;
+              margin: 0 10px 0 0;
+              &Image{
+                object-fit: cover;
+                height: 87px;
+                width: 100%;
               }
             }
           }
-          &__price {
+          &__priceItems {
             margin: 24px 0 24px;
             text-align: center;
             display: flex;
             flex-direction: column;
-            span {
-              font-size: 46px;
-              font-weight: bold;
-              margin: 0 10px 0 0;
-            }
-            &__price-data {
-              font-size: 16px;
-              .span--data {
-                font-size: 16px;
-              }
-            }
           }
-          &__name {
-            line-height: 1.5;
-            font-size: 18px;
-            margin-bottom: 30px;
-            text-align: left;
+          &__price{
+            font-size: 46px;
             font-weight: bold;
+            margin: 0 10px 0 0;
+            &Info {
+              font-size: 16px;
+            }
           }
-          .ShowTable {
+          &__description {
+            padding: 15px;
+            line-height: 1.5;
+            font-size: 16px;
+            margin-bottom: 10px;
+            text-align: left;
+          }
+          &__detail {
             margin-bottom: 20px;
             margin: 0;
             padding: 0;
@@ -123,6 +113,7 @@
               }
             }
           }
+        }
           .CheckArea {
             display: flex;
             justify-content: space-between;
@@ -143,35 +134,7 @@
                 border-radius: 4px;
               }
             }
-            // .ul--Check {
-            //   margin: 10px 0 0;
-            //   display: flex;
-            //   .li--CheckBtn {
-            //     font-size: 14px;
-            //     a {
-            //       padding: 6px 10px;
-            //       display: inline-block;
-            //       border-radius: 4px;
-            //       color: #333;
-            //       border: 1px solid #333;
-            //       text-decoration: none;
-            //       i {
-            //         display: inline-block;
-            //         font: normal normal normal 14px/1 FontAwesome;
-            //         font-size: inherit;
-            //         text-rendering: auto;
-            //         ::before {
-            //           display: inline-block;
-            //           font: normal normal normal 14px/1 FontAwesome;
-            //           font-size: inherit;
-            //           text-rendering: auto;
-            //         }
-            //       }
-            //     }
-            //   }
-            // }
           }
-        }
         .commentArea {
           padding: 24px;
           background-color: #fff;
@@ -220,7 +183,6 @@
                 text-rendering: auto;
               }
             }
-            // }
           }
         }
       }

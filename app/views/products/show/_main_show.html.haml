@@ -3,26 +3,26 @@
     .showFlame
       .detailProduct
         .showBox
-          %h2.ShowBox__nameHead ee
-          .ShowBox__body
-            %ul
-              %li
-                = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG", size: "560x346", alt: "test"
-                %ul
-                  %li
-                    = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG", size: "140x87", alt: "test"
-                  %li
-                    = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/17/IMG_9069.JPG", size: "140x87", alt: "test"
-          .ShowBox__price
-            %span
+          %h2.showBox__nameHead ここには商品名が入るよ
+          .showBox__body
+            %ul.showBox__images
+              %li.showBox__top
+                = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG", alt: "top画像", class:"showBox__topImage"
+                %ul.showBox__bottom
+                  %li.showBox__bottomItems
+                    = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG", alt: "sub画像", class:"showBox__bottomItemsImage"
+                  %li.showBox__bottomItems
+                    = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/17/IMG_9069.JPG", alt: "sub画像", class:"showBox__bottomItemsImage"
+          .showBox__priceItems
+            %span.showBox__price
               ¥1000
-            .ShowBox__price-data
-              %span--data
+            .showBox__priceInfo
+              %span.showBox__priceData
                 (税込)
-              %span--data
+              %span.showBox__priceData
                 送料込み
-          .ShowBox__name eee
-          .ShowTable
+          .showBox__description ここには商品の説明が入るよ
+          .showBox__detail
             %table
               %tbody
                 %tr
