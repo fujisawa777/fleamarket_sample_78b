@@ -35,7 +35,7 @@ class ProductsController < ApplicationController
   end
 
   def update
-    if @product.update(product_params)
+    if @product.seller_id == current_user.id && @product.update(product_params)
       flash[:notice] = '商品が更新されました'
       redirect_to root_path
     else
