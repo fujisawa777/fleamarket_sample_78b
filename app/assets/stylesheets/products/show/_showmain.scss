@@ -179,7 +179,6 @@
           text-align: center;
           background-color: blue($color: #000000);
           .commentBox {
-            list-style: none;
             .new_comment {
               margin: 0;
               padding: 0;
@@ -204,20 +203,25 @@
               br {
                 font-size: 14px;
               }
-              .commentBtn {
-                font-size: 18px;
-                line-height: 48px;
-                background: #3CCACE;
-                border: 1px solid #3CCACE;
-                color: #fff;
-                width: 60%;
-                font-size: 18px;
-                border-radius: 100px;
-                i.fa.fa-comment {}
+            }
+            .commentBtn {
+              font-size: 18px;
+              line-height: 48px;
+              background: #3CCACE;
+              border: 1px solid #3CCACE;
+              color: #fff;
+              width: 60%;
+              font-size: 18px;
+              border-radius: 100px;
+              margin: 25px 0 10px 135px;
+              &__Icon {
+                display: inline-block;
+                font-size: inherit;
+                text-rendering: auto;
               }
             }
+            // }
           }
-
         }
       }
     }
