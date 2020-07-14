@@ -122,6 +122,7 @@
           .CheckArea {
             display: flex;
             justify-content: space-between;
+            margin-top: 15px;
             .CheckBtn {
               margin: 10px 0 0;
               display: flex;
@@ -132,34 +133,39 @@
                 color: #3CCACE;
                 border: 1px solid #ffb340;
               }
-            }
-            .ul--Check {
-              margin: 10px 0 0;
-              display: flex;
-              .li--CheckBtn {
-                font-size: 14px;
-                a {
-                  padding: 6px 10px;
-                  display: inline-block;
-                  border-radius: 4px;
-                  color: #333;
-                  border: 1px solid #333;
-                  text-decoration: none;
-                  i {
-                    display: inline-block;
-                    font: normal normal normal 14px/1 FontAwesome;
-                    font-size: inherit;
-                    text-rendering: auto;
-                    ::before {
-                      display: inline-block;
-                      font: normal normal normal 14px/1 FontAwesome;
-                      font-size: inherit;
-                      text-rendering: auto;
-                    }
-                  }
-                }
+              .badBtn--decoration {
+                border: 1px solid black;
+                padding: 6px 10px;
+                border-radius: 4px;
               }
             }
+            // .ul--Check {
+            //   margin: 10px 0 0;
+            //   display: flex;
+            //   .li--CheckBtn {
+            //     font-size: 14px;
+            //     a {
+            //       padding: 6px 10px;
+            //       display: inline-block;
+            //       border-radius: 4px;
+            //       color: #333;
+            //       border: 1px solid #333;
+            //       text-decoration: none;
+            //       i {
+            //         display: inline-block;
+            //         font: normal normal normal 14px/1 FontAwesome;
+            //         font-size: inherit;
+            //         text-rendering: auto;
+            //         ::before {
+            //           display: inline-block;
+            //           font: normal normal normal 14px/1 FontAwesome;
+            //           font-size: inherit;
+            //           text-rendering: auto;
+            //         }
+            //       }
+            //     }
+            //   }
+            // }
           }
         }
         .commentArea {
@@ -170,43 +176,44 @@
           background-color: blue($color: #000000);
           .commentBox {
             list-style: none;
-            background-color: red;
+            .new_comment {
+              margin: 0;
+              padding: 0;
+              .input {
+                font-family: inherit;
+                font-size: inherit;
+                font-weight: inherit
+              }
+              .comment_middle {
+                width: 100%;
+                min-height: 104px;
+                padding: 10px;
+                border: 1px solid black;
+              }
+              p.atention {
+                padding: 8px;
+                font-size: 14px;
+                background-color: #f8f8f8;
+                margin: 10px 0;
+                text-align: left;
+              }
+              br {
+                font-size: 14px;
+              }
+              .commentBtn {
+                font-size: 18px;
+                line-height: 48px;
+                background: #3CCACE;
+                border: 1px solid #3CCACE;
+                color: #fff;
+                width: 60%;
+                font-size: 18px;
+                border-radius: 100px;
+                i.fa.fa-comment {}
+              }
+            }
           }
-          .new_comment {
-            margin: 0;
-            padding: 0;
-            input {
-              font-family: inherit;
-              font-size: inherit;
-              font-weight: inherit
-            }
-            .comment_middle {
-              width: 100%;
-              min-height: 104px;
-              padding: 10px;
-            }
-            p.atention {
-              padding: 8px;
-              font-size: 14px;
-              background-color: #f8f8f8;
-              margin: 10px 0;
-              text-align: left;
-            }
-            br {
-              font-size: 14px;
-            }
-            .commentBtn {
-              font-size: 18px;
-              line-height: 48px;
-              background: #3CCACE;
-              border: 1px solid #3CCACE;
-              color: #fff;
-              width: 60%;
-              font-size: 18px;
-              border-radius: 100px;
-              i.fa.fa-comment {}
-            }
-          }
+          
         }
       }
       ul.links {
