@@ -267,12 +267,13 @@
     }
     .productLists {
       width: 100%;
-      padding: 0 80px;
+      padding: 0 70px;
       display: flex;
       flex-wrap: wrap;
       .productList {
         width: 220px;
         display: inline-block;
+        margin: 10px 5px;
         a {
           background-color: #fff;
           display: inline-block;

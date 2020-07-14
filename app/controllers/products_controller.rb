@@ -4,8 +4,9 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    # 状況によって変えてください
-    @products = Product.includes(:images).order('created_at DESC')
+    # 売り切れを除く商品全て
+    # 売り切れ＝buyer_idがnilではない
+    @products = Product.where(buyer: nil).includes(:images).order('created_at DESC')
   end
 
   def show
