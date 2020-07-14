@@ -1,8 +1,7 @@
 .main
   .ShowMain
-    .ShowAll
     .ShowFlame
-      .ShowFlame__Top
+      .detailProduct
         .ShowBox
           %h2.ShowBox__nameEe ee
           .ShowBox__body
@@ -60,7 +59,10 @@
           .CheckArea
             %ul
               %li#likeBtn.CheckBtn.likeBtn
-                %i.fa.fa-star
+                -# = icon('fab', 'facebook-square',  class: "Contents__btn--icon")
+                = link_to "#", class: "CheckBtn__star" do
+                  = icon('fa', 'star')
+                  %span<>
                 お気に入り 0
             %ul--Check
               %li--CheckBtn
@@ -72,7 +74,7 @@
           %form#new_comment{"accept-charset" => "UTF-8", :action => "#", :method => "post"}
             %input{:name => "utf8", :type => "hidden", :value => "✓"}/
             %input{:name => "authenticity_token", :type => "hidden", :value => "jzpK84Ky4F7zbYNU9aBydpcUbRF1wpPOyVTc54rvqD5JwYV18qH72g3FCMmp7jrUwqXWUiRLCtkRCpUeru4nOw=="}/
-            %textarea#comment_middle{:name => "comment[body]", :required => "required"}
+            %textarea{name: "comment[body]", required: "required", class: "comment_middle"}
             %p.atention
               相手のことを考え丁寧なコメントを心がけましょう。
               %br/
@@ -91,13 +93,13 @@
           %a{:href => "#"}
             %span 後ろの商品
             %i.fa.fa-angle-rightarea
-      .Moreproduct
+      .moreProducts
         %a{:href => "#"} ベビー・キッズをもっと見る
-      .MoreproductLists
+        .MoreproductLists
         .MoreproductList
           %a--spel{:href => "/products/3"}
             %figure.MoreproductList--img
-              %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"}/
+              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", size: "220x150", alt: "test"
             .MoreproductList--body
               %h3.name product3
               .details
