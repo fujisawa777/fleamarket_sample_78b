@@ -1,23 +1,16 @@
 .main {
   background-color: #f8f8f8;
-  .ShowMain {
+  .showMain {
     padding: 40px;
-    text-align: left;
     margin: 0 auto;
-    .ShowAll{
-      margin: 0;
-      padding: 0;
-    }
-    .ShowFlame {
+    .showFlame {
       width: 700px;
       margin: 0 auto;
-      &__Top {
-        margin: 0;
-        padding: 0;
-        .ShowBox {
+      .detailProduct {
+        .showBox {
           background-color: #fff;
           padding: 24px 40px 40px;
-          &__nameEe {
+          &__nameHead {
             text-align: center;
             font-weight: bold;
             font-size: 24px;
@@ -129,18 +122,15 @@
           .CheckArea {
             display: flex;
             justify-content: space-between;
-            ul {
+            .CheckBtn {
               margin: 10px 0 0;
               display: flex;
-              li {
+              .likeBtn {
                 margin-right: auto;
                 padding: 6px 10px;
                 border-radius: 40px;
                 color: #3CCACE;
                 border: 1px solid #ffb340;
-                
-                
-                
               }
             }
             .ul--Check {
@@ -240,7 +230,7 @@
           }
         }
       }
-      .Moreproduct {
+      .moreProducts {
         a {
           display: block;
           margin: 24px 0 8px;

@@ -1,9 +1,9 @@
 .main
-  .ShowMain
-    .ShowFlame
+  .showMain
+    .showFlame
       .detailProduct
-        .ShowBox
-          %h2.ShowBox__nameEe ee
+        .showBox
+          %h2.ShowBox__nameHead ee
           .ShowBox__body
             %ul
               %li
@@ -57,17 +57,15 @@
                   %th 発送日の目安
                   %td 1-2日で発送
           .CheckArea
-            %ul
-              %li#likeBtn.CheckBtn.likeBtn
-                -# = icon('fab', 'facebook-square',  class: "Contents__btn--icon")
-                = link_to "#", class: "CheckBtn__star" do
-                  = icon('fa', 'star')
-                  %span<>
-                お気に入り 0
-            %ul--Check
-              %li--CheckBtn
-                %a{:href => "#"}
-                  %i.fa.fa-flag
+            %ul.CheckBtn
+              %li#likeBtn.likeBtn
+                = link_to "#" do
+                  = icon("fa","star",class: "likeBtn__Icon" )
+                  お気に入り 0
+            %ul.CheckBtn
+              %li.BadBtn
+                = link_to "#" do
+                  = icon("fa","flag")
                   不適切な商品の通報
         .commentArea
           %ul.commentBox
@@ -94,18 +92,18 @@
             %span 後ろの商品
             %i.fa.fa-angle-rightarea
       .moreProducts
-        %a{:href => "#"} ベビー・キッズをもっと見る
-        .MoreproductLists
-        .MoreproductList
-          %a--spel{:href => "/products/3"}
-            %figure.MoreproductList--img
-              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", size: "220x150", alt: "test"
-            .MoreproductList--body
-              %h3.name product3
-              .details
-                %ul
-                  %li 30000円
-                  %li
-                    %i.fa.fa-star.likeIcon
-                    0
-                %p (税込)
+        = link_to "ベビー・キッズをもっと見る"
+        .moreProductsLists
+          .moreProductsList
+            %a--spel{:href => "/products/3"}
+              %figure.moreProductsList--img
+                %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"}/
+              .moreProductsList--body
+                %h3.name product3
+                .details
+                  %ul
+                    %li 30000円
+                    %li
+                      %i.fa.fa-star.likeIcon
+                      0
+                  %p (税込)
