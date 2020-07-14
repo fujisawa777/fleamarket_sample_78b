@@ -1,3 +1,7 @@
+@import "products/show/links";
+@import "products/show/moreProducts";
+
+
 .main {
   background-color: #f8f8f8;
   .showMain {
@@ -203,95 +207,6 @@
               font-size: 18px;
               border-radius: 100px;
               i.fa.fa-comment {}
-            }
-          }
-        }
-      }
-      ul.links {
-        display: flex;
-        justify-content: space-between;
-        li {
-          a {
-            text-decoration: none;
-            color: #3CCACE;
-            i.fa.fa-angle-leftarea{
-              font: normal normal normal 14px/1 FontAwesome;
-              font-size: inherit;
-            }
-            span {}
-          }
-        }
-        li {
-          a {
-            span {}
-            i.fa.fa-angle-rightarea {}
-          }
-        }
-      }
-      .moreProducts {
-        a {
-          display: block;
-          margin: 24px 0 8px;
-          color: #3CCACE;
-          text-decoration: none;
-          font-weight: bold;
-          font-size: 22px;
-          position: relative;
-        }
-        .MoreproductLists {
-          margin: 0;
-          padding: 0;
-          .MoreproductList {
-            margin: 0 0 10px;
-            width: calc(100% / 3);
-            .a--spel {
-              font-size: 22px;
-              display: block;
-              margin: 24px 0 8px;
-              color: #3CCACE;
-              position: relative;
-              font-weight: bold;
-              .MoreproductList--img {
-                background-color: #fff;
-                .img {
-                  position: absolute;
-                  top: 0;
-                  left: 0;
-                  right: 0;
-                  bottom: 0;
-                  width: 100%;
-                  z-index: auto;
-                  height: 150px;
-                  object-fit: cover;
-                }
-              }
-              .MoreproductList--body {
-                background-color: white;
-                color: #333;
-                padding: 16px;
-                h3.name {
-                  overflow: hidden;
-                  line-height: 1.5;
-                  font-size: 16px;
-                  text-align: left;
-                }
-                .details {
-                  font-size: 16px;
-                  ul {
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                    li {}
-                    li {
-                      i {}
-                    }
-                  }
-                  p {
-                    font-size: 10px;
-                    text-align: left;
-                  }
-                }
-              }
             }
           }
         }
