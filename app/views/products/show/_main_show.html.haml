@@ -31,30 +31,30 @@
                 %tr
                   %th カテゴリー
                   %td
-                    = link_to "ベビー・キッズをもっと見る", "#"
+                    = link_to "#{@product.category.name}", "#"
                     %br/
                     = link_to "ベビー服(男の子用)  ~95cm", "#"
                     %br/
                     = link_to "アウター", "#"
                 %tr
                   %th ブランド
-                  %td
+                  %td= @product.brand
                 %tr
                   %th 商品のサイズ
-                  %td
-                %tr
+                  %td= @product.size.name
+                %tr@
                   %th 商品の状態
-                  %td 新品/未使用
+                  %td= @product.status.name
                 %tr
                   %th 配送料の負担
-                  %td 送料込み（出品者負担）
+                  %td= @product.shipfee.name
                 %tr
                   %th 発送元の地域
                   %td
-                    %a{:href => "#"} 北海道
+                    = link_to "#{@product.shipregion.name}", "#"
                 %tr
                   %th 発送日の目安
-                  %td 1-2日で発送
+                  %td= @product.estshipdate.name
           .CheckArea
             %ul.CheckBtn
               .likeBtn
