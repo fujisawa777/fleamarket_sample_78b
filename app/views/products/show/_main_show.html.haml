@@ -22,6 +22,15 @@
                 = @product.shipfee.name
           .showBox__description
             = @product.description
+          .showBox__buy
+            = link_to "#", class: "commentBtn__Icon" do
+              = icon("fa", "comment")
+          .showBox__edit
+            = link_to "#", class: "commentBtn__Icon" do
+              = icon("fa", "comment")
+          .showBox__delete
+            = link_to "#", class: "commentBtn__Icon" do
+              = icon("fa", "comment")
           .showBox__detail
             %table
               %tbody
@@ -31,11 +40,11 @@
                 %tr
                   %th カテゴリー
                   %td
+                    = link_to "#{@product.category.parent.parent.name}", "#"
+                    %br/
+                    = link_to "#{@product.category.parent.name}", "#"
+                    %br/
                     = link_to "#{@product.category.name}", "#"
-                    %br/
-                    = link_to "ベビー服(男の子用)  ~95cm", "#"
-                    %br/
-                    = link_to "アウター", "#"
                 %tr
                   %th ブランド
                   %td= @product.brand
