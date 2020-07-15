@@ -335,30 +335,94 @@ others_9.children.create([{name: "すべて"}])
 
 
 #確認用ユーザの作成
-user1 = User.new(name: "kakunin1", email:"kakunin1@kakuniun.com", password: "password")
+user0 = User.new(name: "kakunin", email:"kakunin@kakunin.com", password: "password")
+user0.build_personal(birthday: 19901103, firstname: "確認", lastname: "太郎", h_firstname: "カクニン", h_lastname: "タロウ", description: "確認用アカウントです", image: "")
+user0.build_sendaddress( s_firstname: "送信先", s_lastname: "太郎", s_h_firstname: "ソウシンサキ", s_h_lastname: "タロウ", zipcode: "3100030", prefectures: "茨城県", municipalitities: "水戸市", streetaddress: "常盤町2-3-5", room: "レオパレス200", phonenumber: "09000000000")
+user0.save
+
+user1 = User.new(name: "kakunin1", email:"kakunin1@kakunin.com", password: "password")
 user1.build_personal(birthday: 19900101, firstname: "確認一", lastname: "太郎", h_firstname: "カクニンイチ", h_lastname: "タロウ", description: "確認用アカウント1です", image: "")
 user1.build_sendaddress( s_firstname: "送信先一", s_lastname: "太郎", s_h_firstname: "ソウシンサキイチ", s_h_lastname: "タロウ", zipcode: "3100031", prefectures: "茨城県", municipalitities: "水戸市", streetaddress: "常盤町2-3-5", room: "レオパレス201", phonenumber: "09000001111")
 user1.save
 
-user2 = User.new(name: "kakunin2", email:"kakunin2@kakuniun.com", password: "password")
+user2 = User.new(name: "kakunin2", email:"kakunin2@kakunin.com", password: "password")
 user2.build_personal(birthday: 19900102, firstname: "確認二", lastname: "太郎", h_firstname: "カクニンニ", h_lastname: "タロウ", description: "確認用アカウント2です", image: "")
 user2.build_sendaddress( s_firstname: "送信先二", s_lastname: "太郎", s_h_firstname: "ソウシンサキニ", s_h_lastname: "タロウ", zipcode: "3100032", prefectures: "茨城県", municipalitities: "水戸市", streetaddress: "常盤町2-3-5", room: "レオパレス202", phonenumber: "09000002222")
 user2.save
 
-user3 = User.new(name: "kakunin3", email:"kakunin3@kakuniun.com", password: "password")
+user3 = User.new(name: "kakunin3", email:"kakunin3@kakunin.com", password: "password")
 user3.build_personal(birthday: 19900103, firstname: "確認三", lastname: "太郎", h_firstname: "カクニンサン", h_lastname: "タロウ", description: "確認用アカウント3です", image: "")
 user3.build_sendaddress( s_firstname: "送信先三", s_lastname: "太郎", s_h_firstname: "ソウシンサキサン", s_h_lastname: "タロウ", zipcode: "3100033", prefectures: "茨城県", municipalitities: "水戸市", streetaddress: "常盤町2-3-5", room: "レオパレス203", phonenumber: "09000003333")
 user3.save
 
-user4 = User.new(name: "kakunin4", email:"kakunin4@kakuniun.com", password: "password")
+user4 = User.new(name: "kakunin4", email:"kakunin4@kakunin.com", password: "password")
 user4.build_personal(birthday: 19900104, firstname: "確認四", lastname: "太郎", h_firstname: "カクニンヨン", h_lastname: "タロウ", description: "確認用アカウント4です", image: "")
 user4.build_sendaddress( s_firstname: "送信先四", s_lastname: "太郎", s_h_firstname: "ソウシンサキヨン", s_h_lastname: "タロウ", zipcode: "3100034", prefectures: "茨城県", municipalitities: "水戸市", streetaddress: "常盤町2-3-5", room: "レオパレス204", phonenumber: "09000004444")
 user4.save
 
-user5 = User.new(name: "kakunin5", email:"kakunin5@kakuniun.com", password: "password")
+user5 = User.new(name: "kakunin5", email:"kakunin5@kakunin.com", password: "password")
 user5.build_personal(birthday: 19900105, firstname: "確認五", lastname: "太郎", h_firstname: "カクニンゴ", h_lastname: "タロウ", description: "確認用アカウント5です", image: "")
 user5.build_sendaddress( s_firstname: "送信先五", s_lastname: "太郎", s_h_firstname: "ソウシンサキゴ", s_h_lastname: "タロウ", zipcode: "3100035", prefectures: "茨城県", municipalitities: "水戸市", streetaddress: "常盤町2-3-5", room: "レオパレス205", phonenumber: "09000005555")
 user5.save
 
 
+#商品用初期データ
+product1 = Product.new(name: "ショートブーツ サンダル　ネイビー　GU Lサイズ" , price: 1500 , category_id: 70, description: "試着のみです\r\n保管中に寄れて甲の部分が倒れちゃいますが、\r\n履くと問題なくフォルム戻ります。\r\nネイビーで品のある感じが気に入っていたのですが、履く機会が無さそうなので出品します\r\nサイズはLサイズですが\r\n普段24.5〜25を履く私にはちょうど良かったです", brand: "ジーユー", size_id: 1, status_id: 2, shipfee_id: 1, shipregion_id: 4, estshipdate_id: 2, seller_id: 2)
+product1.images.new([{src: open("#{Rails.root}/db/fixtures/1-1.jpg")},{src: open("#{Rails.root}/db/fixtures/1-2.jpg")},{src: open("#{Rails.root}/db/fixtures/1-3.jpg")},{src: open("#{Rails.root}/db/fixtures/1-4.jpg")}])
+product1.save
 
+product2 = Product.new(name: "腕時計 ダークグレー　ネオセブンティーズ　オリエント　新品未使用" , price: 28400 , category_id: 324, description: "新品未使用　即決ok\r\n参考価格35200", brand: "オリエント", size_id: "", status_id: 1, shipfee_id: 1, shipregion_id: 27, estshipdate_id: 2, seller_id: 2)
+product2.images.new([{src: open("#{Rails.root}/db/fixtures/2-1.jpg")},{src: open("#{Rails.root}/db/fixtures/2-2.jpg")}])
+product2.save
+
+product3 = Product.new(name: "天然木材 ターンテーブル スピーカー内蔵 レコードプレーヤー 多種再生" , price: 18500 , category_id: 948, description: "天然木材 ターンテーブル スピーカー内蔵 レコードプレーヤー 多種再生\r\n\r\n【アンティークで贅沢感】プレミアムな家具グレードの無垢材、高光沢仕上げ。\r\n【レコードプレーヤー】アナログレコード3スピード (33/45/78rpm) 対応。ベルトドライブ方式のダイヤモンド針付きターンテーブル。\r\n【高音質】全帯域2ウェイステレオスピーカー内蔵で、どんなタイプの音楽にも最適化された明瞭なサウンドを生み出します。\r\n【ワイヤレス接続】Bluetoothに対応しているので、お持ちのデバイス (iPhone、Android、タブレットなど) で音楽を再生できます。\r\n【USB録音】レコードからWAVまでUSBに移して再生させることができます。録音にソフトウェアやCDは一切必要ありません。", brand: "", size_id: "", status_id: 1, shipfee_id: 1, shipregion_id: 23, estshipdate_id: 3, seller_id: 3)
+product3.images.new([{src: open("#{Rails.root}/db/fixtures/3-1.jpg")},{src: open("#{Rails.root}/db/fixtures/3-2.jpg")},{src: open("#{Rails.root}/db/fixtures/3-3.jpg")},{src: open("#{Rails.root}/db/fixtures/3-4.jpg")},{src: open("#{Rails.root}/db/fixtures/3-5.jpg")}])
+product3.save
+
+product4 = Product.new(name: "マクド　ハッピーセット　5点　まとめ　未使用　送料無料" , price: 1000 , category_id: 687, description: "クーポンポイント消化にはいかがでしょうか〜\r\n未使用　確認ため開封したです\r\n\r\n1.マイメロディ　　ベッドルームのお城\r\n2.マイメロディ　お出かけポーチ\r\n2.リトルツインスターズ　ダンスホールのお城\r\n3.ピカチンキット　まぜまぜカラー扇風機\r\n4.しまじろうの靴下合わせ\r\n\r\n#マクド\r\n#ハッピーセット\r\n#おもちゃ\r\n#しまじろう\r\n#マイメロディ\r\n#ピカチン", brand: "", size_id: "", status_id: 3, shipfee_id: 1, shipregion_id: 25, estshipdate_id: 1, seller_id: 3)
+product4.images.new([{src: open("#{Rails.root}/db/fixtures/4-1.jpg")},{src: open("#{Rails.root}/db/fixtures/4-2.jpg")},{src: open("#{Rails.root}/db/fixtures/4-3.jpg")},{src: open("#{Rails.root}/db/fixtures/4-4.jpg")},{src: open("#{Rails.root}/db/fixtures/4-5.jpg")}])
+product4.save
+
+product5 = Product.new(name: "新品】 PlayStation VR MEGA PACK CUHJ-16010" , price: 39480 , category_id: 679, description: "PS VR MEGA PACK\r\n新品　未使用　未開封\r\n2020年7月の購入品です。\r\n購入当日から翌日中に発送いたします。\r\n\r\n\r\n商品情報 :バンドルタイトル5本とPS Moveがセットになった超お得なパックが“数量限定”で登場!\r\n●必要な機器\r\n　PS VRをプレイするためには、PlayStation 4本体が必要です。\r\n\r\n商品名 :PlayStation VR MEGA PACK\r\n型番 : CUHJ-16010\r\n\r\n基本仕様 :\r\nタイプ VRヘッドセット\r\n対応機器 PlayStation4\r\nディスプレイタイプ OLED\r\nディスプレイ解像度 1920xRGBx1080/左右の目それぞれ：960xRGBx1080\r\n視野角 100 度\r\nリフレッシュレート 120Hz、90Hz\r\n搭載センサー 6軸検出システム(3軸ジャイロ・3軸加速度)\r\n接続端子 VR：HDMI/AUX/ステレオヘッドホン/プロセッサーユニット：HDMI TV/HDMI PS4/USB/HDMI/AUX\r\n\r\n[サイズ・重量]\r\n本体サイズ 187x185x277mm\r\n本体重量 600 g\r\n\r\n[内容物]\r\n・VRヘッドセット × 1\r\n・PlayStation Cameraおよびスタンド × 1\r\n・PlayStation Move モーションコントローラー × 2\r\n・PS4用（PS VR対応）ソフトウェア『バイオハザード7　レジデント イービル ゴールド エディション グロテスクVer. Best Price』 パッケージ版 × 1 ※CERO Zタイトル\r\n・PS4用（PS VR必須）ソフトウェア『Beat Saber』 ダウンロード版 × 1\r\n・PS4用（PS VR必須）ソフトウェア『ASTRO BOT：RESCUE MISSION』パッケージ版 × 1\r\n・PS4用（PS VR必須）ソフトウェア『PlayStation VR WORLDS』 パッケージ版 × 1\r\n・PS4用（PS VR必須）ソフトウェア『みんなのGOLF VR』 パッケージ版 × 1\r\n・プロセッサーユニット × 1\r\n・HDMIケーブル × 1\r\n・USBケーブル × 1\r\n・ステレオヘッドホン（イヤーピース一式） × 1\r\n・電源コード × 1\r\n・ACアダプター × 1", brand: "プレイステーション４", size_id: "", status_id: 1, shipfee_id: 1, shipregion_id: 27, estshipdate_id: 1, seller_id: 4)
+product5.images.new([{src: open("#{Rails.root}/db/fixtures/5-1.jpg")}])
+product5.save
+
+product6 = Product.new(name: "和辻哲郎全集　1〜20巻" , price: 6800 , category_id: 643, description: "和辻哲郎さんの全集セットになります！！\r\n\r\nこちら長期保管されていたのかかなり本の状態がいいとは言えません！！\r\n\r\n一応読むには問題ないと思いますが紙が日焼けやヤニ焼けのような感じで汚れています！！\r\n本の表紙に和紙のような物が付けられていますがそちらを外せばまだ問題ないと思います！！\r\n\r\n全巻確認したわけではないのですが後は気になる点コメントいただければ写真取り後から載せます！！\r\n\r\nこちら重いのでもしかしたら一個口での発送が出来ない場合がありますのでご了承ください！！\r\n\r\n古いものになりますのでかならず納得した上でのご購入よろしくお願いします", brand: "", size_id: "", status_id: 6, shipfee_id: 1, shipregion_id: 1, estshipdate_id: 1, seller_id: 4)
+product6.images.new([{src: open("#{Rails.root}/db/fixtures/6-1.jpg")},{src: open("#{Rails.root}/db/fixtures/6-2.jpg")},{src: open("#{Rails.root}/db/fixtures/6-3.jpg")},{src: open("#{Rails.root}/db/fixtures/6-4.jpg")},{src: open("#{Rails.root}/db/fixtures/6-5.jpg")}])
+product6.save
+
+product7 = Product.new(name: "サムソナイトビジネスバッグ ガーメントバッグ" , price: 2500 , category_id: 265, description: "サムソナイトのガーメントバッグです。\r\n写真の衣類、小物類はイメージで、鞄のみの出品になります。内側に大きめのポケットがふたつ。外側にも、ふたつあります。\r\nメインのチャックは鍵ができるようになっており、鍵はふたつそろってます。", brand: "サムソナイト", size_id: "", status_id: 2, shipfee_id: 1, shipregion_id: 13, estshipdate_id: 1, seller_id: 5)
+product7.images.new([{src: open("#{Rails.root}/db/fixtures/7-1.jpg")},{src: open("#{Rails.root}/db/fixtures/7-2.jpg")},{src: open("#{Rails.root}/db/fixtures/7-3.jpg")}])
+product7.save
+
+product8 = Product.new(name: "b2c Wストラップ エプロンドレス サラサデザイン　チャコールグレー" , price: 8300 , category_id: 490, description: "新品未開封\r\n\r\nsarasa design\r\nb2c W Strap Apron Dress\r\n\r\nサラサラデザイン\r\nダブルストラップエプロンドレス\r\n\r\n\r\n発売数分で即完売になる人気の商品です。", brand: "", size_id: "", status_id: 1, shipfee_id: 1, shipregion_id: 12, estshipdate_id: 1, seller_id: 5)
+product8.images.new([{src: open("#{Rails.root}/db/fixtures/8-1.jpg")},{src: open("#{Rails.root}/db/fixtures/8-2.jpg")},{src: open("#{Rails.root}/db/fixtures/8-3.jpg")}])
+product8.save
+
+product9 = Product.new(name: "子供　スキーブーツ　ラング　19.5 早い者勝ち" , price: 3000 , category_id: 1060, description: "質問お待ちしております\r\n値下げしますよ!", brand: "ラング", size_id: 3, status_id: 4, shipfee_id: 3, shipregion_id: 1, estshipdate_id: 3, seller_id: 6)
+product9.images.new([{src: open("#{Rails.root}/db/fixtures/9-1.jpg")},{src: open("#{Rails.root}/db/fixtures/9-2.jpg")},{src: open("#{Rails.root}/db/fixtures/9-3.jpg")},{src: open("#{Rails.root}/db/fixtures/9-4.jpg")},{src: open("#{Rails.root}/db/fixtures/9-5.jpg")}])
+product9.save
+
+product10 = Product.new(name: "シャトーラトゥール　空瓶4本セット" , price: 4000 , category_id: 1300, description: "シャトーラトゥール　空瓶4本セット\r\n\r\nコルクなし\r\n\r\n中身の洗浄なし\r\n\r\nやや傷や汚れあり", brand: "", size_id: "", status_id: 4, shipfee_id: 1, shipregion_id: 13, estshipdate_id: 2, seller_id: 6)
+product10.images.new([{src: open("#{Rails.root}/db/fixtures/10-1.jpg")},{src: open("#{Rails.root}/db/fixtures/10-2.jpg")}])
+product10.save
+
+product11 = Product.new(name: "売却済1" , price: 10001 , category_id: 1294, description: "テスト", brand: "ブラブラ", size_id: 1, status_id: 3, shipfee_id: 1, shipregion_id: 2, estshipdate_id: 2, buyer_id: 2 ,seller_id: 1)
+product11.images.new([{src: open("#{Rails.root}/db/fixtures/buy.jpg")}])
+product11.save
+
+product12 = Product.new(name: "売却済2" , price: 10002 , category_id: 1294, description: "テスト", brand: "ブラブラ", size_id: "", status_id: 3, shipfee_id: 1, shipregion_id: 2, estshipdate_id: 2,buyer_id: 3 ,seller_id: 1)
+product12.images.new([{src: open("#{Rails.root}/db/fixtures/buy.jpg")}])
+product12.save
+
+product13 = Product.new(name: "売却済3" , price: 10003 , category_id: 1294, description: "テスト", brand: "ブラブラ", size_id: "", status_id: 3, shipfee_id: 1, shipregion_id: 2, estshipdate_id: 2,buyer_id: 4, seller_id: 1)
+product13.images.new([{src: open("#{Rails.root}/db/fixtures/buy.jpg")}])
+product13.save
+
+product14 = Product.new(name: "売却済4" , price: 10004 , category_id: 1294, description: "テスト", brand: "ブラブラ", size_id: 3, status_id: 3, shipfee_id: 1, shipregion_id: 2, estshipdate_id: 2,buyer_id: 5, seller_id: 1)
+product14.images.new([{src: open("#{Rails.root}/db/fixtures/buy.jpg")}])
+product14.save
+
+product15 = Product.new(name: "売却済5" , price: 10005 , category_id: 1294, description: "テスト", brand: "ブラブラ", size_id: 4, status_id: 3, shipfee_id: 1, shipregion_id: 2, estshipdate_id: 1,buyer_id: 6, seller_id: 1)
+product15.images.new([{src: open("#{Rails.root}/db/fixtures/buy.jpg")}])
+product15.save

@@ -20,8 +20,7 @@
                 (税込)
               %span.showBox__priceData
                 = @product.shipfee.name
-          .showBox__description
-            = @product.description
+          .showBox__description= simple_format(@product.description)
           .showBox__buy
             = link_to "#", class: "commentBtn__Icon" do
               = icon("fa", "comment")
@@ -48,10 +47,11 @@
                 %tr
                   %th ブランド
                   %td= @product.brand
+                - if @product.size.present?
+                  %tr
+                    %th 商品のサイズ
+                    %td= @product.size.name
                 %tr
-                  %th 商品のサイズ
-                  %td= @product.size.name
-                %tr@
                   %th 商品の状態
                   %td= @product.status.name
                 %tr
