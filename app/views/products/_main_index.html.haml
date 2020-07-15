@@ -86,20 +86,4 @@
         = link_to "#" do
           %h3.title 投稿商品一覧
       .productLists
-        = render partial: 'product_index'
-  %section.pickup
-    %h2.head ピックアップカテゴリー
-    .productBox
-      .productHead
-        = link_to "#" do
-          %h3.title 投稿商品一覧
-      .productLists
-        = render partial: 'product_index'
-  %section.pickup
-    %h2.head ピックアップブランド
-    .productBox
-      .productHead
-        = link_to "#" do
-          %h3.title 投稿商品一覧
-      .productLists
-        = render partial: 'product_index'
+        = render @products
