@@ -1,7 +1,7 @@
 $(function(){
   // カテゴリーセレクトボックスのオプションを作成
   function appendOption(category){
-    let html = `<option value="${category.name}" data-category="${category.id}">${category.name}</option>`;
+    let html = `<option value="${category.id}" data-category="${category.id}">${category.name}</option>`;
     return html;
   }
   // 子カテゴリーの表示作成
@@ -68,7 +68,6 @@ function appendGrandchildrenBox(insertHTML){
   });
   // 子カテゴリー選択後のイベント
   $(document).on('change', '#child_category',function(){
-    console.log("発火子イベント")
     let childId = $('#child_category option:selected').data('category');
     console.log(childId)
     if (childId!= ""){ //子カテゴリーが初期値でないことを確認
