@@ -39,7 +39,6 @@ $(function(){
   // 親カテゴリー選択後のイベント
   $('#parents').on('change', function(){
     let parentCategory = this.value;
-    console.log(this)
     //選択された親カテゴリーの名前を取得
     if (parentCategory != ""){ //親カテゴリーが初期値でないことを確認
       $.ajax({
@@ -70,7 +69,6 @@ $(function(){
   // 子カテゴリー選択後のイベント
   $(document).on('change', "#children" , function(){
     let childId = this.value;
-    console.log(this)
     if (childId!= ""){ //子カテゴリーが初期値でないことを確認
       $.ajax({
         url: '/products/get_category_grandchildren',
