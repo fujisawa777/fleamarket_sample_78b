@@ -1,8 +1,10 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destory]
   before_action :set_parents, only: [:new, :edit, :create , :update]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
+    # 状況によって変えてください
     @products = Product.includes(:images).order('created_at DESC')
   end
 
@@ -40,10 +42,13 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    if !(@product.seller_id == current_user.id)
+      redirect_to root_path
+    end
   end
 
   def update
-    if @product.update(product_params)
+    if @product.seller_id == current_user.id && @product.update(product_params)
       flash[:notice] = '商品が更新されました'
       redirect_to root_path
     else
@@ -57,9 +62,8 @@ class ProductsController < ApplicationController
         flash[:notice] = '商品が削除されました'
         redirect_to root_path
       else
-        @product = Product.includes(:images).order('created_at DESC')
-        flash.now[:alert]  = '商品が削除されませんでした'
-        render :index
+        flash.now[:notice]  = '商品が削除されませんでした'
+        redirect_to root_path
       end
   end
 
