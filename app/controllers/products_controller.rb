@@ -1,8 +1,10 @@
 class ProductsController < ApplicationController
   before_action :set_product, except: [:index, :new, :create]
-  before_action :set_parents, only:[:new, :edit,:create , :update,]
+  before_action :set_parents, only:[:new, :edit,:create , :update]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
+    # 状況によって変えてください
     @products = Product.includes(:images).order('created_at DESC')
   end
 
@@ -28,10 +30,13 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    if !(@product.seller_id == current_user.id)
+      redirect_to root_path
+    end
   end
 
   def update
-    if @product.update(product_params)
+    if @product.seller_id == current_user.id && @product.update(product_params)
       flash[:notice] = '商品が更新されました'
       redirect_to root_path
     else
@@ -45,15 +50,14 @@ class ProductsController < ApplicationController
         flash[:notice] = '商品が削除されました'
         redirect_to root_path
       else
-        @product = Product.includes(:images).order('created_at DESC')
-        flash.now[:alert]  = '商品が削除されませんでした'
-        render :index
+        flash.now[:notice]  = '商品が削除されませんでした'
+        redirect_to root_path
       end
   end
 
   private
   def product_params
-    params.require(:product).permit(:name, :price, :category_id, :description, :brand, :size_id, :status_id, :shipfee_id, :shipregion_id, :estshipdate_id, :seller_id, :buyer_id, images_attributes: [:src, :_destroy, :id]).merge(seller_id: 1)
+    params.require(:product).permit(:name, :price, :category_id, :description, :brand, :size_id, :status_id, :shipfee_id, :shipregion_id, :estshipdate_id, :seller_id, :buyer_id, images_attributes: [:src, :_destroy, :id]).merge(seller_id: current_user.id)
   end
 
   def set_product

@@ -1,0 +1,54 @@
+.Wrapper
+  = render 'form/header'
+  .formMain
+    %h2.formMain__title
+      会員情報登録
+    %hr.formCutter
+    = form_with model: @personal , class: "form", local: true do |f|
+      .form__content
+        %span.form__field__label 生年月日
+        %span.form__field__essential 必須
+        .form__field
+          .form__field--input.marginT25
+            != sprintf(f.date_select(:birthday, prefix:'birthday', with_css_classes: true, prompt:"--",use_month_numbers:true, start_year:Time.now.year, end_year:1960, date_separator:'%s'),'年','月',)
+            %p.dayTitle 日
+            = icon("fas", "angle-down",class:"form__field--inputSelectYear")
+            = icon("fas", "angle-down",class:"form__field--inputSelectManth")
+            = icon("fas", "angle-down",class:"form__field--inputSelectDay")
+
+        - if @personal.errors.include?(:birthday)
+          %p.error_message
+            生年月日を入力してください
+
+      .form__content.marginT50
+        %span.form__field__label お名前（全角）
+        %span.form__field__essential 必須
+        .form__field.flexbox.marginT25
+          .form__fieldHalf
+            .form__fieldHalf--input.marginR5
+              = f.text_field :firstname, class: "form__fieldHalf--inputField" , placeholder: "例)まこ"
+          .form__fieldHalf
+            .form__fieldHalf--input
+              = f.text_field :lastname, class: "form__fieldHalf--inputField" , placeholder: "例)なり"
+        - if @personal.errors.include?(:firstname) || @personal.errors.include?(:lastname)
+          %p.error_message
+            お名前（全角）を入力してください
+
+      .form__content.marginT50
+        %span.form__field__label お名前（カナ）
+        %span.form__field__essential 必須
+        .form__field.flexbox.marginT25
+          .form__fieldHalf.marginR5
+            .form__fieldHalf--input
+              = f.text_field :h_firstname, class: "form__fieldHalf--inputField" , placeholder: "例)マコ"
+          .form__fieldHalf
+            .form__fieldHalf--input
+              = f.text_field :h_lastname, class: "form__fieldHalf--inputField" , placeholder: "例)ナリ"
+        - if @personal.errors.include?(:h_firstname) || @personal.errors.include?(:h_lastname)
+          %p.error_message
+            お名前（カナ）を入力してください
+
+      .form__content.last__content
+        .form__field
+          = f.submit '次へ進む', class: "form__field--btn"
+  = render 'form/footer'

@@ -80,13 +80,27 @@
           height: 200px;
           cursor: pointer;
         }
-        &Text{
+        &Icon {
           position: absolute;
-          top: 50%;
+          top: 45%;
           left: 16px;
           right: 16px;
           text-align: center;
-          font-size: 14px;
+          line-height: 1.5;
+          font-weight: bold;
+          -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+          pointer-events: none;
+          white-space: pre-wrap;
+          word-wrap: break-word;
+        }
+        &Text {
+          position: absolute;
+          top: 65%;
+          left: 16px;
+          right: 16px;
+          text-align: center;
+          font-size: 10px;
           line-height: 1.5;
           font-weight: bold;
           -webkit-transform: translate(0, -50%);
@@ -136,7 +150,7 @@
         width: 100%;
         border: 1px solid #bbb;
         border-radius: 5px;
-        .js-file{ 
+        .js-file{
           &_group {
             display: flex;
           }
@@ -237,7 +251,7 @@
       }
     }
   }
-  hr {
+  .formCutter {
     border-top: 1px dotted #bbb;
     width: 100%;
     &:after {
@@ -271,5 +285,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+  #drop_area{
+    height: 100%;
+    width: 100%;
   }
 }

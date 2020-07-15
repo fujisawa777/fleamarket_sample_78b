@@ -1,0 +1,11 @@
+@import "user/newuseredit";
+@import "user/newpersonaledit";
+@import "user/newsendaddressedit";
+@import "user/userlogin";
+.Wrapper{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  color: black;
+  background-color:#F5F5F5;
+}

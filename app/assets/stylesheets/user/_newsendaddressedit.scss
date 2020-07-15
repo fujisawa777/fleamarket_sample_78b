@@ -1,0 +1,90 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  width: 700px;
+  margin: 0 auto;
+  &_box {
+    &__text {
+      font-size: 22px;
+      padding: 32px;
+      font-weight: bold;
+    }
+  }
+  .formzone {
+    .field__boxColumn {
+      padding: 30px;
+      width: 100%;
+      &__essential {
+        color: white;
+        background-color: #3CCACE;
+        font-weight: bold;
+        font-size: 14px;
+        margin-left: 2px;
+        padding: 0 5px;
+      }
+      &__text {
+        padding: 5px 10px;
+        border: 1px solid #bbb;
+        border-radius: 5px;
+        height: 50px;
+        width: 100%;
+        line-height: 100%;
+        align-items: center;
+      }
+      &__input__marginT25 {
+        margin-top: 25px;
+      }
+      &Next {
+        &__btn {
+          display: block;
+          background-color: #3CCACE;
+          color: white;
+          width: 300px;
+          text-align: center;
+          border-radius: 5px;
+          height: 50px;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+  .arbitrarily_field {
+    padding: 30px;
+    width: 100%;
+    &__boxColumn__essential {
+      color: white;
+      background-color: gray;
+      font-weight: bold;
+      font-size: 14px;
+      margin-left: 2px;
+      padding: 0 5px;
+    }
+    &__boxColumn__input__marginT25 {
+      margin-top: 25px;
+    }
+    &__boxColumn__text {
+      padding: 5px 10px;
+      border: 1px solid #bbb;
+      border-radius: 5px;
+      height: 50px;
+      width: 100%;
+      line-height: 100%;
+      align-items: center;
+    }
+    &__boxColumnNext {
+      &__btn {
+        display: block;
+        background-color: #3CCACE;
+        color: white;
+        width: 300px;
+        text-align: center;
+        border-radius: 5px;
+        height: 50px;
+        margin: 0 auto;
+      }
+    }
+  }
+}
