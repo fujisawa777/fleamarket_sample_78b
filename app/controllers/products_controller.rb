@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
-  before_action :set_product, except: [:index, :new, :create]
-  before_action :set_parents, only:[:new, :edit,:create , :update]
+  before_action :set_product, only: [:show, :edit, :update, :destory]
+  before_action :set_parents, only: [:new, :edit, :create , :update]
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
@@ -15,6 +15,19 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @product.images.new
+  end
+
+  # 以下全て、formatはjsonのみ
+  # 親カテゴリーが選択された後に動くアクション
+  def get_category_children
+    #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
+    @category_children = Category.find(params[:parent_id]).children
+  end
+
+  # 子カテゴリーが選択された後に動くアクション
+  def get_category_grandchildren
+    #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
+      @category_grandchildren = Category.find(params[:child_id]).children
   end
 
   def create
@@ -57,7 +70,7 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:name, :price, :category_id, :description, :brand, :size_id, :status_id, :shipfee_id, :shipregion_id, :estshipdate_id, :seller_id, :buyer_id, images_attributes: [:src, :_destroy, :id]).merge(seller_id: current_user.id)
+    params.require(:product).permit(:name, :price, :category_id, :description, :brand, :size_id, :status_id, :shipfee_id, :shipregion_id, :estshipdate_id, images_attributes: [:src, :_destroy, :id]).merge(seller_id: current_user.id)
   end
 
   def set_product
