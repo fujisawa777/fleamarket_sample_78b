@@ -2,8 +2,3 @@
 = render partial: 'main_index'
 = render partial: 'banner_index'
 = render partial: 'footer_index'
--# eachで回す時
--# - @products.each do |product|
--#   = render partial: "product_test", locals: { product: product }
--# collectionで書く時
-= render partial: "product_test", collection: @products, as: "product"
