@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_12_154509) do
+ActiveRecord::Schema.define(version: 2020_07_07_053932) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -29,9 +29,9 @@ ActiveRecord::Schema.define(version: 2020_07_12_154509) do
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "src"
+    t.bigint "product_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "product_id", null: false
     t.index ["product_id"], name: "index_images_on_product_id"
   end
 
@@ -65,15 +65,9 @@ ActiveRecord::Schema.define(version: 2020_07_12_154509) do
     t.boolean "draft", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "categories_id"
-    t.bigint "buyer_id_id"
-    t.bigint "seller_id_id"
     t.index ["buyer_id"], name: "index_products_on_buyer_id"
-    t.index ["buyer_id_id"], name: "index_products_on_buyer_id_id"
-    t.index ["categories_id"], name: "index_products_on_categories_id"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["seller_id"], name: "index_products_on_seller_id"
-    t.index ["seller_id_id"], name: "index_products_on_seller_id_id"
   end
 
   create_table "sendaddresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -108,8 +102,7 @@ ActiveRecord::Schema.define(version: 2020_07_12_154509) do
 
   add_foreign_key "images", "products"
   add_foreign_key "personals", "users"
-  add_foreign_key "products", "categories", column: "categories_id"
-  add_foreign_key "products", "users", column: "buyer_id_id"
-  add_foreign_key "products", "users", column: "seller_id_id"
+  add_foreign_key "products", "users", column: "buyer_id"
+  add_foreign_key "products", "users", column: "seller_id"
   add_foreign_key "sendaddresses", "users"
 end
