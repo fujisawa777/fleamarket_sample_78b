@@ -3,31 +3,31 @@
     .showFlame
       .detailProduct
         .showBox
-          %h2.showBox__nameHead ここには商品名が入るよ
+          %h2.showBox__nameHead= @product.name
           .showBox__body
             %ul.showBox__images
               %li.showBox__top
-                = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG", alt: "top画像", class:"showBox__topImage"
+                = image_tag "#{@product.images.first.src.url}", alt: "top画像", class:"showBox__topImage"
                 %ul.showBox__bottom
+                - @product.images.drop(1).each do |image|
                   %li.showBox__bottomItems
-                    = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG", alt: "sub画像", class:"showBox__bottomItemsImage"
-                  %li.showBox__bottomItems
-                    = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/17/IMG_9069.JPG", alt: "sub画像", class:"showBox__bottomItemsImage"
+                    = image_tag "#{image.src.url}", alt: "sub画像", class:"showBox__bottomItemsImage"
           .showBox__priceItems
             %span.showBox__price
-              ¥1000
+              = "¥#{@product.price}"
             .showBox__priceInfo
               %span.showBox__priceData
                 (税込)
               %span.showBox__priceData
-                送料込み
-          .showBox__description ここには商品の説明が入るよ
+                = @product.shipfee.name
+          .showBox__description
+            = @product.description
           .showBox__detail
             %table
               %tbody
                 %tr
                   %th 出品者
-                  %td ss
+                  %td= @product.seller.name
                 %tr
                   %th カテゴリー
                   %td
