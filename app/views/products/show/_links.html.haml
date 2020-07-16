@@ -1,0 +1,12 @@
+.link-nav
+  %ul.links
+    %li.link
+      = link_to "#",class: "linkText" do
+        = icon("fa","angle-left",class: "linkIcon" )
+        %span
+          前の商品
+    %li.link
+      = link_to "#",class: "linkText" do
+        %span
+          後ろの商品
+        = icon("fa","angle-right",class: "linkIcon" )

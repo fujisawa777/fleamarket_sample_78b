@@ -1,0 +1,10 @@
+%tr
+  %th 商品のサイズ
+  %td= @product.name
+- if @product.size.present?
+  %tr
+    %th 商品のサイズ
+    %td= @product.size.name
+%tr
+  %th 商品のサイズ
+  %td= @product.discriptio

@@ -11,8 +11,8 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.integer :shipfee_id, null: false
       t.integer :shipregion_id, null: false
       t.integer :estshipdate_id, null: false
-      t.references :buyer
-      t.references :seller, null: false
+      t.references :buyer , foreign_key: { to_table: :users }
+      t.references :seller, null: false , foreign_key: { to_table: :users }
       t.boolean :draft, null: false, default: 0
       t.timestamps
     end

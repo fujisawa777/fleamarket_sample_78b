@@ -1,0 +1,17 @@
+.moreProducts
+  = link_to "ベビー・キッズをもっと見る", "#", class: "moreProductsLink"
+  .moreProductsLists
+    .moreProductsList
+      = link_to "#" do
+        .detailBox
+          %figure.detailBox__image
+            = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG"
+          .detailBox__contents
+            %h3.detailBox__name もやしっ子
+            .detailBox__body
+              %ul.detailBox__bodyLists
+                %li.detailBox__price 30000円
+                %li.detailBox__like
+                  = icon("fa","star",class: "likeBtn__Icon" )
+                  0
+              %p.detailBox__bodyTax (税込)

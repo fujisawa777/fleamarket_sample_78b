@@ -1,0 +1,240 @@
+@import "products/show/links";
+@import "products/show/moreProducts";
+
+.main {
+  background-color: #f8f8f8;
+  .showMain {
+    padding: 40px;
+    margin: 0 auto;
+    .showFlame {
+      width: 700px;
+      margin: 0 auto;
+      .detailProduct {
+        .showBox {
+          background-color: #fff;
+          padding: 24px 40px 40px;
+          &__nameHead {
+            text-align: center;
+            font-weight: bold;
+            font-size: 24px;
+          }
+          &__body {
+            margin: 16px 0 0;
+          }
+          &__images{
+            display: flex;
+            position: relative;
+            margin-top: 10px;
+          }
+          &__top{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 auto;
+            width: 560px;
+            &Image {
+              object-fit: cover;
+              height: 346px;
+              width: 100%;
+            }
+          }
+          &__bottom {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            width: 100%;
+            &Items {
+              width: 25%;
+              height: 87px;
+              padding: 5px;
+              &Image{
+                object-fit: cover;
+                height: 87px;
+                width: 100%;
+              }
+            }
+          }
+          &__priceItems {
+            margin: 24px 0 24px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+          }
+          &__price{
+            font-size: 46px;
+            font-weight: bold;
+            margin: 0 10px 0 0;
+            &Info {
+              font-size: 16px;
+            }
+          }
+          &__buy{
+            font-size: 18px;
+            line-height: 48px;
+            background-color: skyblue;
+            color: #fff;
+            width: 80%;
+            font-size: 18px;
+            border-radius: 10px;
+            margin: 0 auto;
+            text-align: center;
+            margin-bottom: 30px;
+            &Icon{
+              display: block;
+              height: 100%;
+              width: 100%;
+            }
+          }
+          &__edit{
+            font-size: 18px;
+            line-height: 48px;
+            background-color: lightgreen;
+            color: #fff;
+            width: 80%;
+            font-size: 18px;
+            border-radius: 10px;
+            margin: 0 auto;
+            text-align: center;
+            margin-bottom: 30px;
+            &Icon{
+              display: block;
+              height: 100%;
+              width: 100%;
+            }
+          }
+          &__delete{
+            font-size: 18px;
+            line-height: 48px;
+            background-color: orangered;
+            color: #fff;
+            width: 80%;
+            font-size: 18px;
+            border-radius: 10px;
+            margin: 0 auto;
+            text-align: center;
+            margin-bottom: 30px;
+            &Icon{
+              display: block;
+              height: 100%;
+              width: 100%;
+            }
+          }
+          &__description {
+            padding: 15px;
+            line-height: 1.5;
+            font-size: 16px;
+            margin-bottom: 10px;
+            text-align: left;
+          }
+          &__detail {
+            margin-bottom: 20px;
+            margin: 0;
+            padding: 0;
+            table {
+              width: 100%;
+              height: 375px;
+              border-collapse: collapse;
+              border: 1px solid #f8f8f8;
+              border-spacing: 0;
+              tbody {
+                display: table-row-group;
+                vertical-align: middle;
+                border-color: inherit;
+                  tr {
+                  display: table-row;
+                  justify-content: center;
+                  vertical-align: inherit;
+                  border-color: inherit;
+                  th {
+                    width: 20%;
+                    background-color: #eee;
+                    font-weight: 400;
+                    padding: 15px;
+                    text-align: center;
+                    border: 1px solid #dedede;
+                    font-size: 14px;
+                  }
+                  td {
+                    vertical-align: top;
+                    width: 61%;
+                    padding: 15px;
+                    border: 1px solid #dedede;
+                    font-size: 14px
+                  }
+                }
+              }
+            }
+          }
+        }
+          .CheckArea {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            .CheckBtn {
+              margin: 10px 0 0;
+              display: flex;
+              .likeBtn {
+                margin-right: auto;
+                padding: 6px 10px;
+                border-radius: 40px;
+                color: #3CCACE;
+                border: 1px solid #ffb340;
+              }
+              .badBtn--decoration {
+                border: 1px solid black;
+                padding: 6px 10px;
+                border-radius: 4px;
+              }
+            }
+          }
+        .commentArea {
+          padding: 24px;
+          background-color: #fff;
+          margin: 10px 0;
+          text-align: center;
+          .commentBox {
+            .new_comment {
+              .input {
+                font-family: inherit;
+                font-size: inherit;
+                font-weight: inherit
+              }
+              .comment_middle {
+                width: 100%;
+                min-height: 104px;
+                padding: 10px;
+                border: 1px solid black;
+              }
+              .attention {
+                padding: 8px;
+                font-size: 14px;
+                background-color: #f8f8f8;
+                margin: 10px 0;
+                text-align: left;
+              }
+              br {
+                font-size: 14px;
+              }
+            }
+            .commentBtn {
+              font-size: 18px;
+              line-height: 48px;
+              background: #3CCACE;
+              border: 1px solid #3CCACE;
+              color: #fff;
+              width: 60%;
+              font-size: 18px;
+              border-radius: 100px;
+              margin: 25px 0 10px 135px;
+              &__Icon {
+                display: inline-block;
+                font-size: inherit;
+                text-rendering: auto;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
