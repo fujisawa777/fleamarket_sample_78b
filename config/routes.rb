@@ -19,4 +19,7 @@ Rails.application.routes.draw do
     end
   end
   get 'mypage', to: 'users#mypage'
+
+  resources :cards
+
 end
