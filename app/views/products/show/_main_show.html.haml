@@ -16,10 +16,9 @@
             %span.showBox__price
               = "¥#{@product.price}"
             .showBox__priceInfo
+              %span.showBox__priceData (税込)
               %span.showBox__priceData
-                (税込)
-              %span.showBox__priceData
-                = @product.shipfee.name
+                = @product.shipfee.name.gsub(/\(.+\)/, "")
           .showBox__description= simple_format(@product.description)
           .showBox__buy
             = link_to "#", class: "commentBtn__Icon" do
@@ -59,8 +58,7 @@
                   %td= @product.shipfee.name
                 %tr
                   %th 発送元の地域
-                  %td
-                    = link_to "#{@product.shipregion.name}", "#"
+                  %td= @product.shipregion.name
                 %tr
                   %th 発送日の目安
                   %td= @product.estshipdate.name
