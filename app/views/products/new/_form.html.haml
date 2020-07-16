@@ -50,7 +50,7 @@
         %span.form__field__label カテゴリ
         %span.form__field__essential 必須
         .form__field--input.marginT25
-          = f.collection_select :category_id, @parents, :id, :name, {prompt: "選択してください"} , {class: "form__field--inputSelect"}
+          = f.collection_select :category_id, @parents, :id, :name, {prompt: "選択してください"} , {class: "form__field--inputSelect", id: "parents"}
           = icon("fas", "angle-down",class:"form__field--inputSelectIcon")
           - if @product.errors.include?(:category_id)
             %p.error_message
