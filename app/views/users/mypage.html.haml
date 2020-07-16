@@ -8,7 +8,7 @@
         %li
           = link_to "/mypage", class: "mypage-nav-list-item active" do
             マイページ
-            = icon("fa", "angle-right",class: "icon-arrow-right")
+            = icon("fa", "angle-right",class: "icon-arrow-right active")
         %li
           = link_to "/mypage/#", class: "mypage-nav-list-item" do
             お知らせ
@@ -24,6 +24,7 @@
         %li
           = link_to "/mypage/#", class: "mypage-nav-list-item" do
             いいね！一覧
+            %span.mypage-nav-number
             = icon("fa", "angle-right",class: "icon-arrow-right")
         %li
           = link_to "/products/new", class: "mypage-nav-list-item" do
@@ -32,26 +33,32 @@
         %li
           = link_to "/mypage/#", class: "mypage-nav-list-item" do
             下書き一覧
+            %span.mypage-nav-number
             = icon("fa", "angle-right",class: "icon-arrow-right")
         %li
           = link_to "/mypage/#", class: "mypage-nav-list-item" do
             出品した商品 - 出品中
+            %span.mypage-nav-number
             = icon("fa", "angle-right",class: "icon-arrow-right")
         %li
           = link_to "/mypage/#", class: "mypage-nav-list-item" do
             出品した商品 - 取引中
+            %span.mypage-nav-number
             = icon("fa", "angle-right",class: "icon-arrow-right")
         %li
           = link_to "/mypage/#", class: "mypage-nav-list-item" do
             出品した商品 - 売却済み
+            %span.mypage-nav-number
             = icon("fa", "angle-right",class: "icon-arrow-right")
         %li
           = link_to "/mypage/#", class: "mypage-nav-list-item" do
             購入した商品 - 取引中
+            %span.mypage-nav-number
             = icon("fa", "angle-right",class: "icon-arrow-right")
         %li
           = link_to "/mypage/#", class: "mypage-nav-list-item" do
             購入した商品 - 過去の取引
+            %span.mypage-nav-number
             = icon("fa", "angle-right",class: "icon-arrow-right")
         %li
           = link_to "/mypage/#", class: "mypage-nav-list-item" do
