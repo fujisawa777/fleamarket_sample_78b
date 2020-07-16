@@ -19,16 +19,21 @@
               %span.showBox__priceData (税込)
               %span.showBox__priceData
                 = @product.shipfee.name.gsub(/\(.+\)/, "")
+          - if !current_user || !(current_user.id == @product.seller_id) 
+            .showBox__buy
+              = link_to "#", class: "showBox__buyIcon" do
+                = icon("fas", "yen-sign")
+                購入する
+          - if user_signed_in? && current_user.id == @product.seller_id 
+            .showBox__edit
+              = link_to edit_product_path(@product), class: "showBox__editIcon" do
+                = icon("fas", "pencil-alt")
+                編集する  
+            .showBox__delete
+              = link_to product_path(@product), class: "showBox__deleteIcon" , method: :delete do
+                = icon("fas", "bomb")
+                削除する
           .showBox__description= simple_format(@product.description)
-          .showBox__buy
-            = link_to "#", class: "commentBtn__Icon" do
-              = icon("fa", "comment")
-          .showBox__edit
-            = link_to "#", class: "commentBtn__Icon" do
-              = icon("fa", "comment")
-          .showBox__delete
-            = link_to "#", class: "commentBtn__Icon" do
-              = icon("fa", "comment")
           .showBox__detail
             %table
               %tbody

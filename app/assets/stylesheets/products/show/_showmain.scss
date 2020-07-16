@@ -66,6 +66,56 @@
               font-size: 16px;
             }
           }
+          &__buy{
+            font-size: 18px;
+            line-height: 48px;
+            background-color: skyblue;
+            color: #fff;
+            width: 80%;
+            font-size: 18px;
+            border-radius: 10px;
+            margin: 0 auto;
+            text-align: center;
+            margin-bottom: 30px;
+            &Icon{
+              display: block;
+              height: 100%;
+              width: 100%;
+            }
+          }
+          &__edit{
+            font-size: 18px;
+            line-height: 48px;
+            background-color: lightgreen;
+            color: #fff;
+            width: 80%;
+            font-size: 18px;
+            border-radius: 10px;
+            margin: 0 auto;
+            text-align: center;
+            margin-bottom: 30px;
+            &Icon{
+              display: block;
+              height: 100%;
+              width: 100%;
+            }
+          &__delete{
+            font-size: 18px;
+            line-height: 48px;
+            background-color: orangered;
+            color: #fff;
+            width: 80%;
+            font-size: 18px;
+            border-radius: 10px;
+            margin: 0 auto;
+            text-align: center;
+            margin-bottom: 30px;
+            &Icon{
+              display: block;
+              height: 100%;
+              width: 100%;
+            }
+          }
           &__description {
             padding: 15px;
             line-height: 1.5;
