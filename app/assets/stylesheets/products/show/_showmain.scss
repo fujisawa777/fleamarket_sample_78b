@@ -101,6 +101,7 @@
               height: 100%;
               width: 100%;
             }
+          }
           &__delete{
             font-size: 18px;
             line-height: 48px;
@@ -191,7 +192,6 @@
           background-color: #fff;
           margin: 10px 0;
           text-align: center;
-          background-color: blue;
           .commentBox {
             .new_comment {
               .input {
