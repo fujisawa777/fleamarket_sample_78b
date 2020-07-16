@@ -1,3 +1,26 @@
-// Place all the styles related to the cards controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.c-content{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  color: black;
+  background-color:#F5F5F5;
+  text-align: center;
+  &__title{
+    font-size: 22px;
+    padding: 32px;
+    font-weight: bold;
+  }
+
+
+  &__credit-card{
+    &__inner{
+      .label{
+      }
+      .span{
+      }
+      .input-numb {
+      }
+    }
+  }
+}
