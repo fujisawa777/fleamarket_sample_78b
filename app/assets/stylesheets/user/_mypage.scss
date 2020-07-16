@@ -10,7 +10,50 @@
   }
   &-right {
     width: 700px;
-    background-color: brown;
+    background-color: pink;
+  }
+  &-user {
+    &-icon {
+      position: relative;
+      height: 200px;
+      padding: 20px;
+      background: image_url("user-bg.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      text-align: center;
+      align-items: center;
+      & > a {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        -webkit-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+        color: #333;
+      }
+      h2 {
+        margin-top: 8px;
+      }
+      img {
+        border-radius: 90px;
+        vertical-align: middle;
+      }
+      .bold {
+      font-size: 14px;
+      font-weight: 600;
+      }
+    }
+    &-number {
+      display: flex;
+      justify-content: center ;
+      width: 100%;
+      margin: 16px 0 0 0;
+      font-size: 14px;
+      .marginL10{
+        margin-left: 10px;
+      }
+    }
   }
   &-left {
     width: calc( 50% - 700px );

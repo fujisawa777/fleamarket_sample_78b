@@ -2,119 +2,85 @@
 -# ここからユーザのマイページ予定
 .mypageWrapper
   .mypage-right
-  .mypage-left
-    %nav.mypage-nav
-      %ul.mypage-nav-list
+    %section.mypage-user-icon
+      = link_to "#",class:"mypage-user-link" do
+        %figure
+          = image_tag "icon/member_photo_noimage.png", alt: "", height: 60 ,width: 60
+        %h2.bold マコなり
+        .mypage-user-number
+          %div
+            評価
+            %span.bold 1
+          %div.marginL10
+            出品数
+            %span.bold 1
+    %section.mypage-tab-container-notification-todo
+      %ul.mypage-tabs
+        %li.active
+          %h3
+            %a{"data-toggle" => "tab", :href => "#mypage-tab-notification"}
+              お知らせ
         %li
-          = link_to "/mypage", class: "mypage-nav-list-item active" do
-            マイページ
-            = icon("fa", "angle-right",class: "icon-arrow-right active")
+          %h3
+            %a{"data-toggle" => "tab", :href => "#mypage-tab-todo"}
+              やることリスト
+              %span.mypage-nav-number.hidden-large
+                1
+      .tab-content
+        %ul#mypage-tab-notification.mypage-item-list.tab-pane.active
+          %li
+            %a.mypage-item-link{:href => "https://www.mercari.com/jp/mypage/news/"}
+              %figure
+                %img.lazyloaded{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", :src => "//static.mercdn.net/images/mercari_profile.png"}/
+              .mypage-item-body
+                .mypage-item-text 事務局から個別メッセージ「【梱包資材の入手にお困りの方必見】梱包資材を便利にまとめ買い！メルカリストアのご紹介」
+                %time
+                  %i.icon-time
+                  %span 35 分前
+              %i.icon-arrow-right
+          %li
+            %a.mypage-item-link{:href => "https://www.mercari.com/jp/mypage/news/"}
+              %figure
+                %img.lazyloaded{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", :src => "//static.mercdn.net/images/mercari_profile.png"}/
+              .mypage-item-body
+                .mypage-item-text 事務局から個別メッセージ「【この通知が届いた方限定】メルペイ使うと「配送料がお得になるクーポン」もらえる」
+                %time
+                  %i.icon-time
+                  %span 2 時間前
+              %i.icon-arrow-right
+          %li.mypage-go-list
+            %a{:href => "/jp/mypage/notification/"} 一覧を見る
+      %ul#mypage-tab-todo.mypage-item-list.tab-pane
         %li
-          = link_to "/mypage/#", class: "mypage-nav-list-item" do
-            お知らせ
-            %span.mypage-nav-number
-              2
-            = icon("fa", "angle-right",class: "icon-arrow-right")
+          %a.mypage-item-link{:href => "https://www.mercari.com/jp/help_center/article/759/"}
+            %figure
+              %img.lazyload{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png"}/
+            .mypage-item-body
+              .mypage-item-text ご登録のメールアドレスに認証メールを送りました。メールに記載のURLをクリックして、メールアドレスを認証してください。
+              %time
+                %i.icon-time
+                %span 75 日前
+            %i.icon-arrow-right
+        %li.mypage-go-list
+          %a{:href => "/jp/mypage/todo/"} 一覧を見る
+
+    %section.mypage-tab-container
+      %h2.mypage-tab-head 購入した商品
+      %ul.mypage-tabs
+        %li.active
+          %h3
+            %a{"data-toggle" => "tab", :href => "#mypage-tab-transaction-now"}
+              取引中
         %li
-          = link_to "/mypage/#", class: "mypage-nav-list-item" do
-            やることリスト
-            %span.mypage-nav-number
-              1
-            = icon("fa", "angle-right",class: "icon-arrow-right")
-        %li
-          = link_to "/mypage/#", class: "mypage-nav-list-item" do
-            いいね！一覧
-            %span.mypage-nav-number
-            = icon("fa", "angle-right",class: "icon-arrow-right")
-        %li
-          = link_to "/products/new", class: "mypage-nav-list-item" do
-            出品する
-            = icon("fa", "angle-right",class: "icon-arrow-right")
-        %li
-          = link_to "/mypage/#", class: "mypage-nav-list-item" do
-            下書き一覧
-            %span.mypage-nav-number
-            = icon("fa", "angle-right",class: "icon-arrow-right")
-        %li
-          = link_to "/mypage/#", class: "mypage-nav-list-item" do
-            出品した商品 - 出品中
-            %span.mypage-nav-number
-            = icon("fa", "angle-right",class: "icon-arrow-right")
-        %li
-          = link_to "/mypage/#", class: "mypage-nav-list-item" do
-            出品した商品 - 取引中
-            %span.mypage-nav-number
-            = icon("fa", "angle-right",class: "icon-arrow-right")
-        %li
-          = link_to "/mypage/#", class: "mypage-nav-list-item" do
-            出品した商品 - 売却済み
-            %span.mypage-nav-number
-            = icon("fa", "angle-right",class: "icon-arrow-right")
-        %li
-          = link_to "/mypage/#", class: "mypage-nav-list-item" do
-            購入した商品 - 取引中
-            %span.mypage-nav-number
-            = icon("fa", "angle-right",class: "icon-arrow-right")
-        %li
-          = link_to "/mypage/#", class: "mypage-nav-list-item" do
-            購入した商品 - 過去の取引
-            %span.mypage-nav-number
-            = icon("fa", "angle-right",class: "icon-arrow-right")
-        %li
-          = link_to "/mypage/#", class: "mypage-nav-list-item" do
-            ニュース一覧
-            = icon("fa", "angle-right",class: "icon-arrow-right")
-        %li
-          = link_to "/mypage/#", class: "mypage-nav-list-item" do
-            評価一覧
-            = icon("fa", "angle-right",class: "icon-arrow-right")
-        %li
-          = link_to "/mypage/#", class: "mypage-nav-list-item" do
-            ガイド
-            = icon("fa", "angle-right",class: "icon-arrow-right")
-        %li
-          = link_to "/mypage/#", class: "mypage-nav-list-item" do
-            お問い合わせ
-            = icon("fa", "angle-right",class: "icon-arrow-right")
-      %h3.mypage-nav-head メルペイ
-      %ul.mypage-nav-list
-        %li
-          = link_to "/mypage/#", class: "mypage-nav-list-item" do
-            売上・振込申請
-            = icon("fa", "angle-right",class: "icon-arrow-right")
-        %li
-          = link_to "/mypage/#", class: "mypage-nav-list-item" do
-            ポイント
-            = icon("fa", "angle-right",class: "icon-arrow-right")
-      %h3.mypage-nav-head 設定
-      %ul.mypage-nav-list
-        %li
-          = link_to "/mypage/#", class: "mypage-nav-list-item" do
-            プロフィール
-            = icon("fa", "angle-right",class: "icon-arrow-right")
-        %li
-          = link_to "/mypage/#", class: "mypage-nav-list-item" do
-            発送元・お届け先住所変更
-            = icon("fa", "angle-right",class: "icon-arrow-right")
-        %li
-          = link_to "/cards", class: "mypage-nav-list-item" do
-            支払い方法
-            = icon("fa", "angle-right",class: "icon-arrow-right")
-        %li
-          = link_to "/mypage/#", class: "mypage-nav-list-item" do
-            メール/パスワード
-            = icon("fa", "angle-right",class: "icon-arrow-right")
-        %li
-          = link_to "/mypage/#", class: "mypage-nav-list-item" do
-            本人情報
-            = icon("fa", "angle-right",class: "icon-arrow-right")
-        %li
-          = link_to "/mypage/#", class: "mypage-nav-list-item" do
-            電話番号の確認
-            = icon("fa", "angle-right",class: "icon-arrow-right")
-        %li
-          = link_to "/logout", class: "mypage-nav-list-item" do
-            ログアウト
-            = icon("fa", "angle-right",class: "icon-arrow-right")
+          %h3
+            %a{"data-toggle" => "tab", :href => "#mypage-tab-transaction-old"}
+              過去の取引
+      .tab-content
+        %ul#mypage-tab-transaction-now.mypage-item-list.tab-pane.active
+          %li.mypage-item-not-found.bold 取引中の商品がありません
+        %ul#mypage-tab-transaction-old.mypage-item-list.tab-pane
+          %li.mypage-item-not-found.bold 過去に取引した商品がありません
+
+  = render partial: '/mypage/mypage-left'
 = render partial: '/products/banner_index'
 = render partial: '/products/footer_index'
