@@ -42,9 +42,11 @@
             display: flex;
             justify-content: center;
             margin-top: 10px;
+            width: 100%;
             &Items {
               width: 25%;
-              margin: 0 10px 0 0;
+              height: 87px;
+              padding: 5px;
               &Image{
                 object-fit: cover;
                 height: 87px;

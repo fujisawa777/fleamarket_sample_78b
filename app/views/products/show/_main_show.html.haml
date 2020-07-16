@@ -9,9 +9,9 @@
               %li.showBox__top
                 = image_tag "#{@product.images.first.src.url}", alt: "top画像", class:"showBox__topImage"
                 %ul.showBox__bottom
-                - @product.images.drop(1).each do |image|
-                  %li.showBox__bottomItems
-                    = image_tag "#{image.src.url}", alt: "sub画像", class:"showBox__bottomItemsImage"
+                  - @product.images.drop(1).each do |image|
+                    %li.showBox__bottomItems
+                      = image_tag "#{image.src.url}", alt: "sub画像", class:"showBox__bottomItemsImage"
           .showBox__priceItems
             %span.showBox__price
               = "¥#{@product.price}"
