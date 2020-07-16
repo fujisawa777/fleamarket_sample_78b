@@ -1,7 +1,6 @@
 %noscript
   %p javascriptsを有効化してください
 = render partial: '/products/header_index.html.haml'
--# ここからユーザのマイページ予定
 .mypageWrapper
   .mypage-right
     %section.mypage-user-icon
@@ -68,11 +67,11 @@
       %ul.mypage-tabs
         %li.active
           %h3
-            %a{"data-toggle" => "tab", :href => "#mypage-tab-transaction-now"}
+            = link_to "#mypage-tab-transaction-now", data: {toggle: "tab"} do
               取引中
         %li
           %h3
-            %a{"data-toggle" => "tab", :href => "#mypage-tab-transaction-old"}
+            = link_to "#mypage-tab-transaction-old", data: {toggle: "tab"} do
               過去の取引
       .tab-content
         %ul#mypage-tab-transaction-now.mypage-item-list.tab-pane.active
