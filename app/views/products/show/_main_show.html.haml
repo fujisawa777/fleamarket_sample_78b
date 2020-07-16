@@ -9,9 +9,9 @@
               %li.showBox__top
                 = image_tag "#{@product.images.first.src.url}", alt: "top画像", class:"showBox__topImage"
                 %ul.showBox__bottom
-                - @product.images.drop(1).each do |image|
-                  %li.showBox__bottomItems
-                    = image_tag "#{image.src.url}", alt: "sub画像", class:"showBox__bottomItemsImage"
+                  - @product.images.drop(1).each do |image|
+                    %li.showBox__bottomItems
+                      = image_tag "#{image.src.url}", alt: "sub画像", class:"showBox__bottomItemsImage"
           .showBox__priceItems
             %span.showBox__price
               = "¥#{@product.price}"
@@ -84,7 +84,7 @@
               %input{:name => "utf8", :type => "hidden", :value => "✓"}/
               %input{:name => "authenticity_token", :type => "hidden", :value => "jzpK84Ky4F7zbYNU9aBydpcUbRF1wpPOyVTc54rvqD5JwYV18qH72g3FCMmp7jrUwqXWUiRLCtkRCpUeru4nOw=="}/
               %textarea{name: "comment[body]", required: "required", class: "comment_middle"}
-              %p.atention
+              %p.attention
                 相手のことを考え丁寧なコメントを心がけましょう。
                 %br/
                 不快な言葉遣いなどは利用制限や退会処分となることがあります。

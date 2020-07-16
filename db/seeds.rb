@@ -399,7 +399,7 @@ product8 = Product.new(name: "b2c Wストラップ エプロンドレス サラ�
 product8.images.new([{src: open("#{Rails.root}/db/fixtures/8-1.jpg")},{src: open("#{Rails.root}/db/fixtures/8-2.jpg")},{src: open("#{Rails.root}/db/fixtures/8-3.jpg")}])
 product8.save
 
-product9 = Product.new(name: "子供　スキーブーツ　ラング　19.5 早い者勝ち" , price: 3000 , category_id: 1060, description: "質問お待ちしております\r\n値下げしますよ!", brand: "ラング", size_id: 3, status_id: 4, shipfee_id: 3, shipregion_id: 1, estshipdate_id: 3, seller_id: 6)
+product9 = Product.new(name: "子供　スキーブーツ　ラング　19.5 早い者勝ち" , price: 3000 , category_id: 1060, description: "質問お待ちしております\r\n値下げしますよ!", brand: "ラング", size_id: 3, status_id: 4, shipfee_id: 1, shipregion_id: 1, estshipdate_id: 3, seller_id: 6)
 product9.images.new([{src: open("#{Rails.root}/db/fixtures/9-1.jpg")},{src: open("#{Rails.root}/db/fixtures/9-2.jpg")},{src: open("#{Rails.root}/db/fixtures/9-3.jpg")},{src: open("#{Rails.root}/db/fixtures/9-4.jpg")},{src: open("#{Rails.root}/db/fixtures/9-5.jpg")}])
 product9.save
 
