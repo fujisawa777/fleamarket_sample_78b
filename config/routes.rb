@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     end
   end
   get 'mypage', to: 'users#mypage'
+  get 'logout', to: 'users#logout'
 
   resources :cards
 
