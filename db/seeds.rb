@@ -407,22 +407,22 @@ product10 = Product.new(name: "シャトーラトゥール　空瓶4本セット
 product10.images.new([{src: open("#{Rails.root}/db/fixtures/10-1.jpg")},{src: open("#{Rails.root}/db/fixtures/10-2.jpg")}])
 product10.save
 
-product11 = Product.new(name: "売却済1" , price: 10001 , category_id: 1294, description: "テスト", brand: "ブラブラ", size_id: 1, status_id: 3, shipfee_id: 1, shipregion_id: 2, estshipdate_id: 2, buyer_id: 2 ,seller_id: 1)
+product11 = Product.new(name: "売却済1" , price: 10001 , category_id: 70, description: "テスト", brand: "ブラブラ", size_id: 1, status_id: 3, shipfee_id: 1, shipregion_id: 2, estshipdate_id: 2, buyer_id: 2 ,seller_id: 1)
 product11.images.new([{src: open("#{Rails.root}/db/fixtures/buy.jpg")}])
 product11.save
 
-product12 = Product.new(name: "売却済2" , price: 10002 , category_id: 1294, description: "テスト", brand: "ブラブラ", size_id: "", status_id: 3, shipfee_id: 1, shipregion_id: 2, estshipdate_id: 2,buyer_id: 3 ,seller_id: 1)
+product12 = Product.new(name: "売却済2" , price: 10002 , category_id: 70, description: "テスト", brand: "ブラブラ", size_id: "", status_id: 3, shipfee_id: 1, shipregion_id: 2, estshipdate_id: 2,buyer_id: 3 ,seller_id: 1)
 product12.images.new([{src: open("#{Rails.root}/db/fixtures/buy.jpg")}])
 product12.save
 
-product13 = Product.new(name: "売却済3" , price: 10003 , category_id: 1294, description: "テスト", brand: "ブラブラ", size_id: "", status_id: 3, shipfee_id: 1, shipregion_id: 2, estshipdate_id: 2,buyer_id: 4, seller_id: 1)
+product13 = Product.new(name: "売却済3" , price: 10003 , category_id: 70, description: "テスト", brand: "ブラブラ", size_id: "", status_id: 3, shipfee_id: 1, shipregion_id: 2, estshipdate_id: 2,buyer_id: 4, seller_id: 1)
 product13.images.new([{src: open("#{Rails.root}/db/fixtures/buy.jpg")}])
 product13.save
 
-product14 = Product.new(name: "売却済4" , price: 10004 , category_id: 1294, description: "テスト", brand: "ブラブラ", size_id: 3, status_id: 3, shipfee_id: 1, shipregion_id: 2, estshipdate_id: 2,buyer_id: 5, seller_id: 1)
+product14 = Product.new(name: "売却済4" , price: 10004 , category_id: 70, description: "テスト", brand: "ブラブラ", size_id: 3, status_id: 3, shipfee_id: 1, shipregion_id: 2, estshipdate_id: 2,buyer_id: 5, seller_id: 1)
 product14.images.new([{src: open("#{Rails.root}/db/fixtures/buy.jpg")}])
 product14.save
 
-product15 = Product.new(name: "売却済5" , price: 10005 , category_id: 1294, description: "テスト", brand: "ブラブラ", size_id: 4, status_id: 3, shipfee_id: 1, shipregion_id: 2, estshipdate_id: 1,buyer_id: 6, seller_id: 1)
+product15 = Product.new(name: "売却済5" , price: 10005 , category_id: 70, description: "テスト", brand: "ブラブラ", size_id: 4, status_id: 3, shipfee_id: 1, shipregion_id: 2, estshipdate_id: 1,buyer_id: 6, seller_id: 1)
 product15.images.new([{src: open("#{Rails.root}/db/fixtures/buy.jpg")}])
 product15.save
