@@ -1,25 +1,87 @@
+.Wrapper {
+  .c-content{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    color: black;
+    background-color:white;
+    text-align: center;
+    width: 700px;
+    margin: 0 auto;
+    &__title{
+      font-size: 22px;
+      padding: 32px;
+      font-weight: bold;
+    }
 
-.c-content{
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  color: black;
-  background-color:#F5F5F5;
-  text-align: center;
-  &__title{
-    font-size: 22px;
-    padding: 32px;
-    font-weight: bold;
-  }
 
-
-  &__credit-card{
-    &__inner{
-      .label{
-      }
-      .span{
-      }
-      .input-numb {
+    &__credit-card{
+      &__inner{
+        padding: 30px;
+        width: 100%;
+        .essential {
+          .label{
+            padding: 10px;
+            font-weight: bold;
+          }
+          .need {
+            color: white;
+            background-color: #3CCACE;
+            font-weight: bold;
+            font-size: 14px;
+            margin-left: 2px;
+            padding: 0 5px;
+          }
+          .input-number {
+            padding: 5px 10px;
+            border: 1px solid #bbb;
+            border-radius: 5px;
+            height: 50px;
+            width: 100%;
+            line-height: 100%;
+            align-items: center;
+          }
+          .cards-expire {
+            margin-top: 30px;
+            display: block;
+            &__wrap {
+              display: flex;
+              justify-content: center;
+              .month{
+                height: 50px;
+                width: 80px;
+                border: 1px solid #eee;
+                border-radius: 5px;
+                padding: 5px 10px;
+                margin-left: 5px;
+              }
+              .year {
+                height: 50px;
+                width: 80px;
+                border: 1px solid #eee;
+                border-radius: 5px;
+                padding: 5px 10px;
+                
+              }
+            }
+            .marginT25 {
+              margin-top: 25px;
+            }
+          }
+          .c-content-bottom {
+            margin-top: 30px;
+            &__add-btn {
+              display: block;
+              background-color: #3CCACE;
+              color: white;
+              width: 300px;
+              text-align: center;
+              border-radius: 5px;
+              height: 50px;
+              margin: 0 auto;
+            }
+          }
+        }
       }
     }
   }
