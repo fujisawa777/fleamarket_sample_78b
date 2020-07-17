@@ -1,7 +1,7 @@
 class CardsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_card
-  before_action :set_secretkey, only: [:create, :destroy]
+  before_action :set_secretkey, only: [:create, :destroy, :pay]
 
   def index
     @cards = Card.all
@@ -35,12 +35,24 @@ class CardsController < ApplicationController
         flash[:notice] = 'カードが削除されました'
         redirect_to action: "index"
       else
-        flash.now[:notice]  = 'カードが削除されませんでした'
+        flash.now[:alert]  = 'カードが削除されませんでした'
         redirect_to action: "index"
       end
   end
 
   def pay
+    if !@card.blank? && @card.user_id == current_user.id
+      product = Product.find(params[:product_id])
+      if Payjp::Charge.create(amount: product.price, customer: @card.customer_id, currency: 'jpy') && product.update(buyer_id: current_user.id)
+        redirect_to ok_products_path
+      else
+        flash.now[:alert]  = 'サーバーでエラーが生じました'
+        redirect_to root_path
+      end
+    else
+      flash.now[:alert]  = 'カード情報を登録して下さい'
+      redirect_to root_path
+    end
   end
 
   private
@@ -52,4 +64,5 @@ class CardsController < ApplicationController
   def set_secretkey
     Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
   end
+
 end
