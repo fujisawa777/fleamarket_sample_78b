@@ -41,6 +41,13 @@
             line-height: 100%;
             align-items: center;
           }
+          .card-list {
+            display: flex;
+            justify-content: center;
+            &__icon{
+              margin: 8px 0 8px 8px;
+            }
+          }
           .cards-expire {
             margin-top: 30px;
             display: block;
