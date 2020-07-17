@@ -10,10 +10,11 @@
     .c-content__credit-card
       .c-content__credit-card__inner.marginT25
         = form_with url: cards_path, method: :post, html: { name: "inputForm" }, class:"essential" do |f|
-          %span.label
-            カード番号
-          %span.need
-            必須
+          .essential__box
+            %span.essential__box__label
+              カード番号
+            %span.essential__box__need
+              必須
           = f.text_field :card_number, type: 'text', class: 'input-number', placeholder: '半角数字のみ', maxlength: "16", id: "card_number"
           %ul.card-list
             %li.card-list__icon
@@ -33,10 +34,13 @@
 
 
           .cards-expire
-            = f.label :有効期限, class: 'label'
-            %span.need
-              必須
-            %br
+            .essential__box
+              %span.essential__box__label
+                有効期限
+              %span.essential__box__need
+                必須
+              %br
+              
             .cards-expire__wrap
               .cards-expire__wrap__item.marginT25
                 = f.select :exp_month, [["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]],{} , class: 'month', id: "exp_month"
@@ -45,7 +49,7 @@
                 = icon("fas", "angle-down",class:"form__field--inputSelectManth")
 
               .cards-expire__wrap__item.marginT25
-                = f.select :exp_year, [["19",2019],["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]],{} , class: 'year', id: "exp_year"
+                = f.select :exp_year, [["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]],{} , class: 'year', id: "exp_year"
                 %span.expire-text
                 
                   年

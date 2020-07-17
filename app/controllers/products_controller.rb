@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destory]
+  before_action :set_product, only: [:show, :edit, :update, :destory, :buy]
   before_action :set_parents, only: [:new, :edit, :create , :update]
   before_action :authenticate_user!, except: [:index, :show]
 
@@ -63,9 +63,24 @@ class ProductsController < ApplicationController
         flash[:notice] = '商品が削除されました'
         redirect_to root_path
       else
-        flash.now[:notice]  = '商品が削除されませんでした'
+        flash.now[:alert]  = '商品が削除されませんでした'
         redirect_to root_path
       end
+  end
+
+  def buy
+    @card = Card.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
+    if !@card.blank? && !(@product.seller_id == current_user.id)
+      Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @card_info = customer.cards.data.first
+    else
+      flash.now[:alert] = 'カードを登録してください'
+      redirect_to controller: "cards", action: "new"
+    end
+  end
+
+  def ok
   end
 
   private

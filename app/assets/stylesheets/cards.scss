@@ -20,17 +20,20 @@
         padding: 30px;
         width: 100%;
         .essential {
-          .label{
-            padding: 10px;
-            font-weight: bold;
-          }
-          .need {
-            color: white;
-            background-color: #3CCACE;
-            font-weight: bold;
-            font-size: 14px;
-            margin-left: 2px;
-            padding: 0 5px;
+          &__box {
+            padding: 15px;
+            &__label{
+              padding: 10px;
+              font-weight: bold;
+            }
+            &__need {
+              color: white;
+              background-color: #3CCACE;
+              font-weight: bold;
+              font-size: 14px;
+              margin-left: 2px;
+              padding: 0 5px;
+            }
           }
           .input-number {
             padding: 5px 10px;

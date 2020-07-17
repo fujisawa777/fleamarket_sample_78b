@@ -1,6 +1,7 @@
 class CardsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_card
+  before_action :set_secretkey, only: [:create, :destroy]
 
   def index
     @cards = Card.all
@@ -10,10 +11,8 @@ class CardsController < ApplicationController
     redirect_to action: "index" if @card.present?
   end
 
-  # indexアクションはここでは省略
 
   def create #PayjpとCardのデータベースを作成
-    Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
     if params['payjp-token'].blank?
       redirect_to action: "new"
     else
@@ -29,7 +28,10 @@ class CardsController < ApplicationController
   end
 
   def destroy
-    if @card.user_id == current_user.id && @card.destroy
+    if !@card.blank? && @card.user_id == current_user.id
+        customer = Payjp::Customer.retrieve(@card.customer_id)
+        customer.delete
+        @card.delete
         flash[:notice] = 'カードが削除されました'
         redirect_to action: "index"
       else
@@ -38,9 +40,16 @@ class CardsController < ApplicationController
       end
   end
 
+  def pay
+  end
+
   private
 
   def set_card
     @card = Card.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
+  end
+
+  def set_secretkey
+    Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
   end
 end
