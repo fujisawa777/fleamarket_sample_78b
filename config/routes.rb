@@ -21,6 +21,6 @@ Rails.application.routes.draw do
   get 'mypage', to: 'users#mypage'
   get 'logout', to: 'users#logout'
 
-  resources :cards
+  resources :cards,only: [:index, :new, :create, :destroy]
 
 end

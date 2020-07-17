@@ -7,8 +7,7 @@ class CardsController < ApplicationController
   end
 
   def new # カードの登録画面。送信ボタンを押すとcreateアクションへ。
-    # card = Card.where(user_id: current_user.id).first
-    # redirect_to action: "index" if card.present?
+    redirect_to action: "index" if @card.present?
   end
 
   # indexアクションはここでは省略
@@ -27,6 +26,16 @@ class CardsController < ApplicationController
         redirect_to action: "create"
       end
     end
+  end
+
+  def destroy
+    if @card.user_id == current_user.id && @card.destroy
+        flash[:notice] = 'カードが削除されました'
+        redirect_to action: "index"
+      else
+        flash.now[:notice]  = 'カードが削除されませんでした'
+        redirect_to action: "index"
+      end
   end
 
   private
