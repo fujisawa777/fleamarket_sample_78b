@@ -1,0 +1,12 @@
+%noscript
+  %p javascriptsを有効化してください
+= render partial: '/products/header_index.html.haml'
+.mypageWrapper
+  .mypage-right
+    .logout-container
+      = link_to destroy_user_session_path, method: :delete, class:"logout-container-btn" do
+        ログアウト
+  = render partial: '/mypage/mypage-left'
+= render partial: '/products/banner_index'
+= render partial: '/products/footer_index'
+= javascript_pack_tag 'users/link-hi'
