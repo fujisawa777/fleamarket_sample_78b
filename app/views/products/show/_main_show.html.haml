@@ -21,7 +21,7 @@
                 = @product.shipfee.name.gsub(/\(.+\)/, "")
           - if !current_user || !(current_user.id == @product.seller_id) 
             .showBox__buy
-              = link_to "#", class: "showBox__buyIcon" do
+              = link_to buy_product_path(@product), class: "showBox__buyIcon" do
                 = icon("fas", "yen-sign")
                 購入する
           - if user_signed_in? && current_user.id == @product.seller_id 
