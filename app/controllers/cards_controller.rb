@@ -41,8 +41,8 @@ class CardsController < ApplicationController
   end
 
   def pay
-    if !@card.blank? && @card.user_id == current_user.id
-      product = Product.find(params[:product_id])
+    product = Product.find(params[:product_id])
+    if !@card.blank? && @card.user_id == current_user.id && product.buyer_id.nil?
       if Payjp::Charge.create(amount: product.price, customer: @card.customer_id, currency: 'jpy') && product.update(buyer_id: current_user.id)
         redirect_to ok_products_path
       else
