@@ -37,6 +37,7 @@ class ProductsController < ApplicationController
       redirect_to root_path
     else
       @product.images.new
+      @product.category_id = nil
       flash.now[:alert]  = 'エラーがあります'
       render :new
     end
