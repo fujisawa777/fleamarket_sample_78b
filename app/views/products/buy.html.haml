@@ -1,28 +1,33 @@
+.Wrapper
 .transaction-pay
   .transaction-pay__content
     %h2.transaction-pay__title 購入内容の確認
-    .transaction-pay__item
-      .transaction-pay__item-box
-        = image_tag @product.images.first.src.url, alt:"商品画像", class: "transaction-pay__item-image"
-      .transaction-pay__item-detail
-        %p.transaction-pay__item-detail--name
+    .transaction-pay__content__item
+      .transaction-pay__content__item-box
+        = image_tag @product.images.first.src.url, alt:"商品画像", class: "transaction-pay__content__item-box-image"
+      .transaction-pay__content__item-detail
+        %p.transaction-pay__content__item-detail-name
           = @product.name
-        .transaction-pay__item-detail-price
-          .transaction-pay__item-detail-price--text
+        .transaction-pay__content__item-detail-price
+          .transaction-pay__content__item-detail-price-text
             ￥
-          .transaction-pay__item-detail-price--text
-            = @product.price
-          .transaction-pay__item-detail-price--shipping （税込）送料込み
+          .transaction-pay__item-detail-price-text
+            = @product.price   
+        .transaction-pay__content__item-detail-shipping
+          .transaction-pay__content__item-detail-shipping-tax
+            （税込）
+          .transaction-pay__content__item-detail-shipping-send
+            送料込み
     .transaction-pay__table
       .transaction-pay__table-inner
-        .transaction-pay__table-form
-          .transaction-pay__table-content
-            .transaction-pay__table-pay
-              %p.transaction-pay__table-pay--title 支払い金額
-            .transaction-pay__table-price
-              %p.transaction-pay__table-price--title
+        .transaction-pay__table-inner-form
+          .transaction-pay__table-inner-content
+            .transaction-pay__table-inner-content-pay
+              %p.transaction-pay__table-inner-content-pay-title 支払い金額
+            .transaction-pay__table-inner-content-price
+              %p.transaction-pay__table-inner-content-price-title
                 ￥
-              %p.transaction-pay__table-price--title
+              %p.transaction-pay__table-inner-content-price-title
                 = @product.price
           .transaction-pay__table-way
             %h3 支払い方法

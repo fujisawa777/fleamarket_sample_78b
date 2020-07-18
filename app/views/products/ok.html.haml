@@ -6,42 +6,40 @@
       発送をお待ちください
     .shippingMessage__sub2
       出品者からの発送通知をお待ちください
-  .checkMessage
-    .checkMessage__sub
-      購入が完了しました
-    .checkMessage__image
-      
-      -# ここに購入した商品の画像を持ってきたい
-    .checkMessage__name
-      
-      ここに購入した商品の名前を持ってきたい
-    .checkMessage__price
-      .checkMessage__price__p1
-        
-        999円
-        -# ここに購入した商品の価格を持ってきたい
-      .checkMessage__price__p2
-        
-        送料込み
-        -# 配送料込みか否かをif文定義したいかも
-    .checkMessage__address
-      .buyerAddress1
-        配送先
-      .buyerAddress2
-        ここに購入者の住所を表示したい
-  .Evaluation
-    .Evaluation__title
-      購入後の流れ
-    .smileIcons
-      = icon('far', 'grin', class: 'nikkoriIcon')
-      = icon('far', 'smile', class: 'magaoIcon')
-      = icon('far', 'meh', class: 'kusoIcon')
-    .Evaluation__message
-      購入後、商品を受け取ったら
-      %br
-      「受け取り評価」をしましょう！
-      %br
-      受け取り評価後、出品者に代金が
-      %br
-      振り込まれると、取引完了です！
+  .shippingBox
+    .shippingData
+      .checkMessage
+        .checkMessage__sub
+          購入が完了しました！
+        .checkMessage__image
+          ここに購入した商品の画像を持ってきたい
+        .checkMessage__name
+          ここに購入した商品の名前を持ってきたい
+        .checkMessage__price
+          .checkMessage__price__p1
+            999円
+            -# ここに購入した商品の価格を持ってきたい
+          .checkMessage__price__p2
+            送料込み
+            -# 配送料込みか否かをif文定義したいかも
+        .checkMessage__address
+          .buyerAddress1
+            配送先
+          .buyerAddress2
+            ここに購入者の住所を表示したい
+      .evaluation
+        .evaluation__title
+          購入後の流れ
+        .evaluation__icons
+          = icon('fas', 'smile fa-lg', class: 'nikkoriIcon')
+          = icon('fas', 'meh fa-lg', class: 'magaoIcon')
+          = icon('fas', 'frown fa-lg', class: 'kusoIcon')
+        .evaluation__message
+          購入後、商品を受け取ったら
+          %br
+          「受け取り評価」をしましょう！
+          %br
+          受け取り評価後、出品者に代金が
+          %br
+          振り込まれると、取引完了です！
   = render 'form/footer'
