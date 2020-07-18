@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  before_action :authenticate_user!
   def index
     # ウィザード形式のエラー分岐（sessionの保持の値によってレンダリングを分岐させる）
     # ウィザード形式の際に戻るボタンを押すことによるエラーを防ぐため実装
