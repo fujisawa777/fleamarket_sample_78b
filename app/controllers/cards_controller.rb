@@ -16,7 +16,6 @@ class CardsController < ApplicationController
     redirect_to action: "index" if @card.present?
   end
 
-
   def create #PayjpとCardのデータベースを作成
     if params['payjp-token'].blank?
       redirect_to action: "new"
