@@ -426,3 +426,13 @@ product14.save
 product15 = Product.new(name: "売却済5" , price: 10005 , category_id: 70, description: "テスト", brand: "ブラブラ", size_id: 4, status_id: 3, shipfee_id: 1, shipregion_id: 2, estshipdate_id: 1,buyer_id: 6, seller_id: 1)
 product15.images.new([{src: open("#{Rails.root}/db/fixtures/buy.jpg")}])
 product15.save
+
+
+size = Size.create(name: "サイズ")
+size.children.create([{name: "XXS以下"},{name: "XS(SS)"},{name: "S"},{name: "M"},{name: "L"},{name: "XL(LL)"},{name: "2XL(3L)"},{name: "3XL(4L)"},{name: "4XL(5L)以上"},{name: "FREE SIZE"}])
+
+ladysize = Size.create(name: "女性靴のサイズ")
+ladysize.children.create([{name: "20cm以下"},{name: "20.5cm"},{name: "21cm"},{name: "21.5cm"},{name: "22cm"},{name: "22.5cm"},{name: "23cm"},{name: "23.5cm"},{name: "24cm"},{name: "24.5cm"},{name: "25cm"},{name: "25.5cm"},{name: "26cm"},{name: "26.5cm"},{name: "27cm以上"}])
+
+mensize = Size.create(name: "男性靴のサイズ")
+mensize.children.create([{name: "24cm以下"},{name: "24.5cm"},{name: "25cm"},{name: "25.5cm"},{name: "26cm"},{name: "26.5cm"},{name: "27cm"},{name: "27.5cm"},{name: "28cm"},{name: "28.5cm"},{name: "29cm"},{name: "29.5cm"},{name: "30cm"},{name: "30.5cm"},{name: "31cm以上"}])
