@@ -37,7 +37,6 @@ class ProductsController < ApplicationController
       redirect_to root_path
     else
       @product.images.new
-      @product.category_id = nil
       flash.now[:alert]  = 'エラーがあります'
       render :new
     end
@@ -102,6 +101,7 @@ class ProductsController < ApplicationController
 
   def set_parents
     @parents = Category.where(parent_id: nil).order(id: :ASC)
+    @children = Category.find_all_by_generation(1)
   end
 
 end
