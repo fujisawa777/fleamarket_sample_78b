@@ -7,34 +7,31 @@ $(function(){
   // 子カテゴリーの表示作成
   function appendChildrenBox(insertHTML){
     let childSelectHtml = '';
-    childSelectHtml = `<div class="form__field" id="children_w">
-                        <div class="form__field--input marginT25">
+    childSelectHtml = `<div class="form__field--input marginT25" id="children_w">
                           <select class="form__field--inputSelect" name="product[category_id]" id="children">
                             <option value="", data-category = "">選択してください</option>
                             ${insertHTML}
                           </select>
                           <i class="fas fa-angle-down form__field--inputSelectIcon">
                           </i>
-                        </div>
-                      </div>`;
-    $('#parents').after(childSelectHtml);
+                        </div>`;
+    $('#parents_w').after(childSelectHtml);
   }
 
 // 孫カテゴリーの表示作成
   function appendGrandchildrenBox(insertHTML){
     let GrandchildSelectHtml = '';
-    GrandchildSelectHtml = `<div class="form__field"  id="grandchildren_w">
-                            <div class="form__field--input marginT25">
+    GrandchildSelectHtml = `<div class="form__field--input marginT25" id="grandchildren_w">
                               <select class="form__field--inputSelect" name="product[category_id]" id="grandchildren">
                                 <option value="", data-category = "">選択してください</option>
                                 ${insertHTML}
                               </select>
                               <i class="fas fa-angle-down form__field--inputSelectIcon">
                               </i>
-                            </div>
-                          </div>`;
-    $('#children').after(GrandchildSelectHtml);
+                            </div>`;
+    $('#children_w').after(GrandchildSelectHtml);
   }
+
 
   // 親カテゴリー選択後のイベント
   $('#parents').on('change', function(){
