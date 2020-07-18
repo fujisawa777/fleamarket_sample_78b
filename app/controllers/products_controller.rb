@@ -82,10 +82,12 @@ class ProductsController < ApplicationController
 
   def ok
     @product = Product.where(buyer_id: current_user.id).order('updated_at DESC').first
+    @prefecture = JpPrefecture::Prefecture.find current_user.sendaddress.prefectures
     if @product.blank?
         flash.now[:alert] = '商品がありません'
         redirect_to root_path
     end
+    # このままだと直接urlを入力した場合、最後に購入した商品の確認画面に飛んでしまう
   end
 
   private
