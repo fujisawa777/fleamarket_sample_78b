@@ -9,55 +9,48 @@
         %section
           .right-single-content
             %h3.right-chapter-sub-head クレジットカード一覧
-        - if !@card_info
-          %section.settings-add-card
-            .right-single-content
-              %a.btn-default.btn-red.submit_button{:href => "https://www.mercari.com/jp/mypage/card/create/"}
-                %i.icon-card
-                =link_to "クレジットカードを追加する", new_card_path
-
-        - else
+        - if @card_info
           - exp_month = sprintf("%02d", @card_info.exp_month )
           - exp_year = @card_info.exp_year.to_s.slice(2,3)
-
           %ul.settings-payment-list
             %li
-              %form.right-single-content{:action => "https://www.mercari.com/jp/mypage/card/delete/", :method => "POST"}
+              .right-single-content
                 %figure
                   %img{:alt => "jcb", :height => "20", :src => "//pcweb-assets.mercdn.net/assets/img/card/jcb.svg?1242113482", :width => "26"}/
-                %input{:name => "__csrf_value", :type => "hidden", :value => "4b2e8486d0ecd46c46eadd61d43c8c5596af587dd262ac68d73d2dfcbdb83817b94088f8e6827af817dae453bb5e9ef9a9434b2de84767d2719c8d410a64b4352"}/
-                %input{:name => "card_sequence_no", :type => "hidden", :value => "Muu2zeWKzTJpedAaPvsXtkcc"}/
                 .settings-payment-num= "**** **** **** " + @card_info.last4
                 .settings-payment-num= exp_month + " / " + exp_year
-
-                %input{:name => "method", :type => "hidden", :value => "card"}/
-                %button.settings-payment-remove{:type => "submit"}
-                  削除する
-                = link_to "削除", card_path(@card), method: :delete
+                = link_to "削除する", card_path(@card), class: "settings-payment-remove" , method: :delete
+        - else
+          %section.settings-add-card
+            .right-single-content
+              = icon("fa", "credit-card", class: "icon-card")
+              = link_to "クレジットカードを追加する", new_card_path , class: "btn-default btn-blue"
 
         .settings-not-regist
-          %a{:href => "/jp/help_center/category/6/", :target => "_blank"}
+          = link_to "#" do
             %span 支払い方法について
-            %i.icon-arrow-right
-        テストデータ
-        %p 個人カード
-        - if @card.present?
-          %p=@card.user.name
-          %p=@card.id
-          %p=@card.user_id
-          %p=@card.customer_id
-          %p=@card.card_id
-          %p=@card_info.last4
-          %p=@card_info.exp_year
-          %p=@card_info.exp_month
-        %p カード一覧
-        - @cards.each do |card|
-          %p=card.user.name
-          %p=card.id
-          %p=card.user_id
-          %p=card.customer_id
-          %p=card.card_id
-          = link_to "削除", card_path(card), method: :delete
+            = icon("fa", "angle-right",class: "icon-arrow-right")
+
+        -# テストデータ
+        -# %p 個人カード
+        -# - if @card.present?
+        -#   %p=@card.user.name
+        -#   %p=@card.id
+        -#   %p=@card.user_id
+        -#   %p=@card.customer_id
+        -#   %p=@card.card_id
+        -#   %p=@card_info.last4
+        -#   %p=@card_info.exp_year
+        -#   %p=@card_info.exp_month
+        -#   = link_to "削除", card_path(@card), method: :delete
+        -# %p カード一覧
+        -# - @cards.each do |card|
+        -#   %p=card.user.name
+        -#   %p=card.id
+        -#   %p=card.user_id
+        -#   %p=card.customer_id
+        -#   %p=card.card_id
+        -#   = link_to "削除", card_path(card), method: :delete
 
   = render partial: '/mypage/mypage-left'
 = render partial: '/products/banner_index'
