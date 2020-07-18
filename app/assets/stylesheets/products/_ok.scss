@@ -1,0 +1,80 @@
+.Wrapper{
+  background-color: white;
+  height: 100%;
+  width: 100%;
+
+
+
+  .shippingMessage{
+    background-color: #3CCACE;;
+    text-align: center;
+    padding-top: 32px;
+    width: 100%;
+    height: 124px;
+    &__sub1{
+      color: white;
+      font-size: 24px;
+    }
+    &__sub2{
+      color: lightgray;
+      font-size: 16px;
+      margin-top: 16px;
+    }
+  }
+
+
+
+  .checkMessage{
+    text-align: center;
+    margin-top: 32px;
+    &__sub{
+      font-size: 24px;
+    }
+    &__image{
+      margin-top: 48px;
+    }
+    &__name{
+    }
+    &__price{
+      margin-top: 64px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      &__p1{
+        font-size: 24px;
+      }
+      &__p2{
+        font-size: 16px;
+        color: gray;
+      }
+    }
+    &__address{
+      .buyerAddress1{
+      }
+      .buyerAddress2{
+      }
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
