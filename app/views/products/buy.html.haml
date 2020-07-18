@@ -1,45 +1,47 @@
 .Wrapper
-.transaction-pay
-  .transaction-pay__content
-    %h2.transaction-pay__title 購入内容の確認
-    .transaction-pay__content__item
-      .transaction-pay__content__item-box
-        = image_tag @product.images.first.src.url, alt:"商品画像", class: "transaction-pay__content__item-box-image"
-      .transaction-pay__content__item-detail
-        %p.transaction-pay__content__item-detail-name
-          = @product.name
-        .transaction-pay__content__item-detail-price
-          .transaction-pay__content__item-detail-price-text
-            ￥
-          .transaction-pay__item-detail-price-text
-            = @product.price   
-        .transaction-pay__content__item-detail-shipping
-          .transaction-pay__content__item-detail-shipping-tax
-            （税込）
-          .transaction-pay__content__item-detail-shipping-send
-            送料込み
-    .transaction-pay__table
-      .transaction-pay__table-inner
-        .transaction-pay__table-inner-form
-          .transaction-pay__table-inner-content
-            .transaction-pay__table-inner-content-pay
-              %p.transaction-pay__table-inner-content-pay-title 支払い金額
-            .transaction-pay__table-inner-content-price
-              %p.transaction-pay__table-inner-content-price-title
-                ￥
-              %p.transaction-pay__table-inner-content-price-title
-                = @product.price
-          .transaction-pay__table-way
-            %h3 支払い方法
-            .transaction-pay__table-register
-              - if @card_info.blank?
-                %i.fas.fa-plus-circle
-                %span.icon-register
-                = link_to "登録してください", new_card_path
-              - else
-                = "**** **** **** " + @card_info.last4
-                - exp_month = @card_info.exp_month.to_s
-                - exp_year = @card_info.exp_year.to_s.slice(2,3)
-                = exp_month + " / " + exp_year
-          .transaction-pay__table-buy
-            = link_to "購入する", {controller: "cards", action: "pay", product_id: @product}, method: :post
+  = render 'form/header'
+  .transaction-pay
+    .transaction-pay__content
+      %h2.transaction-pay__title 購入内容の確認
+      .transaction-pay__content__item
+        .transaction-pay__content__item-box
+          = image_tag @product.images.first.src.url, alt:"商品画像", class: "transaction-pay__content__item-box-image"
+        .transaction-pay__content__item-detail
+          %p.transaction-pay__content__item-detail-name
+            = @product.name
+          .transaction-pay__content__item-detail-price
+            .transaction-pay__content__item-detail-price-text
+              ￥
+            .transaction-pay__item-detail-price-text
+              = @product.price   
+          .transaction-pay__content__item-detail-shipping
+            = @product.shipfee.name.gsub(/\(.+\)/, "")
+      .transaction-pay__table
+        .transaction-pay__table-inner
+          .transaction-pay__table-inner-form
+            .transaction-pay__table-inner-content
+              .transaction-pay__table-inner-content-pay
+                %p.transaction-pay__table-inner-content-pay-title 支払い金額
+              .transaction-pay__table-inner-content-price
+                %p.transaction-pay__table-inner-content-price-title
+                  ￥
+                %p.transaction-pay__table-inner-content-price-title
+                  = @product.price
+            .transaction-pay__table-way
+              %h3 支払い方法
+              .transaction-pay__table-register
+                - if @card_info.blank?
+                  %i.fas.fa-plus-circle
+                  %span.icon-register
+                  = link_to "登録してください", new_card_path
+                - else
+                  = "**** **** **** " + @card_info.last4
+                  - exp_month = @card_info.exp_month.to_s
+                  - exp_year = @card_info.exp_year.to_s.slice(2,3)
+                  = exp_month + " / " + exp_year
+            .transaction-pay__table-buy
+              .transaction-pay__table-buy-box
+                .transaction-pay__table-buy-box-area
+                  .transaction-pay__table-buy-box-area-text
+                    = link_to "購入する", {controller: "cards", action: "pay", product_id: @product}, method: :post
+  = render 'form/footer'

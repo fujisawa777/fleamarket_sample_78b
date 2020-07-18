@@ -82,7 +82,7 @@ class ProductsController < ApplicationController
 
   def ok
     @product = Product.where(buyer_id: current_user.id).order('updated_at DESC').first
-    if @puroduct.blank?
+    if @product.blank?
         flash.now[:alert] = '商品がありません'
         redirect_to root_path
     end
