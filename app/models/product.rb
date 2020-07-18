@@ -3,7 +3,8 @@ class Product < ApplicationRecord
   belongs_to :buyer, class_name: 'User', foreign_key: 'buyer_id', optional: true
   belongs_to :seller, class_name: 'User', foreign_key: 'seller_id'
   belongs_to :category, optional: true
-  belongs_to_active_hash :size
+  belongs_to :size, optional: true
+  # belongs_to_active_hash :size
   belongs_to_active_hash :status
   belongs_to_active_hash :shipfee
   belongs_to_active_hash :shipregion
