@@ -1,0 +1,99 @@
+.Wrapper{
+  background-color: white;
+  height: 100%;
+  width: 100%;
+
+
+
+  .shippingMessage{
+    background-color: #3CCACE;;
+    text-align: center;
+    padding-top: 32px;
+    width: 100%;
+    height: 124px;
+    &__sub1{
+      color: white;
+      font-size: 24px;
+    }
+    &__sub2{
+      color: lightgray;
+      font-size: 16px;
+      margin-top: 16px;
+    }
+  }
+
+
+
+  .shippingBox{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    .shippingData{
+      width: 320px;
+      .checkMessage{
+        text-align: center;
+        margin-top: 32px;
+        &__sub{
+          font-weight: bold;
+          font-size: 24px;
+        }
+        &__image{
+          margin-top: 48px;
+        }
+        &__name{
+        }
+        &__price{
+          margin-top: 64px;
+          display: flex;
+          align-items: flex-end;
+          justify-content: center;
+          &__p1{
+            font-size: 24px;
+          }
+          &__p2{
+            font-size: 16px;
+            color: gray;
+          }
+        }
+        &__address{
+          text-align: left;
+          padding: 40px 0px 40px;
+          .buyerAddress1{
+            color: gray;
+            font-size: 16px;
+          }
+          .buyerAddress2{
+            font-size: 20px;
+          }
+        }
+      }
+      .evaluation{
+        padding-bottom: 32px;
+        text-align: center;
+        margin-top: 64px;
+        &__title{
+          font-weight: bold;
+        }
+        &__icons{
+          margin: 24px 0px 24px;
+          .nikkoriIcon{
+            color: coral;
+          }
+          .magaoIcon{
+            color: #FFD700;
+            margin: 0px 8px;
+          }
+          .kusoIcon{
+            color: lightblue;
+          }
+        }
+        &__message{
+        }
+      }
+    }
+  }
+
+
+
+}

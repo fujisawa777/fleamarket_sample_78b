@@ -62,15 +62,15 @@ class ProductsController < ApplicationController
     if @product.seller_id == current_user.id && @product.destroy
         flash[:notice] = '商品が削除されました'
         redirect_to root_path
-      else
-        flash.now[:alert]  = '商品が削除されませんでした'
-        redirect_to root_path
-      end
+    else
+      flash.now[:alert]  = '商品が削除されませんでした'
+      redirect_to root_path
+    end
   end
 
   def buy
     @card = Card.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
-    if !@card.blank? && !(@product.seller_id == current_user.id)
+    if @card.present? && !(@product.seller_id == current_user.id)
       Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @card_info = customer.cards.data.first
@@ -81,6 +81,11 @@ class ProductsController < ApplicationController
   end
 
   def ok
+    @product = Product.where(buyer_id: current_user.id).order('updated_at DESC').first
+    if @puroduct.blank?
+        flash.now[:alert] = '商品がありません'
+        redirect_to root_path
+    end
   end
 
   private
@@ -95,4 +100,5 @@ class ProductsController < ApplicationController
   def set_parents
     @parents = Category.where(parent_id: nil).order(id: :ASC)
   end
+
 end
