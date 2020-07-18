@@ -12,13 +12,12 @@
         .checkMessage__sub
           購入が完了しました！
         .checkMessage__image
-          ここに購入した商品の画像を持ってきたい
+          = image_tag @product.images.first.src.url
         .checkMessage__name
-          ここに購入した商品の名前を持ってきたい
+          = @product.name
         .checkMessage__price
           .checkMessage__price__p1
-            999円
-            -# ここに購入した商品の価格を持ってきたい
+            = "#{@product.price}円"
           .checkMessage__price__p2
             送料込み
             -# 配送料込みか否かをif文定義したいかも
@@ -26,7 +25,11 @@
           .buyerAddress1
             配送先
           .buyerAddress2
-            ここに購入者の住所を表示したい
+            = "〒#{current_user.sendaddress.zipcode}"
+          .buyerAddress3
+            = current_user.sendaddress.municipalitities
+            = current_user.sendaddress.streetaddress
+            = current_user.sendaddress.room
       .evaluation
         .evaluation__title
           購入後の流れ
