@@ -15,7 +15,9 @@
             .transaction-pay__item-detail-price-text
               = @product.price   
           .transaction-pay__content__item-detail-shipping
-            = @product.shipfee.name.gsub(/\(.+\)/, "")
+            .transaction-pay__content__item-detail-shipping-px
+              = @product.shipfee.name.gsub(/\(.+\)/, "")
+            
       .transaction-pay__table
         .transaction-pay__table-inner
           .transaction-pay__table-inner-form
