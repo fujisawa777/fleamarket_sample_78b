@@ -6,10 +6,10 @@
       %h2 クレジットカード情報入力
 
 
-      
+
     .c-content__credit-card
       .c-content__credit-card__inner.marginT25
-        = form_with url: cards_path, method: :post, html: { name: "inputForm" }, class:"essential" do |f|
+        = form_with url: cards_path, method: :post, html: { name: "inputForm" }, class:"essential", local: true do |f|
           .essential__box
             %span.essential__box__label
               カード番号
@@ -40,7 +40,7 @@
               %span.essential__box__need
                 必須
               %br
-              
+
             .cards-expire__wrap
               .cards-expire__wrap__item.marginT25
                 = f.select :exp_month, [["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]],{} , class: 'month', id: "exp_month"
@@ -51,7 +51,7 @@
               .cards-expire__wrap__item.marginT25
                 = f.select :exp_year, [["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]],{} , class: 'year', id: "exp_year"
                 %span.expire-text
-                
+
                   年
                 = icon("fas", "angle-down",class:"form__field--inputSelectYear")
 

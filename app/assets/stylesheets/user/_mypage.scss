@@ -10,6 +10,21 @@
   }
   &-right {
     width: 700px;
+    &-container{
+      background-color: white;
+    }
+    &-head{
+      font-size: 24px;
+      padding: 8px 24px;
+      border-bottom: 1px solid #f5f5f5;
+      font-weight: bold;
+      line-height: 1.4;
+      text-align: center;
+    }
+    .right-single-inner {
+      padding: 64px;
+      border-top: 1px solid #f5f5f5;
+    }
   }
   &-user {
     &-icon {

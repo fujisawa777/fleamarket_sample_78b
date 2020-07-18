@@ -95,4 +95,5 @@ class ProductsController < ApplicationController
   def set_parents
     @parents = Category.where(parent_id: nil).order(id: :ASC)
   end
+
 end

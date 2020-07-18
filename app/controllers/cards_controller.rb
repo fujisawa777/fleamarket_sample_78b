@@ -1,10 +1,15 @@
 class CardsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_card
-  before_action :set_secretkey, only: [:create, :destroy, :pay]
+  before_action :set_secretkey, only: [:index ,:create, :destroy, :pay]
 
   def index
     @cards = Card.all
+    # カードがある場合、カードの情報をセットする
+    if @card
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @card_info = customer.cards.data.first
+    end
   end
 
   def new # カードの登録画面。送信ボタンを押すとcreateアクションへ。

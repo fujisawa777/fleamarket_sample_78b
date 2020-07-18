@@ -9,32 +9,24 @@
           .postContainer
             .postContainer__prev
               - @product.images.each_with_index do |image, i|
-                .preview-box{id: "preview-box__#{i}"}
+                .preview-box
                   .upper-box
                     = image_tag image.src.url, alt: "preview",class:"upper-box__image"
                   .lower-box
                     .update-box
                       %label.edit-btn{for: "product_images_attributes_#{i}_src"} 編集
-                    .delete-box{id: "delete_btn_#{i}"}
-                      %span 削除
-
+                    .delete-box
+                      .delete-btn{id: "delete_btn_#{i}"}
+                        %span 削除
             .postContainer__label
               = f.label :"images_attributes_#{@product.images.length}_src", class: "postContainer__labelBox", id: "label-box--#{@product.images.length}" do
-                #drop_area
-                = icon("fa","camera",class:"postContainer__labelIcon")
-                %pre.postContainer__labelText
-                  ドラッグアンドドロップ
-                  または
-                  クリックしてファイルをアップロード
+                %pre.postContainer__labelText クリックしてファイルをアップロード
             .postContainer__hidden
               = f.fields_for :images do |image|
-
-                = image.file_field :src, class: "postContainer__hiddenField",accept: "image/png,image/jpeg"
-                = image.check_box :_destroy, class: "postContainer__hiddenCheckbox"
-
+                = image.file_field :src, class: "postContainer__hiddenField"
+                = image.check_box:_destroy, class: "postContainer__hiddenCheckbox"
               - @product.images.length.upto(4) do |i|
-                %input{class:"postContainer__hiddenField", type: "file", name: "product[images_attributes][#{i}][src]", id: "product_images_attributes_#{i}_src",accept: "image/png,image/jpeg"}
-
+                %input{class:"postContainer__hiddenField", type: "file", name: "product[images_attributes][#{i}][src]", id: "product_images_attributes_#{i}_src"}
         - if @product.errors.include?(:images)
           %p.error_message
             = @product.errors.full_messages_for(:images).first
@@ -61,12 +53,23 @@
       .form__field
         %span.form__field__label カテゴリ
         %span.form__field__essential 必須
-        .form__field--input.marginT25
-          = f.collection_select :category_id, @parents, :id, :name, {prompt: "選択してください"} , {class: "form__field--inputSelect"}
-          = icon("fas", "angle-down",class:"form__field--inputSelectIcon")
-          - if @product.errors.include?(:category_id)
-            %p.error_message
-              = @product.errors.full_messages_for(:category_id).first
+        - if !@product.category
+          .form__field--input.marginT25#parents_w
+            = f.collection_select :category_id, @parents, :id, :name, {prompt: "選択してください"} , {class: "form__field--inputSelect", id: "parents"}
+            = icon("fas", "angle-down",class:"form__field--inputSelectIcon")
+        - else
+          .form__field--input.marginT25#parents_w
+            = f.collection_select :category_id, @product.category.root.self_and_siblings, :id, :name, {prompt: "選択してください", selected: @product.category.root.id } , {class: "form__field--inputSelect", id: "parents"}
+            = icon("fas", "angle-down",class:"form__field--inputSelectIcon")
+          .form__field--input.marginT25#children_w
+            = f.collection_select :category_id, @product.category.parent.self_and_siblings, :id, :name, {prompt: "選択してください", selected: @product.category.parent.id } , {class: "form__field--inputSelect", id: "children"}
+            = icon("fas", "angle-down",class:"form__field--inputSelectIcon")
+          .form__field--input.marginT25#grandchildren_w
+            = f.collection_select :category_id, @product.category.self_and_siblings, :id, :name, {prompt: "選択してください", selected: @product.category_id } , {class: "form__field--inputSelect", id: "grandchildren"}
+            = icon("fas", "angle-down",class:"form__field--inputSelectIcon")
+        - if @product.errors.include?(:category_id)
+          %p.error_message
+            = @product.errors.full_messages_for(:category_id).first
       .form__field.marginT50
         %span.form__field__label サイズ
         %span.form__field__arbitrary 任意
