@@ -9,24 +9,28 @@
           .postContainer
             .postContainer__prev
               - @product.images.each_with_index do |image, i|
-                .preview-box
+                .preview-box{id: "preview-box__#{i}"}
                   .upper-box
                     = image_tag image.src.url, alt: "preview",class:"upper-box__image"
                   .lower-box
                     .update-box
                       %label.edit-btn{for: "product_images_attributes_#{i}_src"} 編集
-                    .delete-box
-                      .delete-btn{id: "delete_btn_#{i}"}
-                        %span 削除
+                    .delete-box{id: "delete_btn_#{i}"}
+                      %span 削除
             .postContainer__label
               = f.label :"images_attributes_#{@product.images.length}_src", class: "postContainer__labelBox", id: "label-box--#{@product.images.length}" do
-                %pre.postContainer__labelText クリックしてファイルをアップロード
+                #drop_area
+                = icon("fa","camera",class:"postContainer__labelIcon")
+                %pre.postContainer__labelText
+                  ドラッグアンドドロップ
+                  または
+                  クリックしてファイルをアップロード
             .postContainer__hidden
               = f.fields_for :images do |image|
-                = image.file_field :src, class: "postContainer__hiddenField"
-                = image.check_box:_destroy, class: "postContainer__hiddenCheckbox"
+                = image.file_field :src, class: "postContainer__hiddenField",accept: "image/png,image/jpeg"
+                = image.check_box :_destroy, class: "postContainer__hiddenCheckbox"
               - @product.images.length.upto(4) do |i|
-                %input{class:"postContainer__hiddenField", type: "file", name: "product[images_attributes][#{i}][src]", id: "product_images_attributes_#{i}_src"}
+                %input{class:"postContainer__hiddenField", type: "file", name: "product[images_attributes][#{i}][src]", id: "product_images_attributes_#{i}_src",accept: "image/png,image/jpeg"}
         - if @product.errors.include?(:images)
           %p.error_message
             = @product.errors.full_messages_for(:images).first
