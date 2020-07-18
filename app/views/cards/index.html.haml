@@ -25,33 +25,10 @@
             .right-single-content
               = icon("fa", "credit-card", class: "icon-card")
               = link_to "クレジットカードを追加する", new_card_path , class: "btn-default btn-blue"
-
         .settings-not-regist
           = link_to "#" do
             %span 支払い方法について
             = icon("fa", "angle-right",class: "icon-arrow-right")
-
-        -# テストデータ
-        -# %p 個人カード
-        -# - if @card.present?
-        -#   %p=@card.user.name
-        -#   %p=@card.id
-        -#   %p=@card.user_id
-        -#   %p=@card.customer_id
-        -#   %p=@card.card_id
-        -#   %p=@card_info.last4
-        -#   %p=@card_info.exp_year
-        -#   %p=@card_info.exp_month
-        -#   = link_to "削除", card_path(@card), method: :delete
-        -# %p カード一覧
-        -# - @cards.each do |card|
-        -#   %p=card.user.name
-        -#   %p=card.id
-        -#   %p=card.user_id
-        -#   %p=card.customer_id
-        -#   %p=card.card_id
-        -#   = link_to "削除", card_path(card), method: :delete
-
   = render partial: '/mypage/mypage-left'
 = render partial: '/products/banner_index'
 = render partial: '/products/footer_index'
