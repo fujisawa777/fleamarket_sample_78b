@@ -2,17 +2,58 @@
   %p javascriptsを有効化してください
 = render partial: '/products/header_index.html.haml'
 .mypageWrapper
-  = render partial: '/mypage/mypage-right'
+  .mypage-right
+    %section.mypage-right-container
+      %h2.mypage-right-head 支払い方法
+      .right-single-inner
+        %section
+          .right-single-content
+            %h3.right-chapter-sub-head クレジットカード一覧
+        - if @card_info
+          - exp_month = sprintf("%02d", @card_info.exp_month )
+          - exp_year = @card_info.exp_year.to_s.slice(2,3)
+          %ul.settings-payment-list
+            %li
+              .right-single-content
+                %figure
+                  %img{:alt => "jcb", :height => "20", :src => "//pcweb-assets.mercdn.net/assets/img/card/jcb.svg?1242113482", :width => "26"}/
+                .settings-payment-num= "**** **** **** " + @card_info.last4
+                .settings-payment-num= exp_month + " / " + exp_year
+                = link_to "削除する", card_path(@card), class: "settings-payment-remove" , method: :delete
+        - else
+          %section.settings-add-card
+            .right-single-content
+              = icon("fa", "credit-card", class: "icon-card")
+              = link_to "クレジットカードを追加する", new_card_path , class: "btn-default btn-blue"
+
+        .settings-not-regist
+          = link_to "#" do
+            %span 支払い方法について
+            = icon("fa", "angle-right",class: "icon-arrow-right")
+
+        -# テストデータ
+        -# %p 個人カード
+        -# - if @card.present?
+        -#   %p=@card.user.name
+        -#   %p=@card.id
+        -#   %p=@card.user_id
+        -#   %p=@card.customer_id
+        -#   %p=@card.card_id
+        -#   %p=@card_info.last4
+        -#   %p=@card_info.exp_year
+        -#   %p=@card_info.exp_month
+        -#   = link_to "削除", card_path(@card), method: :delete
+        -# %p カード一覧
+        -# - @cards.each do |card|
+        -#   %p=card.user.name
+        -#   %p=card.id
+        -#   %p=card.user_id
+        -#   %p=card.customer_id
+        -#   %p=card.card_id
+        -#   = link_to "削除", card_path(card), method: :delete
+
   = render partial: '/mypage/mypage-left'
 = render partial: '/products/banner_index'
 = render partial: '/products/footer_index'
 = javascript_pack_tag 'users/link-hi'
 
-登録完了
-- @cards.each do |card|
-  %p=card.user.name
-  %p=card.id
-  %p=card.user_id
-  %p=card.customer_id
-  %p=card.card_id
-  = link_to "削除", card_path(card), method: :delete
