@@ -337,32 +337,32 @@ others_9.children.create([{name: "すべて"}])
 #確認用ユーザの作成
 user0 = User.new(name: "kakunin", email:"kakunin@kakunin.com", password: "password")
 user0.build_personal(birthday: 19901103, firstname: "確認", lastname: "太郎", h_firstname: "カクニン", h_lastname: "タロウ", description: "確認用アカウントです", image: "")
-user0.build_sendaddress( s_firstname: "送信先", s_lastname: "太郎", s_h_firstname: "ソウシンサキ", s_h_lastname: "タロウ", zipcode: "3100030", prefectures: "茨城県", municipalitities: "水戸市", streetaddress: "常盤町2-3-5", room: "レオパレス200", phonenumber: "09000000000")
+user0.build_sendaddress( s_firstname: "送信先", s_lastname: "太郎", s_h_firstname: "ソウシンサキ", s_h_lastname: "タロウ", zipcode: "3100030", prefectures: "8", municipalitities: "水戸市", streetaddress: "常盤町2-3-5", room: "レオパレス200", phonenumber: "09000000000")
 user0.save
 
 user1 = User.new(name: "kakunin1", email:"kakunin1@kakunin.com", password: "password")
 user1.build_personal(birthday: 19900101, firstname: "確認一", lastname: "太郎", h_firstname: "カクニンイチ", h_lastname: "タロウ", description: "確認用アカウント1です", image: "")
-user1.build_sendaddress( s_firstname: "送信先一", s_lastname: "太郎", s_h_firstname: "ソウシンサキイチ", s_h_lastname: "タロウ", zipcode: "3100031", prefectures: "茨城県", municipalitities: "水戸市", streetaddress: "常盤町2-3-5", room: "レオパレス201", phonenumber: "09000001111")
+user1.build_sendaddress( s_firstname: "送信先一", s_lastname: "太郎", s_h_firstname: "ソウシンサキイチ", s_h_lastname: "タロウ", zipcode: "3100031", prefectures: "8", municipalitities: "水戸市", streetaddress: "常盤町2-3-5", room: "レオパレス201", phonenumber: "09000001111")
 user1.save
 
 user2 = User.new(name: "kakunin2", email:"kakunin2@kakunin.com", password: "password")
 user2.build_personal(birthday: 19900102, firstname: "確認二", lastname: "太郎", h_firstname: "カクニンニ", h_lastname: "タロウ", description: "確認用アカウント2です", image: "")
-user2.build_sendaddress( s_firstname: "送信先二", s_lastname: "太郎", s_h_firstname: "ソウシンサキニ", s_h_lastname: "タロウ", zipcode: "3100032", prefectures: "茨城県", municipalitities: "水戸市", streetaddress: "常盤町2-3-5", room: "レオパレス202", phonenumber: "09000002222")
+user2.build_sendaddress( s_firstname: "送信先二", s_lastname: "太郎", s_h_firstname: "ソウシンサキニ", s_h_lastname: "タロウ", zipcode: "3100032", prefectures: "8", municipalitities: "水戸市", streetaddress: "常盤町2-3-5", room: "レオパレス202", phonenumber: "09000002222")
 user2.save
 
 user3 = User.new(name: "kakunin3", email:"kakunin3@kakunin.com", password: "password")
 user3.build_personal(birthday: 19900103, firstname: "確認三", lastname: "太郎", h_firstname: "カクニンサン", h_lastname: "タロウ", description: "確認用アカウント3です", image: "")
-user3.build_sendaddress( s_firstname: "送信先三", s_lastname: "太郎", s_h_firstname: "ソウシンサキサン", s_h_lastname: "タロウ", zipcode: "3100033", prefectures: "茨城県", municipalitities: "水戸市", streetaddress: "常盤町2-3-5", room: "レオパレス203", phonenumber: "09000003333")
+user3.build_sendaddress( s_firstname: "送信先三", s_lastname: "太郎", s_h_firstname: "ソウシンサキサン", s_h_lastname: "タロウ", zipcode: "3100033", prefectures: "8", municipalitities: "水戸市", streetaddress: "常盤町2-3-5", room: "レオパレス203", phonenumber: "09000003333")
 user3.save
 
 user4 = User.new(name: "kakunin4", email:"kakunin4@kakunin.com", password: "password")
 user4.build_personal(birthday: 19900104, firstname: "確認四", lastname: "太郎", h_firstname: "カクニンヨン", h_lastname: "タロウ", description: "確認用アカウント4です", image: "")
-user4.build_sendaddress( s_firstname: "送信先四", s_lastname: "太郎", s_h_firstname: "ソウシンサキヨン", s_h_lastname: "タロウ", zipcode: "3100034", prefectures: "茨城県", municipalitities: "水戸市", streetaddress: "常盤町2-3-5", room: "レオパレス204", phonenumber: "09000004444")
+user4.build_sendaddress( s_firstname: "送信先四", s_lastname: "太郎", s_h_firstname: "ソウシンサキヨン", s_h_lastname: "タロウ", zipcode: "3100034", prefectures: "8", municipalitities: "水戸市", streetaddress: "常盤町2-3-5", room: "レオパレス204", phonenumber: "09000004444")
 user4.save
 
 user5 = User.new(name: "kakunin5", email:"kakunin5@kakunin.com", password: "password")
 user5.build_personal(birthday: 19900105, firstname: "確認五", lastname: "太郎", h_firstname: "カクニンゴ", h_lastname: "タロウ", description: "確認用アカウント5です", image: "")
-user5.build_sendaddress( s_firstname: "送信先五", s_lastname: "太郎", s_h_firstname: "ソウシンサキゴ", s_h_lastname: "タロウ", zipcode: "3100035", prefectures: "茨城県", municipalitities: "水戸市", streetaddress: "常盤町2-3-5", room: "レオパレス205", phonenumber: "09000005555")
+user5.build_sendaddress( s_firstname: "送信先五", s_lastname: "太郎", s_h_firstname: "ソウシンサキゴ", s_h_lastname: "タロウ", zipcode: "3100035", prefectures: "8", municipalitities: "水戸市", streetaddress: "常盤町2-3-5", room: "レオパレス205", phonenumber: "09000005555")
 user5.save
 
 
