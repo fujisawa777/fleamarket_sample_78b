@@ -108,18 +108,13 @@ $(function() {
   // ドラッグしている要素がドロップされたとき
   $('#drop_area').on('drop', function (event) {
     event.preventDefault();
-
     let e = event
-
     if( event.originalEvent ){
       e = event.originalEvent;
     }
-
     let input = $(".postContainer__labelBox").attr("for")
-
     let dt = e.dataTransfer
     $("#" + input)[0].files = dt.files;
-
     // 画像が複数選択されていた場合
     if ($("#" + input)[0].files.length > 1) {
       alert('アップロードできる画像は1つだけです');
@@ -186,8 +181,6 @@ $(function() {
       //線を戻す
       $('.postContainer__label').css('border', '1px dashed #ccc');
   })
-
-
 
 
 

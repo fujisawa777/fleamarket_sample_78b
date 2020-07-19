@@ -1,0 +1,136 @@
+@import "cards/index/index";
+
+.Wrapper {
+  .c-content{
+    display: flex;
+    flex-direction: column;
+    color: black;
+    background-color:white;
+    text-align: center;
+    width: 700px;
+    margin: 0 auto;
+    justify-content: center;
+    &__title{
+      font-size: 22px;
+      padding: 30px;
+      font-weight: bold;
+      .card-list {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+        &__icon{
+          margin: 8px 0 8px 8px;
+        }
+      }
+      .formCutter {
+        border-top: 1px dotted #bbb;
+        width: 100%;
+        margin-top: 30px;
+        &:after {
+          content: '\002702';
+          position: relative;
+          top: -13px;
+          left: -250px;
+          padding: 0 3px;
+          color: #bbb;
+          font-size: 18px;
+        }
+      }
+    }
+
+
+    &__credit-card{
+      &__inner{
+        padding: 30px;
+        width: 100%;
+        .essential {
+          &__box {
+            padding: 15px;
+            &__label{
+              padding: 10px;
+              font-weight: bold;
+            }
+            &__need {
+              color: white;
+              background-color: #3CCACE;
+              font-weight: bold;
+              font-size: 14px;
+              margin-left: 2px;
+              padding: 0 5px;
+            }
+          }
+          .input-number {
+            padding: 5px 10px;
+            border: 1px solid #bbb;
+            border-radius: 5px;
+            height: 50px;
+            width: 42%;
+            line-height: 42%;
+            align-items: center;
+            text-align: left;
+          }
+          .card-list {
+            display: flex;
+            justify-content: center;
+            &__icon{
+              margin: 8px 0 8px 8px;
+            }
+          }
+          .cards-expire {
+            margin-top: 30px;
+            display: block;
+            &__wrap {
+              display: flex;
+              justify-content: center;
+              &__item {
+                position: relative;
+                .month{
+                  height: 50px;
+                  width: 80px;
+                  border: 1px solid #eee;
+                  border-radius: 5px;
+                  padding: 5px 10px;
+                  margin-left: 5px;
+                }
+                .year {
+                  height: 50px;
+                  width: 80px;
+                  border: 1px solid #eee;
+                  border-radius: 5px;
+                  padding: 5px 10px;
+                }
+                .form__field--inputSelectManth {
+                  position: absolute;
+                  left: 60px;
+                  top: 18px;
+                }
+                .form__field--inputSelectYear {
+                  position: absolute;
+                  left: 60px;
+                  top: 18px;
+                }
+              }
+            }
+            .marginT25 {
+              margin-top: 25px;
+            }
+          }
+          .c-content-bottom {
+            margin-top: 70px;
+            padding-bottom: 20px;
+            &__add-btn {
+              display: block;
+              background-color: #3CCACE;
+              color: white;
+              width: 35%;
+              text-align: center;
+              border-radius: 5px;
+              height: 50px;
+              margin: 0 auto;
+            }
+          }
+        }
+      }
+    }
+  }
+}

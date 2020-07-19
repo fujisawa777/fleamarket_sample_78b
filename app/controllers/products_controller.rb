@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destory]
+  before_action :set_product, only: [:show, :edit, :update, :destroy, :buy]
   before_action :set_parents, only: [:new, :edit, :create , :update]
   before_action :authenticate_user!, except: [:index, :show]
 
@@ -62,10 +62,33 @@ class ProductsController < ApplicationController
     if @product.seller_id == current_user.id && @product.destroy
         flash[:notice] = '商品が削除されました'
         redirect_to root_path
-      else
-        flash.now[:notice]  = '商品が削除されませんでした'
+    else
+      flash.now[:alert]  = '商品が削除されませんでした'
+      redirect_to root_path
+    end
+  end
+
+  def buy
+    @card = Card.find_by(user_id: current_user.id) if Card.find_by(user_id: current_user.id).present?
+    if @card.present? && !(@product.seller_id == current_user.id)
+      Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @card_info = customer.cards.data.first
+    else
+      flash.now[:alert] = 'カードを登録してください'
+      redirect_to controller: "cards", action: "new"
+    end
+  end
+
+  def ok
+    @product = Product.where(buyer_id: current_user.id).order('updated_at DESC').first
+    @prefecture = JpPrefecture::Prefecture.find current_user.sendaddress.prefectures
+    # エラーハンドリング
+    # プロダクトが存在しない、または現在の時刻と商品のアップ日時が5分離れている場合トップへリダイレクト
+    if @product.blank? || (Time.zone.now - @product.updated_at) / 60 > 5
+        flash.now[:alert] = '商品がありません'
         redirect_to root_path
-      end
+    end
   end
 
   private
@@ -78,6 +101,8 @@ class ProductsController < ApplicationController
   end
 
   def set_parents
-    @parents = Category.where(parent_id: nil).order(id: :ASC)
+    @parents = Category.roots.order(id: :ASC)
+    @children = Category.find_all_by_generation(1)
   end
+
 end

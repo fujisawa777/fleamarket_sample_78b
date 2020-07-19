@@ -2,6 +2,9 @@
 @import "user/newpersonaledit";
 @import "user/newsendaddressedit";
 @import "user/userlogin";
+@import "user/mypage";
+@import "user/logout";
+
 .Wrapper{
   display: flex;
   flex-direction: column;

@@ -1,0 +1,10 @@
+%noscript
+  %p javascriptsを有効化してください
+= render partial: '/products/header_index.html.haml'
+.mypageWrapper
+  = render partial: '/mypage/mypage-right'
+  = render partial: '/mypage/mypage-left'
+= render partial: '/products/banner_index'
+= render partial: '/products/footer_index'
+= javascript_pack_tag 'users/mypage'
+= javascript_pack_tag 'users/link-hi'
