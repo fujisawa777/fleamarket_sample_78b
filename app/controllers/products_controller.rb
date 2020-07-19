@@ -89,7 +89,6 @@ class ProductsController < ApplicationController
         flash.now[:alert] = '商品がありません'
         redirect_to root_path
     end
-    # このままだと直接urlを入力した場合、最後に購入した商品の確認画面に飛んでしまう
   end
 
   private
