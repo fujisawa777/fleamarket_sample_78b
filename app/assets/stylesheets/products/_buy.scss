@@ -27,15 +27,15 @@
           width: 560px;
           &-image{
             object-fit: cover;
-            height: 50%;
-            width: 50%;
+            height: 25%;
+            width: 25%;
           }
         }
         &-detail{
           margin: 10px;
           text-align: center;
           font-weight: bold;
-          font-size: 20px;
+          font-size: 24px;
           padding-top: 30px;
           &-name{
 
@@ -43,14 +43,20 @@
           &-price{
             display: flex;
             justify-content: center;
-            margin: 20px;  
-                
+            margin: 30px;  
           }
           &-shipping{
             display: flex;
             justify-content: center;
             color: gray;
-            
+            font-size: 24px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid gray ;
+
+            &-px{
+              margin-bottom:35px;
+              padding-left: 10px;
+            }
           }
         }
       }

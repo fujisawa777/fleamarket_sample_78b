@@ -123,6 +123,11 @@
       }
     }
     &__field {
+      &__attention {
+        padding: 20px 0;
+        font-size: 12px;
+        color: #333;
+      }
       &__label {
         font-size: 14px;
         font-weight: bold;

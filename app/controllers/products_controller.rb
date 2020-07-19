@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destory, :buy]
+  before_action :set_product, only: [:show, :edit, :update, :destroy, :buy]
   before_action :set_parents, only: [:new, :edit, :create , :update]
   before_action :authenticate_user!, except: [:index, :show]
 
@@ -83,11 +83,12 @@ class ProductsController < ApplicationController
   def ok
     @product = Product.where(buyer_id: current_user.id).order('updated_at DESC').first
     @prefecture = JpPrefecture::Prefecture.find current_user.sendaddress.prefectures
-    if @product.blank?
+    # エラーハンドリング
+    # プロダクトが存在しない、または現在の時刻と商品のアップ日時が5分離れている場合トップへリダイレクト
+    if @product.blank? || (Time.zone.now - @product.updated_at) / 60 > 5
         flash.now[:alert] = '商品がありません'
         redirect_to root_path
     end
-    # このままだと直接urlを入力した場合、最後に購入した商品の確認画面に飛んでしまう
   end
 
   private
@@ -101,6 +102,7 @@ class ProductsController < ApplicationController
 
   def set_parents
     @parents = Category.where(parent_id: nil).order(id: :ASC)
+    @children = Category.find_all_by_generation(1)
   end
 
 end
