@@ -10,6 +10,10 @@ class ProductsController < ApplicationController
   end
 
   def show
+    if @product.buyer_id.present?
+      flash[:alert] = 'その商品は存在しません'
+      redirect_to root_path
+    end
   end
 
   def new
@@ -63,20 +67,25 @@ class ProductsController < ApplicationController
         flash[:notice] = '商品が削除されました'
         redirect_to root_path
     else
-      flash.now[:alert]  = '商品が削除されませんでした'
+      flash[:alert]  = '商品が削除されませんでした'
       redirect_to root_path
     end
   end
 
   def buy
     @card = Card.find_by(user_id: current_user.id) if Card.find_by(user_id: current_user.id).present?
-    if @card.present? && !(@product.seller_id == current_user.id)
+    if @card.present? && !(@product.seller_id == current_user.id) && @product.buyer_id.nil?
       Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @card_info = customer.cards.data.first
     else
-      flash.now[:alert] = 'カードを登録してください'
-      redirect_to controller: "cards", action: "new"
+      if @card.blank?
+        flash[:alert] = 'カードを登録してください'
+        redirect_to controller: "cards", action: "new"
+      else
+        flash[:alert] = 'その商品は存在しません'
+        redirect_to root_path
+      end
     end
   end
 
@@ -86,7 +95,7 @@ class ProductsController < ApplicationController
     # エラーハンドリング
     # プロダクトが存在しない、または現在の時刻と商品のアップ日時が5分離れている場合トップへリダイレクト
     if @product.blank? || (Time.zone.now - @product.updated_at) / 60 > 5
-        flash.now[:alert] = '商品がありません'
+        flash[:alert] = 'ページの有効期限が切れてます'
         redirect_to root_path
     end
   end

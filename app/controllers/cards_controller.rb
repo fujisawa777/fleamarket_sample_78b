@@ -39,7 +39,7 @@ class CardsController < ApplicationController
         flash[:notice] = 'カードが削除されました'
         redirect_to action: "index"
       else
-        flash.now[:alert]  = 'カードが削除されませんでした'
+        flash[:alert]  = 'カードが削除されませんでした'
         redirect_to action: "index"
       end
   end
@@ -50,7 +50,7 @@ class CardsController < ApplicationController
       if Payjp::Charge.create(amount: product.price, customer: @card.customer_id, currency: 'jpy') && product.update(buyer_id: current_user.id)
         redirect_to ok_products_path
       else
-        flash.now[:alert]  = 'サーバーでエラーが生じました'
+        flash[:alert]  = 'サーバーでエラーが生じました'
         redirect_to root_path
       end
     else
