@@ -40,7 +40,7 @@
         %span.form__field__label 商品名
         %span.form__field__essential 必須
         .form__field--input.marginT25
-          = f.text_field :name, class: "form__field--inputField" , placeholder: "40文字まで"
+          = f.text_field :name, class: "form__field--inputField" , placeholder: "40文字まで", maxlength: "40"
           - if @product.errors.include?(:name)
             %p.error_message
               = @product.errors.full_messages_for(:name).first
@@ -48,7 +48,7 @@
         %span.form__field__label 商品の説明
         %span.form__field__essential 必須
         .form__field--input.marginT25
-          = f.text_area :description,class: "form__field--inputArea" , placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）\n例）199X年頃に1万円で購入したアウターです。パンチな衣装で穴だらけです。あわせやすいのでおすすめです。"
+          = f.text_area :description,class: "form__field--inputArea" , placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）\n例）199X年頃に1万円で購入したアウターです。パンチな衣装で穴だらけです。あわせやすいのでおすすめです。", maxlength: "1000"
           - if @product.errors.include?(:description)
             %p.error_message
               = @product.errors.full_messages_for(:description).first
@@ -57,9 +57,16 @@
       .form__field
         %span.form__field__label カテゴリ
         %span.form__field__essential 必須
-        - if !@product.category
+        - if !@product.category || @parents.ids.include?(@product.category_id)
           .form__field--input.marginT25#parents_w
             = f.collection_select :category_id, @parents, :id, :name, {prompt: "選択してください"} , {class: "form__field--inputSelect", id: "parents"}
+            = icon("fas", "angle-down",class:"form__field--inputSelectIcon")
+        - elsif @children.ids.include?(@product.category_id)
+          .form__field--input.marginT25#parents_w
+            = f.collection_select :category_id, @product.category.root.self_and_siblings, :id, :name, {prompt: "選択してください", selected: @product.category.root.id } , {class: "form__field--inputSelect", id: "parents"}
+            = icon("fas", "angle-down",class:"form__field--inputSelectIcon")
+          .form__field--input.marginT25#children_w
+            = f.collection_select :category_id, @product.parent.self_and_siblings, :id, :name, {prompt: "選択してください", selected: @product.category.id } , {class: "form__field--inputSelect", id: "children"}
             = icon("fas", "angle-down",class:"form__field--inputSelectIcon")
         - else
           .form__field--input.marginT25#parents_w
@@ -84,7 +91,7 @@
         %span.form__field__label ブランド
         %span.form__field__arbitrary 任意
         .form__field--input.marginT25
-          = f.text_field :brand, class: "form__field--inputField",placeholder: "例)バーバリー "
+          = f.text_field :brand, class: "form__field--inputField",placeholder: "例)バーバリー ", maxlength: "20"
       .form__field.marginT50
         %span.form__field__label 商品の状態
         %span.form__field__essential 必須
@@ -126,12 +133,13 @@
     %hr
     .form__content
       .form__field.flexbox
+        .form__field__attention 価格（¥300〜9,999,999)
         .form__fieldPrice
           %span.form__field__label 料金
           %span.form__field__essential 必須
         .form__field--inputPrice
           %span.form__field--inputPriceLabel ¥
-          = f.number_field :price,  class: "form__field--inputPriceField",placeholder: "0"
+          = f.number_field :price,  class: "form__field--inputPriceField",placeholder: "0", maxlength: "7"
       - if @product.errors.include?(:price)
         %p.error_message
           = @product.errors.full_messages_for(:price).first
