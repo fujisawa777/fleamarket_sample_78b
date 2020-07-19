@@ -3,7 +3,7 @@
     = link_to "#",class:"mypage-user-link" do
       %figure
         = image_tag "icon/member_photo_noimage.png", alt: "", height: 60 ,width: 60
-      %h2.bold=@user.name
+      %h2.bold=current_user.name
       .mypage-user-number
         %div
           評価
