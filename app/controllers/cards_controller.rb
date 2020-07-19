@@ -54,7 +54,7 @@ class CardsController < ApplicationController
         redirect_to root_path
       end
     else
-      flash.now[:alert]  = 'カード情報を登録して下さい'
+      flash[:alert]  = 'カード情報を登録して下さい'
       redirect_to root_path
     end
   end
