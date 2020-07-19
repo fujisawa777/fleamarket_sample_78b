@@ -69,7 +69,7 @@ class ProductsController < ApplicationController
   end
 
   def buy
-    @card = Card.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
+    @card = Card.find_by(user_id: current_user.id) if Card.find_by(user_id: current_user.id).present?
     if @card.present? && !(@product.seller_id == current_user.id)
       Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
       customer = Payjp::Customer.retrieve(@card.customer_id)
@@ -101,7 +101,7 @@ class ProductsController < ApplicationController
   end
 
   def set_parents
-    @parents = Category.where(parent_id: nil).order(id: :ASC)
+    @parents = Category.roots.order(id: :ASC)
     @children = Category.find_all_by_generation(1)
   end
 
