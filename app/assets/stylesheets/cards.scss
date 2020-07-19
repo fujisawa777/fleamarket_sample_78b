@@ -4,7 +4,6 @@
   .c-content{
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
     color: black;
     background-color:white;
     text-align: center;
@@ -13,7 +12,7 @@
     justify-content: center;
     &__title{
       font-size: 22px;
-      padding-top: 60px;
+      padding: 30px;
       font-weight: bold;
       .card-list {
         display: flex;
@@ -26,7 +25,7 @@
       .formCutter {
         border-top: 1px dotted #bbb;
         width: 100%;
-        margin-top: 45px;
+        margin-top: 30px;
         &:after {
           content: '\002702';
           position: relative;
