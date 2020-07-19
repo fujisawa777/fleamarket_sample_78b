@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_product, only: [:show, :edit, :update, :destroy, :buy]
   before_action :set_parents, only: [:new, :edit, :create , :update]
-  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     # 売り切れを除く商品全て
