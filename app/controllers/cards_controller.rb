@@ -9,6 +9,7 @@ class CardsController < ApplicationController
     if @card
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @card_info = customer.cards.data.first
+      set_card_brand(@card_info.brand)
     end
   end
 
@@ -39,7 +40,7 @@ class CardsController < ApplicationController
         flash[:notice] = 'カードが削除されました'
         redirect_to action: "index"
       else
-        flash.now[:alert]  = 'カードが削除されませんでした'
+        flash[:alert]  = 'カードが削除されませんでした'
         redirect_to action: "index"
       end
   end
@@ -50,11 +51,11 @@ class CardsController < ApplicationController
       if Payjp::Charge.create(amount: product.price, customer: @card.customer_id, currency: 'jpy') && product.update(buyer_id: current_user.id)
         redirect_to ok_products_path
       else
-        flash.now[:alert]  = 'サーバーでエラーが生じました'
+        flash[:alert]  = 'サーバーでエラーが生じました'
         redirect_to root_path
       end
     else
-      flash.now[:alert]  = 'カード情報を登録して下さい'
+      flash[:alert]  = 'カード情報を登録して下さい'
       redirect_to root_path
     end
   end
@@ -69,4 +70,27 @@ class CardsController < ApplicationController
     Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
   end
 
+  # ブランド名
+  def set_card_brand(brand)
+    case brand
+    when "Visa"
+      @card_src = "card/visa.svg"
+      @card_alt = "visa"
+    when "JCB"
+      @card_src = "card/jcb.svg"
+      @card_alt = "jcb"
+    when "MasterCard"
+      @card_src = "card/master-card.svg"
+      @card_alt = "mastercard"
+    when "American Express"
+      @card_src = "card/american_express.svg"
+      @card_alt = "amex"
+    when "Diners Club"
+      @card_src = "card/dinersclub.svg"
+      @card_alt = "dinersclub"
+    when "Discover"
+      @card_src = "card/discover.svg"
+      @card_alt = "discover"
+    end
+  end
 end
