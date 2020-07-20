@@ -15,7 +15,5 @@ describe Card do
       card.valid?
       expect(card.errors[:card_id]).to include("を入力してください")
     end
-
   end
-
 end
