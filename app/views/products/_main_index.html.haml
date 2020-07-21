@@ -88,10 +88,11 @@
           %h3.title 全ての商品
       .productLists
         = render @products
-    .product_cutter
-    .productBox
-      .productHead
-        = link_to "#" do
-          %h3.title.seller 出品した商品
-      .productLists
-        = render partial: "product", collection: @products_seller
+    - if @products_seller_active.present?
+      .product_cutter
+      .productBox
+        .productHead
+          = link_to "#" do
+            %h3.title.seller 出品した商品
+        .productLists
+          = render partial: "product", collection: @products_seller_active
