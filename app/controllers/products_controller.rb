@@ -7,6 +7,7 @@ class ProductsController < ApplicationController
     # 売り切れを除く商品全て
     # 売り切れ＝buyer_idがnilではない
     @products = Product.where(buyer: nil).includes(:images).order('created_at DESC')
+    @products_seller = Product.where(seller_id: current_user.id).includes(:images).order('created_at DESC')
   end
 
   def show

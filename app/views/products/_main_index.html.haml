@@ -81,9 +81,17 @@
           お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
   %section.pickup
     %h2.head 商品一覧
+    .product_cutter
     .productBox
       .productHead
         = link_to "#" do
-          %h3.title 投稿商品一覧
+          %h3.title 全ての商品
       .productLists
         = render @products
+    .product_cutter
+    .productBox
+      .productHead
+        = link_to "#" do
+          %h3.title.seller 出品した商品
+      .productLists
+        = render partial: "product", collection: @products_seller
