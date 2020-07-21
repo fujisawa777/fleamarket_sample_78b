@@ -7,45 +7,45 @@
     .shippingMessage__sub2
       出品者からの発送通知をお待ちください
   .shippingBox
-    .shippingData
-      .checkMessage
-        .checkMessage__sub
-          購入が完了しました！
-        .checkMessage__image
-          = image_tag @product.images.first.src.url
-        .checkMessage__name
-          = @product.name
-        .checkMessage__price
-          .checkMessage__price__p1
-            = "#{@product.price}円"
-          .checkMessage__price__p2
-            = @product.shipfee.name.gsub(/\(.+\)/, "")
-        .checkMessage__address
-          .buyerAddress1
-            配送先
-          .buyerAddress2
-            = "〒#{current_user.sendaddress.zipcode}"
-          .buyerAddress3
-            = @prefecture.name
-            = current_user.sendaddress.municipalitities
-            = current_user.sendaddress.streetaddress
+    .shippingborder
+      .shippingData
+        .checkMessage
+          .checkMessage__sub
+            🎉購入が完了しました🎉
+          .checkMessage__image
+            = image_tag @product.images.first.src.url
+          .checkMessage__name
+            = @product.name
+          .checkMessage__price
+            .checkMessage__price__p1
+              = "#{@product.price}円"
+            .checkMessage__price__p2
+              = @product.shipfee.name.gsub(/\(.+\)/, "")
+          .checkMessage__address
+            .buyerAddress1
+              配送先
+            .buyerAddress2
+              = "〒#{current_user.sendaddress.zipcode}"
+            .buyerAddress3
+              = @prefecture.name
+              = current_user.sendaddress.municipalitities
+              = current_user.sendaddress.streetaddress
+              %br
+              = current_user.sendaddress.room
+        .evaluation
+          .evaluation__title
+            購入後の流れ
+          .evaluation__icons
+            = icon('fas', 'smile fa-lg', class: 'nikkoriIcon')
+            = icon('fas', 'meh fa-lg', class: 'magaoIcon')
+            = icon('fas', 'frown fa-lg', class: 'kusoIcon')
+          .evaluation__message
+            購入後、商品を受け取ったら
             %br
-            = current_user.sendaddress.room
-      .evaluation
-        .evaluation__title
-          購入後の流れ
-        .evaluation__icons
-          = icon('fas', 'smile fa-lg', class: 'nikkoriIcon')
-          = icon('fas', 'meh fa-lg', class: 'magaoIcon')
-          = icon('fas', 'frown fa-lg', class: 'kusoIcon')
-        .evaluation__message
-          購入後、商品を受け取ったら
-          %br
-          「受け取り評価」をしましょう！
-          %br
-          受け取り評価後、出品者に代金が
-          %br
-          振り込まれると、取引完了です！
-  = link_to root_path do
-    トップページに戻る
+            「受け取り評価」をしましょう！
+            %br
+            受け取り評価後、出品者に代金が
+            %br
+            振り込まれると、取引完了です！
+  = link_to "トップページに戻る", root_path, class: "linkToTop"
   = render 'form/footer'

@@ -29,72 +29,91 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    .shippingData{
-      width: 320px;
-      .checkMessage{
-        text-align: center;
-        margin-top: 32px;
-        &__sub{
-          font-weight: bold;
-          font-size: 24px;
-        }
-        &__image{
-          margin-top: 48px;
-        }
-        &__name{
-        }
-        &__price{
-          margin-top: 64px;
-          display: flex;
-          align-items: flex-end;
-          justify-content: center;
-          &__p1{
+    .shippingborder{
+      background-color: white;
+      width: 60%;
+      margin: 40px 0px 40px;
+      display: flex;
+      justify-content: center;
+      .shippingData{
+        width: 320px;
+        .checkMessage{
+          text-align: center;
+          margin-top: 32px;
+          &__sub{
+            font-weight: bold;
             font-size: 24px;
           }
-          &__p2{
-            font-size: 16px;
-            color: gray;
+          &__image{
+            margin-top: 48px;
+          }
+          &__name{
+          }
+          &__price{
+            margin-top: 64px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            &__p1{
+              font-size: 24px;
+              font-weight: bold;
+            }
+            &__p2{
+              font-size: 16px;
+              color: gray;
+            }
+          }
+          &__address{
+            text-align: left;
+            padding: 40px 0px 40px;
+            .buyerAddress1{
+              color: gray;
+              font-size: 16px;
+            }
+            .buyerAddress2{
+              font-size: 14px;
+            }
+            .buyerAddress3{
+              font-size: 20px;
+            }
           }
         }
-        &__address{
-          text-align: left;
-          padding: 40px 0px 40px;
-          .buyerAddress1{
-            color: gray;
-            font-size: 16px;
+        .evaluation{
+          text-align: center;
+          margin-top: 64px;
+          margin-bottom: 64px;
+          padding: 32px;
+          border: #3CCACE solid 2px;
+          border-radius: 20px;
+          &__title{
+            font-weight: bold;
           }
-          .buyerAddress2{
-            font-size: 14px;
+          &__icons{
+            margin: 24px 0px 24px;
+            .nikkoriIcon{
+              color: coral;
+            }
+            .magaoIcon{
+              color: #FFD700;
+              margin: 0px 8px;
+            }
+            .kusoIcon{
+              color: lightblue;
+            }
           }
-          .buyerAddress3{
-            font-size: 20px;
+          &__message{
+            margin-bottom: 32px;
           }
-        }
-      }
-      .evaluation{
-        padding-bottom: 32px;
-        text-align: center;
-        margin-top: 64px;
-        &__title{
-          font-weight: bold;
-        }
-        &__icons{
-          margin: 24px 0px 24px;
-          .nikkoriIcon{
-            color: coral;
-          }
-          .magaoIcon{
-            color: #FFD700;
-            margin: 0px 8px;
-          }
-          .kusoIcon{
-            color: lightblue;
-          }
-        }
-        &__message{
         }
       }
     }
+  }
+
+
+
+  .linkToTop{
+    text-align: center;
+    margin-bottom: 16px;
   }
 
 
