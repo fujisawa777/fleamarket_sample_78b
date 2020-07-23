@@ -5,8 +5,8 @@ FactoryBot.define do
     s_h_firstname       {"アイウ"}
     s_h_lastname        {"エオ"}
     zipcode             {"1234567"}
-    prefectures         {"東京"}
-    municipalitities    {"東京市"}
-    streetaddress       {"1"}
+    prefectures         {"東京都"}
+    municipalitities    {"千代田区"}
+    streetaddress       {"丸の内"}
   end
 end

@@ -72,9 +72,32 @@ describe Sendaddress do
       expect(sendaddress).to be_valid
     end
 
+    it "番地の入力が全角（大小英数字含む）じゃなかった場合" do
+      sendaddress = build(:sendaddress, streetaddress: "Sample1")
+      sendaddress.valid?
+      expect(sendaddress.errors[:streetaddress]).to include("は不正な値です")
+    end
+
+    it "番地の入力が全角（大小英数字含む）だった場合" do
+      sendaddress = build(:sendaddress, streetaddress: "あア阿ａA１")
+      expect(sendaddress).to be_valid
+    end
+
+    it "部屋番号の入力が全角（大小英数字含む）じゃなかった場合" do
+      sendaddress = build(:sendaddress, room: "Sample1")
+      sendaddress.valid?
+      expect(sendaddress.errors[:room]).to include("は不正な値です")
+    end
+
+    it "部屋番号の入力が全角（大小英数字含む）だった場合" do
+      sendaddress = build(:sendaddress, room: "あア阿ａA１")
+      expect(sendaddress).to be_valid
+    end
+
+    it "roomが空の場合でも登録できるかどうか" do
+      sendaddress = build(:sendaddress, room: "")
+      expect(sendaddress).to be_valid
+    end
+
   end
 end
-
-
-
-

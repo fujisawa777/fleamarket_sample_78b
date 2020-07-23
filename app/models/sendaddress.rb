@@ -6,5 +6,13 @@ class Sendaddress < ApplicationRecord
             :municipalitities, :streetaddress,
             presence: true
 
+  validates :streetaddress,
+            format:{ with: /\A[ぁ-んァ-ン一-龥０-９ａ-ｚA-Z]+\z/ }
+
+  validates :room,
+            format:{ with: /\A[ぁ-んァ-ン一-龥０-９ａ-ｚA-Z]+\z/ },
+            allow_blank: true
+
   validates :zipcode, length: { is: 7 }
+
 end
