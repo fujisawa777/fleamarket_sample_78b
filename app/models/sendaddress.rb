@@ -7,7 +7,7 @@ class Sendaddress < ApplicationRecord
             presence: true
 
   validates :streetaddress,
-            format:{ with: /\A[ぁ-んァ-ン一-龥０-９ａ-ｚA-Z]+\z/ }
+            format:{ with: /\A[ぁ-んァ-ン一-龥０-９ａ-ｚA-Z]/ }
 
   validates :room,
             format:{ with: /\A[ぁ-んァ-ン一-龥０-９ａ-ｚA-Z]+\z/ },
