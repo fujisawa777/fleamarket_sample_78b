@@ -11,7 +11,7 @@ class Sendaddress < ApplicationRecord
 
   validates :room,
             format:{ with: /\A[ぁ-んァ-ン一-龥０-９ａ-ｚA-Z]+\z/ },
-            allow_nil: true
+            allow_blank: true
 
   validates :zipcode, length: { is: 7 }
 

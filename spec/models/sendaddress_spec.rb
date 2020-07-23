@@ -94,5 +94,10 @@ describe Sendaddress do
       expect(sendaddress).to be_valid
     end
 
+    it "roomが空の場合でも登録できるかどうか" do
+      sendaddress = build(:sendaddress, room: "")
+      expect(sendaddress).to be_valid
+    end
+
   end
 end
