@@ -17,7 +17,7 @@
 <b><a>- Contributors -</a></b><br><br>
 <b><a><a href="https://github.com/yoyoyonoyo"><img src="https://avatars0.githubusercontent.com/u/65913824" width="70px;" style="border-radius: 50%;" /></a></b>
 <b><a><a href="https://github.com/fujisawa777"><img src="https://avatars2.githubusercontent.com/u/66346129" width="70px;" /></a></b>
-<b><a><a href="https://github.com/myshy5ne"><img src="" width="70px;" /></a></b>
+<b><a><a href="https://github.com/myshy5ne"><img src="https://avatars2.githubusercontent.com/u/66399864" width="70px;" /></a></b>
 <b><a><a href="https://github.com/athlaliel"><img src="https://avatars1.githubusercontent.com/u/66309248" width="70px;" /></a></b>
 <b><a><a href="https://github.com/saki10"><img src="https://avatars2.githubusercontent.com/u/66323139" width="70px;" /></a></b>
 </p>
@@ -27,7 +27,7 @@
   某プログラミングスクールの最終課題にて作成したメルカリのようなフリーマーケットアプリケーションです。基本的な機能は実装完了しておりますが、飛べないリンク等ございますのでご了承ください。<br>
   <br>
   また、デプロイも実施済みですがAWSの課金等を考慮して公開しておりません。<br>
-  もし、お使いになる場合はローカル環境にコピーしてお使いください。<br>
+  もしお使いになる場合はローカル環境にコピーしてお使いください。<br>
 
 ## 💻開発環境
 ### 環境
@@ -179,7 +179,7 @@ http://localhost:3000
 
 ## ライセンス
 
-NYSL[http://www.kmonos.net/nysl/]
+[NYSL](http://www.kmonos.net/nysl/)
 
 <br>
 
