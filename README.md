@@ -183,9 +183,16 @@ NYSL[http://www.kmonos.net/nysl/]
 
 <br>
 
+
 ## アプリ詳細
+  上記機能を実装するに当たってのDB設計や基本機能について記載します。
 
 ## 📕DB設計
+
+## 1. ER図
+  https://drive.google.com/file/d/1jjmeAsfmpyOCiDwsahDJo3V5eqr55tUA/view?usp=sharing
+
+## 2. 設計
 
 ### usersテーブル
 |Column|Type|Options|
@@ -214,8 +221,27 @@ NYSL[http://www.kmonos.net/nysl/]
 |lastname|string|null: false|
 |h_firstname|string|null: false|
 |h_lastname|string|null: false|
-|image|string|default: 標準の画像|
+|image|string|
 |description|string||
+|update_at|timestamp|null: false|
+|created_at|timestamp|null: false|
+|user_id|references|null: false,foreign_key: true|
+### Association
+- belongs_to: user
+
+### SendAddressesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|s_firstname|string|null: false|
+|s_lastname|string|null: false|
+|s_h_firstname|string|null: false|
+|s_h_lastname|string|null: false|
+|prefectures(jp_prefectures)|integer|null: false|
+|municipalitities|string|null: false|
+|zipcode|string|null: false|
+|streetaddress|string|null: false|
+|room|string||
+|phonenumber|string|null: false|
 |update_at|timestamp|null: false|
 |created_at|timestamp|null: false|
 |user_id|references|null: false,foreign_key: true|
@@ -232,7 +258,6 @@ NYSL[http://www.kmonos.net/nysl/]
 |created_at|timestamp|null: false|
 ### Association
 - belongs_to: user
-
 
 ### Favoritesテーブル
 |Column|Type|Options|
@@ -257,32 +282,12 @@ NYSL[http://www.kmonos.net/nysl/]
 - belongs_to: user
 - belongs_to: product
 
-
 ### SnsCredentialsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |provider|string|null: false|
 |uid|string|null: false,unique: true|
 |token|string||
-|user_id|references|null: false,foreign_key: true|
-### Association
-- belongs_to: user
-
-### SendAddressesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|s_firstname|string|null: false|
-|s_lastname|string|null: false|
-|s_h_firstname|string|null: false|
-|s_h_lastname|string|null: false|
-|prefectures(jp_prefectures)|integer|null: false|
-|municipalitities|string|null: false|
-|zipcode|integer(7)|null: false|
-|streetaddress|string|null: false|
-|room|string||
-|phonenumber|integer|null: false|
-|update_at|timestamp|null: false|
-|created_at|timestamp|null: false|
 |user_id|references|null: false,foreign_key: true|
 ### Association
 - belongs_to: user
@@ -313,7 +318,7 @@ NYSL[http://www.kmonos.net/nysl/]
 - belongs_to :buyer, class_name: 'User', foreign_key: ‘buyer_id'
 - belongs_to :seller, class_name: 'User', foreign_key: ‘seller_id'
 - belongs_to_active_hash: categories
-- belongs_to_active_hash: burands
+- belongs_to_active_hash: brands
 - belongs_to_active_hash: size
 - belongs_to_active_hash: statues
 - belongs_to_active_hash: shipfees
@@ -363,7 +368,7 @@ NYSL[http://www.kmonos.net/nysl/]
 - has_many: products
 - has_closure_tree
 
-### Burandsテーブル
+### Brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
