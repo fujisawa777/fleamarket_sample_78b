@@ -30,6 +30,7 @@
   もし、お使いになる場合はローカル環境にコピーしてお使いください。<br>
 
 ## 💻開発環境
+### 環境
 - Ruby 2.6.5
 - Ruby on Rails 6.0.3.2
 - jQuery
@@ -37,6 +38,10 @@
 - Github
 - AWS
 - Visual Studio Code
+
+### 開発方式
+- アジャイル開発(スクラム)
+- ペアプログラミング・モブプログラミング
 
 ## 💬使い方（ローカル環境）
 1. 下記コードの実行
@@ -58,20 +63,41 @@ http://localhost:3000
 - ローカル環境にコピーした場合、クレジットカード登録機能及びクレジットカード購入機能は使えません。
 
 ## 📦実装機能
-- 商品一覧機能
-- 商品詳細機能
-- 商品出品&編集&削除機能
-- カテゴリ登録機能
-- 商品購入機能
-- ユーザ新規登録&ログイン機能
-
-
-
+1. トップページ
+![top](https://user-images.githubusercontent.com/65913824/88512309-5b26f780-d021-11ea-884a-780f3fe03210.gif)
+2. 商品一覧
+![index](https://user-images.githubusercontent.com/65913824/88512002-c6bc9500-d020-11ea-978e-e41f6f96adc2.png)
+3. 商品詳細
+![show](https://user-images.githubusercontent.com/65913824/88512335-61b56f00-d021-11ea-8b3b-6f0279dd073b.gif)
+4. 商品出品 & 編集 & 削除
+## 出品
+![create](https://user-images.githubusercontent.com/65913824/88512342-62e69c00-d021-11ea-9919-822d6def3cb0.gif)
+## 編集
+![edit](https://user-images.githubusercontent.com/65913824/88512344-62e69c00-d021-11ea-9e51-94c06af390ad.gif)
+## 削除
+![delete](https://user-images.githubusercontent.com/65913824/88512345-637f3280-d021-11ea-9eee-59ca7b7051f2.gif)
+5. 商品購入 & 確認 & 完了
+![buy](https://user-images.githubusercontent.com/65913824/88514088-6a5b7480-d024-11ea-9bdb-ba0b21d76e65.gif)
+6. 新規登録(ウィザード形式)
+![sign_up1](https://user-images.githubusercontent.com/65913824/88511996-c58b6800-d020-11ea-9ca8-448e3f0b2254.png)
+![sign_up2](https://user-images.githubusercontent.com/65913824/88511995-c58b6800-d020-11ea-9147-ac7470919360.png)
+![sign_up3](https://user-images.githubusercontent.com/65913824/88511993-c4f2d180-d020-11ea-91d9-10af8b65fa33.png)
+7. ログイン
+![top](https://user-images.githubusercontent.com/65913824/88514075-67f91a80-d024-11ea-8ecb-ecdb6ecf10e0.png)
+8. マイページ
+![mypage](https://user-images.githubusercontent.com/65913824/88514089-6af40b00-d024-11ea-8335-122cc9aeb924.gif)
+9. クレジットカード一覧
+![card_index](https://user-images.githubusercontent.com/65913824/88511986-c3c1a480-d020-11ea-8a75-9053b568b198.png)
+10. クレジットカード登録
+![card_new](https://user-images.githubusercontent.com/65913824/88511985-c3c1a480-d020-11ea-9364-0e3435339142.png)
+11. ログアウト
+![logout](https://user-images.githubusercontent.com/65913824/88511990-c4f2d180-d020-11ea-80b6-e57a9895332c.png)
+99. 隠しコマンド？？
+![konami](https://user-images.githubusercontent.com/65913824/88514084-69c2de00-d024-11ea-82e3-c78a087624c8.gif)
 
 ## ライセンス
 
-
-
+NYSL[http://www.kmonos.net/nysl/]
 
 
 ## アプリ詳細
