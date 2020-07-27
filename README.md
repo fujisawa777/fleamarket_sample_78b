@@ -63,37 +63,85 @@ http://localhost:3000
 - ローカル環境にコピーした場合、クレジットカード登録機能及びクレジットカード購入機能は使えません。
 
 ## 📦実装機能
-1. トップページ<br>
-![top](https://user-images.githubusercontent.com/65913824/88512309-5b26f780-d021-11ea-884a-780f3fe03210.gif)<br>
-2. 商品一覧<br>
-![index](https://user-images.githubusercontent.com/65913824/88512002-c6bc9500-d020-11ea-978e-e41f6f96adc2.png)<br>
-3. 商品詳細<br>
-![show](https://user-images.githubusercontent.com/65913824/88512335-61b56f00-d021-11ea-8b3b-6f0279dd073b.gif)<br>
-4. 商品出品 & 編集 & 削除<br>
-## 出品
-![create](https://user-images.githubusercontent.com/65913824/88512342-62e69c00-d021-11ea-9919-822d6def3cb0.gif)<br>
-## 編集
-![edit](https://user-images.githubusercontent.com/65913824/88512344-62e69c00-d021-11ea-9e51-94c06af390ad.gif)<br>
-## 削除
-![delete](https://user-images.githubusercontent.com/65913824/88512345-637f3280-d021-11ea-9eee-59ca7b7051f2.gif)<br>
-5. 商品購入 & 確認 & 完了<br>
-![buy](https://user-images.githubusercontent.com/65913824/88514088-6a5b7480-d024-11ea-9bdb-ba0b21d76e65.gif)<br>
-6. 新規登録(ウィザード形式)<br>
-![sign_up1](https://user-images.githubusercontent.com/65913824/88511996-c58b6800-d020-11ea-9ca8-448e3f0b2254.png)<br>
-![sign_up2](https://user-images.githubusercontent.com/65913824/88511995-c58b6800-d020-11ea-9147-ac7470919360.png)<br>
-![sign_up3](https://user-images.githubusercontent.com/65913824/88511993-c4f2d180-d020-11ea-91d9-10af8b65fa33.png)<br>
-7. ログイン<br>
-![top](https://user-images.githubusercontent.com/65913824/88514075-67f91a80-d024-11ea-8ecb-ecdb6ecf10e0.png)<br>
-8. マイページ<br>
-![mypage](https://user-images.githubusercontent.com/65913824/88514089-6af40b00-d024-11ea-8335-122cc9aeb924.gif)<br>
-9. クレジットカード一覧<br>
-![card_index](https://user-images.githubusercontent.com/65913824/88511986-c3c1a480-d020-11ea-8a75-9053b568b198.png)<br>
-10. クレジットカード登録<br>
-![card_new](https://user-images.githubusercontent.com/65913824/88511985-c3c1a480-d020-11ea-9364-0e3435339142.png)<br>
-11. ログアウト<br>
-![logout](https://user-images.githubusercontent.com/65913824/88511990-c4f2d180-d020-11ea-80b6-e57a9895332c.png)<br>
-99. 隠しコマンド？？<br>
-![konami](https://user-images.githubusercontent.com/65913824/88514084-69c2de00-d024-11ea-82e3-c78a087624c8.gif)<br>
+### 1. トップページ
+<br>
+![top](https://user-images.githubusercontent.com/65913824/88512309-5b26f780-d021-11ea-884a-780f3fe03210.gif)
+<br>
+
+### 2. 商品一覧
+<br>
+![index](https://user-images.githubusercontent.com/65913824/88512002-c6bc9500-d020-11ea-978e-e41f6f96adc2.png)
+<br>
+
+### 3. 商品詳細
+<br>
+![show](https://user-images.githubusercontent.com/65913824/88512335-61b56f00-d021-11ea-8b3b-6f0279dd073b.gif)
+<br>
+
+### 4. 商品出品 & 編集 & 削除
+<br>
+
+#### 出品
+![create](https://user-images.githubusercontent.com/65913824/88512342-62e69c00-d021-11ea-9919-822d6def3cb0.gif)
+<br>
+
+#### 編集
+![edit](https://user-images.githubusercontent.com/65913824/88512344-62e69c00-d021-11ea-9e51-94c06af390ad.gif)
+<br>
+
+#### 削除
+![delete](https://user-images.githubusercontent.com/65913824/88512345-637f3280-d021-11ea-9eee-59ca7b7051f2.gif)
+<br>
+
+### 5. 商品購入 & 確認 & 完了
+<br>
+![buy](https://user-images.githubusercontent.com/65913824/88514088-6a5b7480-d024-11ea-9bdb-ba0b21d76e65.gif)
+<br>
+
+### 6. 新規登録(ウィザード形式)
+<br>
+
+![sign_up1](https://user-images.githubusercontent.com/65913824/88511996-c58b6800-d020-11ea-9ca8-448e3f0b2254.png)
+
+<br>
+
+![sign_up2](https://user-images.githubusercontent.com/65913824/88511995-c58b6800-d020-11ea-9147-ac7470919360.png)
+
+<br>
+
+![sign_up3](https://user-images.githubusercontent.com/65913824/88511993-c4f2d180-d020-11ea-91d9-10af8b65fa33.png)
+
+<br>
+
+### 7. ログイン
+<br>
+![top](https://user-images.githubusercontent.com/65913824/88514075-67f91a80-d024-11ea-8ecb-ecdb6ecf10e0.png)
+<br>
+
+### 8. マイページ
+<br>
+![mypage](https://user-images.githubusercontent.com/65913824/88514089-6af40b00-d024-11ea-8335-122cc9aeb924.gif)
+<br>
+
+### 9. クレジットカード一覧
+<br>
+![card_index](https://user-images.githubusercontent.com/65913824/88511986-c3c1a480-d020-11ea-8a75-9053b568b198.png)
+<br>
+
+### 10. クレジットカード登録
+<br>
+![card_new](https://user-images.githubusercontent.com/65913824/88511985-c3c1a480-d020-11ea-9364-0e3435339142.png)
+<br>
+
+### 11. ログアウト
+<br>
+![logout](https://user-images.githubusercontent.com/65913824/88511990-c4f2d180-d020-11ea-80b6-e57a9895332c.png)
+<br>
+
+### 99. 隠しコマンド？？
+<br>
+![konami](https://user-images.githubusercontent.com/65913824/88514084-69c2de00-d024-11ea-82e3-c78a087624c8.gif)
+<br>
 
 ## ライセンス
 
